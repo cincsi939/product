@@ -1,0 +1,21 @@
+﻿การสร้างไพล์
+การสร้างไพล์ class ไพล์ คำแรกเป็นตัวใหญ่ คำที่สองก้อเป็นตัวใหญ่ด้วย ตามด้วยชื่อรูปแบบของเราเช่น controller view model
+Controller
+	ประกาศ class ถ้าเป็นไพล์ controller จะตั้งชื่อ ตามด้วย Controller เมือเซฟ ไพล์จะเป็นตัวเล็ก ถ้าเป็นสองคำจะเป็นตัวเล็กตามด้วย _ ต่อคำที่สองเช่น 
+	  class HelloController
+	functine index()
+	  hello_controller.php
+Component ฟังชั่นที่สร้างขึ้นมา ที่controller ไม่มีมาให้
+	เช่น class DateComponent
+	      date.php ไพล์จะไปวางใน component ไม่ได้วางใน controller
+Models จะแตกต่างกัน controller กับ component
+	เช่น class BookCategory
+	    book_category.php ถ้าเป็นสองคำจะเป็นตัวเล็กตามด้วย _ ต่อคำที่สอง
+***ในส่วนของ model ถ้าเป็นการสร้างตารางต้อง มี s ต่อท้าย หรือถ้าเป็น y ให้เปลี่ยนเป็น i แล้วเติม es
+Views กฏต้องมีโฟเดอร์ชื่อเดียวกับcontroller 
+	เช่น HelloWorld
+	    index.ctp   ในview จะใช้นามสกุล .ctp ทั้งหมด ชื่อต้องตรงกับaction ด้วย
+	Helpers ตัวจัดการ คำสั่งที่เราจะเขียนขึ้นมา แต่ในระบบก้อมีให้อยู่เหมือนกัน ไว้สร้างที่เราเขียนหรือกำหนดขึ้นมา สร้างเหมือนกัน component จะเก็บไว้ใน helper ถายใต้view
+
+
+ 
