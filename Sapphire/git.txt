@@ -1,0 +1,74 @@
+﻿http://honglub.com/software/introduction-to-git/
+http://git-scm.com/book/th/v1/%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99-%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A-Version-Control
+http://git-scm.com/book/th/v1/Git-%E0%B8%82%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%90%E0%B8%B2%E0%B8%99-%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99-Git-Repository
+http://git-scm.com/book/th/v1/%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99-%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87-Git
+http://www.artit-k.com/dev-install-git-for-windows/
+http://github-thai.blogspot.com/2013/07/svn-git-version-control.html
+
+
+cd เข้าไปหาโฟเดอร์
+git init สร้างgit
+git status ตรวจสอบการจัดการ
+git config --global user.email "เมล์" ใส่เมล์คนทำ
+git config --global user.name "ชื่อ" ใส่ชื่อคนทำ
+git add ชื่อไพล์พร้อมนามสกุล เพิ่มไพล์เข้าไป
+git log ดูว่าcommit อะไรเข้าไป ตอนไหน ใครทำ
+git commit ยืนยันเพิ่มไพล์เข้า
+git commit -am "หัวข้อว่าแก้อะไร" ยืนยังทั้งหมด
+$ git remote add <remote-name> <URL ปลายทาง>เพื่อสร้าง server เก็บ source code
+
+$ git push origin master นำ source code ที่แก้ไขแล้ว กลับไปเก็บไว้ที่ server
+ทำความรู้จักกับคำสั่งเบื้องต้น
+
+$ git init ทำการสร้าง directory ย่อยชื่อ .git ซึ่งเก็บไฟล์ที่จำเป็นในการควบคุม
+$ git add เพิ่มไฟล์เข้าไปยังแหล่งเก็บ source code
+$ git commit ยืนยันการเพิ่มไฟล์เข้าไปยังแหล่งเก็บ source code
+$ git commit -m “message” คอมมิทแบบปกติ
+$ git commit -am “message” คอมมิทโดยข้ามขั้้นตอนการ add (จะใช้ได้เมื่อไฟล์นั้นเคยถูก add แล้ว)
+$ git commit --amend คอมมิททับคอมมิทล่าสุด
+$ git clone <address> ในกรณีที่มี source code เก็บไว้บน server จะต้อง clone มาไว้ที่เครื่อง เมื่อ clone เสร็จ git จะสร้างแหล่งเก็บไฟล์ชื่อ origin และ branch ชื่อ master
+$ git status ตรวจสอบสถานะของไฟล์
+$ git rm <file name> คำสั่งลบไฟล์
+$ git mv <old name> <new name> คำสั่งย้ายไฟล์ หรือเปลี่ยนชื่อ
+$ git log เมื่อต้องการดูรายการ การเปลี่ยนแปลงย้อนหลังที่เกิดขึ้น
+$ git log --graph เมื่อต้องการดูรายการ การเปลี่ยนแปลงย้อนหลังที่เกิดขึ้น แบบกราฟ
+$ git reset ยกเลิกคำสั่ง git add ที่ใช้ไปก่อนหน้านี้
+$ git reset <commit-number> กลับไปยังคอมมิทที่ต้องการ
+$ git reset --hard ยกเลิกการคอมมิทล่าสุด (ไม่สามารถกู้คืนได้)
+$ git reset --hard HEAD~n ยกเลิกการคอมมิทจำนวน n ชั้น
+$ git checkout --<filename> จะทำให้สิ่งที่เพิ่งแก้ใน file หายไป และกลับไปเหมือนสถานะที่ยืนยันไปครั้งล่าสุด
+การทำงานกับ server-git
+git อนุญาตให้สามารถทำงานกับ server ที่เก็บ source code ระยะไกล
+
+$ git remote add <remote-name> <URL ปลายทาง>เพื่อสร้าง server เก็บ source code
+$ git reset --hard `git log --reverse -1 --pretty=format:%H` ทำการ reset ไปจุดเริ่มต้น
+$ git push origin master -f บังคับให้ push ลง server ในกรณีที่ reset
+$ git fetch origin คำสั่งดึง source code จาก server
+$ git checkout -b master origin/master สร้าง branch master ขึ้นจาก origin/master
+$ git push origin master นำ source code ที่แก้ไขแล้ว กลับไปเก็บไว้ที่ server
+การจัดการสาขา (branch)
+เป็นเทคนิคสำคัญในการจัดการ source code ที่สนับสนุนการแตกสาขาและการรวมกลับ (Merge) รวมถึงการปรับฐาน (Rebase) ได้อย่างมีประสิทธิภาพ ทำให้สามารถดูแลรักษา source code ได้ดีกว่าเครื่องมือชุดอื่น
+
+$ git checkout -b developer สร้าง branch ใหม่ในชื่อ developer
+$ git checkout <branch name> สลับไปที่ branch นั้นๆ
+$ git branch ตรวจสอบว่าตอนนี้อยู่บน branch ไหน
+$ git merge developer เมื่อทำการแก้ source code ใน branch developer แล้ว ให้สลับกลับมาที่ branch หลักก่อน (git checkout master) แล้วจึงใช้คำสั่งนี้
+$ git merge developer --on-ff การ merge แบบ no fast forward ไม่ต่างจากแบบธรรมดา แต่จะเป็นการ merge โดยการเก็บ history ไว้ด้วย
+$ git cherry-pick เลือก merge เฉพาะคอมมิทที่สนใจ
+การปรับฐาน (rebase)
+เป็นการนำ source code ของผู้อื่นมาเป็นฐานให้กับการเปลี่ยนแปลงที่กำลังพัฒนาอยู่
+
+$ git checkout developer
+$ git remote update
+$ git pull origin developer ดึง source code มาจาก server
+$ git checkout iss-105 สลับไปที่ branch iss-105
+$ git rebase developer ทำการ rebase ไปที่ branch developer
+
+C:\>git--version
+http://www.meekhao.com/news/trick-from-sniper
+
+
+
+
+
+
