@@ -736,7 +736,7 @@ if($Page!=$Num_Pages)
 			$resultChild = mysql_query($sqlChild);
 			$rowChild = mysql_fetch_array($resultChild);
 		?>
-        <td align="center"><a href="../../../opp_master/application/personal_data/index.php?p=general_data&keyview=general_data&p_id=10074&p_join_number=58-013-021&gid=54&idcard=<?php echo $rowChild['eq_idcard'];?>" target="_blank"><?php echo $row['numTb2']; ?></a></td>
+        <td align="center"><a href="../../../<?php echo  APP_MASTER; ?>/application/personal_data/index.php?p=general_data&keyview=general_data&p_id=10074&p_join_number=58-013-021&gid=54&idcard=<?php echo $rowChild['eq_idcard'];?>" target="_blank"><?php echo $row['numTb2']; ?></a></td>
         <td align="left"><?php echo $row['eq_district']; ?></td>
         <td align="left"><?php echo $row['eq_parish']; ?></td>
         <!--td width="40" align="center"><a href="question_form.php?frame=dr_doc1&id=<?php echo $row['eq_idcard']; ?>&eq_id=<?php echo $row['eq_id']; ?>"><img src="../img/b_edit.png" width="16" height="16" border="0"></a>&nbsp;
