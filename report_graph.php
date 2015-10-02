@@ -25,16 +25,16 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 				t1.area_part AS caption,
 				t2.*
 			FROM
-				opp_master.area_part AS t1
+				'.DB_MASTER.'.area_part AS t1
 			LEFT JOIN(
 			SELECT
 				Sum(t2.register_num) AS sum_all,
 				t1.partid
 			FROM
-				 opp_master.area_part as t1
-				 LEFT JOIN opp_data.report_eqmain as t2 ON t1.partid = t2.part_id AND t2.yy =  "'.$yy.'"
+				 '.DB_MASTER.'.area_part as t1
+				 LEFT JOIN '.DB_DATA.'.report_eqmain as t2 ON t1.partid = t2.part_id AND t2.yy =  "'.$yy.'"
 				 INNER JOIN (SELECT t1.yy, Sum(t1.register_num) AS num1 FROM
-				 opp_data.report_eqmain AS t1 WHERE t1.yy = "'.$yy.'") AS t3 ON t2.yy = t3.yy
+				 '.DB_DATA.'.report_eqmain AS t1 WHERE t1.yy = "'.$yy.'") AS t3 ON t2.yy = t3.yy
 			GROUP BY t1.partid) AS t2 ON t1.partid = t2.t2.partid
 			ORDER BY t1.partid';
 	}
@@ -44,7 +44,7 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 				 t1.mm_name AS caption,
 				 t2.num1 AS sum_all
 				FROM
-					opp_data.month_config AS t1
+					'.DB_DATA.'.month_config AS t1
 				LEFT JOIN (
 					SELECT
 						(t2.mm * 1) AS mm,
@@ -59,9 +59,9 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 						) AS num1,						
 						t1.ccDigi
 					FROM
-						opp_master.ccaa AS t1
-					LEFT JOIN opp_data.report_eqmain AS t2 ON t1.areaid = t2.area_id
-					INNER JOIN opp_data.ccaa AS t3 ON CONCAT(
+						'.DB_MASTER.'..ccaa AS t1
+					LEFT JOIN '.DB_DATA.'.report_eqmain AS t2 ON t1.areaid = t2.area_id
+					INNER JOIN '.DB_DATA.'.ccaa AS t3 ON CONCAT(
 						SUBSTR(t1.ccDigi, 1, 5),
 						"000"
 					) = t3.ccDigi
@@ -70,7 +70,7 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 							t1.yy,
 							Sum(t1.register_num) AS num1
 						FROM
-							opp_data.report_eqmain AS t1
+							'.DB_DATA.'.report_eqmain AS t1
 						WHERE
 							t1.yy = "'.$yy.'"
 						AND SUBSTR(t1.area_id, 1, 2) = "'.$areaid.'"
@@ -92,7 +92,7 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 					t1.mm_name AS caption,
 					t2.num1 AS sum_all
 					FROM
-					opp_data.month_config AS t1
+					'.DB_DATA.'.month_config AS t1
 					LEFT JOIN (
 					SELECT
 					(t2.mm*1) AS mm,
@@ -100,14 +100,14 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 					Sum(IF(t2.register_num !="",t2.register_num,0)) AS num1,
 					t1.ccDigi
 					FROM
-					 opp_master.ccaa AS t1
-					LEFT JOIN opp_data.report_eqmain AS t2 ON t1.areaid = t2.area_id
-					INNER JOIN opp_data.ccaa AS t3 ON t1.ccDigi = t3.ccDigi
+					 '.DB_MASTER.'..ccaa AS t1
+					LEFT JOIN '.DB_DATA.'.report_eqmain AS t2 ON t1.areaid = t2.area_id
+					INNER JOIN '.DB_DATA.'.ccaa AS t3 ON t1.ccDigi = t3.ccDigi
 					INNER JOIN (SELECT
 					t1.yy,
 					Sum(t1.register_num) AS num1
 					FROM
-					opp_data.report_eqmain AS t1
+					'.DB_DATA.'.report_eqmain AS t1
 					WHERE t1.yy = "'.$yy.'" AND SUBSTR(t1.area_id,1,4) = "'.$areaid.'"
 					) AS t3 ON t2.yy = t3.yy AND t2.yy = "'.$yy.'"
 					WHERE SUBSTR(t1.ccDigi,1,4) = "'.$areaid.'"
@@ -121,7 +121,7 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 					t1.mm_name AS caption,
 					t2.num1 AS sum_all
 					FROM
-					opp_data.month_config AS t1
+					'.DB_DATA.'.month_config AS t1
 					LEFT JOIN (
 					SELECT
 					(t2.mm*1) AS mm,
@@ -129,14 +129,14 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 					Sum(IF(t2.register_num !="",t2.register_num,0)) AS num1,
 					t1.ccDigi
 					FROM
-					 opp_master.ccaa AS t1
-					LEFT JOIN opp_data.report_eqmain AS t2 ON t1.areaid = t2.area_id
-					INNER JOIN opp_data.ccaa AS t3 ON t1.ccDigi = t3.ccDigi
+					 '.DB_MASTER.'.ccaa AS t1
+					LEFT JOIN '.DB_DATA.'.report_eqmain AS t2 ON t1.areaid = t2.area_id
+					INNER JOIN '.DB_DATA.'.ccaa AS t3 ON t1.ccDigi = t3.ccDigi
 					INNER JOIN (SELECT
 					t1.yy,
 					Sum(t1.register_num) AS num1
 					FROM
-					opp_data.report_eqmain AS t1
+					'.DB_DATA.'.report_eqmain AS t1
 					WHERE t1.yy =  "'.$yy.'" AND SUBSTR(t1.area_id,1,6) = "'.$areaid.'"
 					) AS t3 ON t2.yy = t3.yy AND t2.yy = "'.$yy.'"
 					WHERE SUBSTR(t1.ccDigi,1,6) = "'.$areaid.'"
@@ -151,16 +151,16 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 					t1.mm_name AS caption,
 					SUM(IF(t2.month_regis = t1.mm_id,1,0)) AS sum_all
 					FROM
-					opp_data.month_config AS t1
+					'.DB_DATA.'.month_config AS t1
 					LEFT JOIN 
 					(SELECT
 					t1.eq_gid,
 					t2.num,
 					SUBSTR(t1.eq_register_date,6,2)*1 AS month_regis
 					FROM
-					opp_data.eq_person AS t1
-					INNER JOIN opp_master.month_name AS t2 ON t1.eq_b4preg_birthmonth = t2.num
-					INNER JOIN opp_usermanager.org_staffgroup AS t3 ON t1.eq_gid = t3.gid
+					'.DB_DATA.'.eq_person AS t1
+					INNER JOIN '.DB_MASTER.'.month_name AS t2 ON t1.eq_b4preg_birthmonth = t2.num
+					INNER JOIN '.DB_USERMANAGER.'.org_staffgroup AS t3 ON t1.eq_gid = t3.gid
 					WHERE
 					t3.gid = "'.$gid.'" AND
 					t1.eq_register_date BETWEEN "'.$cs_prev_yy.'-10-01" AND "'.$cs_yy.'-09-30") AS t2 ON t1.mm_id = t2.num
@@ -171,9 +171,9 @@ function GetDataGrahp($id,$yy,$gid='',$part_id='',$areaid='',$prev_yy='',$cs_yy=
 					SUM(IF(t1.eq_b4preg_birthyear BETWEEN '.$prev_yy.' AND '.$yy.',1,0)) AS nummath,
 					SUM(t1.eq_embryo_number) AS numchild
 					FROM
-					opp_data.eq_person AS t1
-					INNER JOIN opp_master.month_name AS t2 ON t1.eq_b4preg_birthmonth = t2.num
-					INNER JOIN opp_usermanager.org_staffgroup AS t3 ON t1.eq_gid = t3.gid
+					'.DB_DATA.'.eq_person AS t1
+					INNER JOIN '.DB_MASTER.'.month_name AS t2 ON t1.eq_b4preg_birthmonth = t2.num
+					INNER JOIN '.DB_USERMANAGER.'.org_staffgroup AS t3 ON t1.eq_gid = t3.gid
 					WHERE t3.gid = "'.$gid.'" AND t1.eq_register_date BETWEEN "'.$cs_prev_yy.'-10-01" AND "'.$cs_yy.'-09-30") AS t3 ON t2.eq_gid = t3.gid
 					GROUP BY t1.mm_id
 					ORDER BY t1.orderby';
