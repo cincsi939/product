@@ -153,7 +153,7 @@
                 list(, $data) = explode(',', $data);
                 $data = base64_decode($data);
 				
-                file_put_contents('../../../../repo_csg/profile/' . $nameNew , $data);
+                file_put_contents('../../../../<?php echo APP_REPO; ?>/profile/' . $nameNew , $data);
 				$con->delete('eq_var_data','pin = '.$PIN.' AND eq_id = "'.$_POST['eq_id'].'" AND vid="378" AND form_id=1');
 		$sqlVAR="
 			INSERT INTO ".DB_DATA.".eq_var_data SET

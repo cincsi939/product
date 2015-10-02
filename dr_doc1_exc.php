@@ -237,12 +237,12 @@
 	  if ($_FILES["v378"]["error"] > 0) {
 		 "Return Code: " . $_FILES["v378"]["error"] . "<br>";
 	  } else {
-		if (file_exists("../../../../repo_csg/profile/" . $_FILES["file"]["name"])) { //ตั้งค่าที่อยู่ไฟล์เก็บรูปภาพ
+		if (file_exists("../../../../<?php echo APP_REPO; ?>/profile/" . $_FILES["file"]["name"])) { //ตั้งค่าที่อยู่ไฟล์เก็บรูปภาพ
 		   $_FILES["v378"]["name"] . " already exists. ";
 		}  {
 		  move_uploaded_file($_FILES["v378"]["tmp_name"],
-		  "../../../../repo_csg/profile/" . $_FILES["v378"]["name"]);
-		   "Stored in: " . "../../../../repo_csg/profile/" . $_FILES["v378"]["name"];
+		  "../../../../<?php echo APP_REPO; ?>/profile/" . $_FILES["v378"]["name"]);
+		   "Stored in: " . "../../../../<?php echo APP_REPO; ?>/profile/" . $_FILES["v378"]["name"];
 		}
 		
 		$namepic = ($_FILES["v378"]["name"]); //เก็บชื่อของรูปไว้ในฐานข้อมูล
@@ -285,7 +285,7 @@
                 list(, $data) = explode(',', $data);
                 $data = base64_decode($data);
 				
-                file_put_contents('../../../../repo_csg/profile/' . $nameNew , $data);
+                file_put_contents('../../../../<?php echo APP_REPO; ?>/profile/' . $nameNew , $data);
 		$sqlVAR="
 			INSERT INTO ".DB_DATA.".eq_var_data SET
 			`siteid`='1',

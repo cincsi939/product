@@ -23,7 +23,6 @@ define("HOMEPAGE_MAIN",'http://csg.dcy.go.th/'); # ค่า pwd สำหรับ connect db
 ## ค่า define สำหรับ folder appliction
 define('APP_MASTER','csg_master');
 define('APP_SUPPORT','csg_support');
-
-
-	
+define('APP_REPORTBUILDER','reportbuilder_csg');
+define('APP_REPO','repo_csg');	
 ?>

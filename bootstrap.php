@@ -31,7 +31,7 @@ $db = array(
 	'username' => 'cmss',
 	'password' => '2010cmss',
 	'host' => '192.168.2.102',
-	'database_reportbuiler' => 'reportbuilder_csg',
+	'database_reportbuiler' => APP_REPORTBUILDER,
 	'database_name' => DB_MASTER
 );
 ?>

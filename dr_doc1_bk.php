@@ -320,7 +320,7 @@ if($_GET['eq_id'] != ""){ # กรณีเป็นการแก้ไขข้อมูล
 		}
 		else
 		{
-			$valueImg = '<img src="../../../../repo_csg/profile/'.$value['378'].'" width="320" height="240" id="imgprvw" alt="uploaded image preview" name="pPicture">';
+			$valueImg = '<img src="../../../../<?php echo APP_REPO; ?>/profile/'.$value['378'].'" width="320" height="240" id="imgprvw" alt="uploaded image preview" name="pPicture">';
 		}
 		echo $valueImg;
 	  ?>

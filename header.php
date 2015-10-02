@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=tis-620">
-<link rel="stylesheet" href="../reportbuilder_csg/common/font/Thai_Sans_Neue_Regular.css">
+<link rel="stylesheet" href="../<?php echo APP_REPORTBUILDER; ?>/common/font/Thai_Sans_Neue_Regular.css">
 <style>
  body,td,th,a,input,select,span,div,tr,button {
   font-family: Thai Sans Neue Regular;

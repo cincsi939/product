@@ -10,7 +10,7 @@ $con = new Cfunction();
 $con->connectDB();
 ?>
 <script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
-<link rel="stylesheet" href="../reportbuilder_csg/common/font/Thai_Sans_Neue_Regular.css">
+<link rel="stylesheet" href="../<?php echo APP_REPORTBUILDER; ?>/common/font/Thai_Sans_Neue_Regular.css">
 <style>
 	body,td,th,a,input,select {
 		font-family: Thai Sans Neue Regular;

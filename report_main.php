@@ -86,7 +86,7 @@ div#myiframe_position1 iframe{
 </script> 
 <!--<iframe id="rpb_iframe" width="1" height="1" src="http://61.19.255.90/csg_support/application/survey/sp_process.php" align="left" frameborder="0"></iframe> -->
 <div>
-<iframe id="ifram" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/csg_support/application/reportbuilder_csg/report_preview.php?id=440&yy=<?=$yy?>" width="100%"  frameborder="0" onload="resizeIframe(this)"></iframe>
+<iframe id="ifram" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/csg_support/application/<?php echo APP_REPORTBUILDER; ?>/report_preview.php?id=440&yy=<?=$yy?>" width="100%"  frameborder="0" onload="resizeIframe(this)"></iframe>
 </div>
 <p>
 <table width="100%">
