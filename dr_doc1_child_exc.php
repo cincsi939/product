@@ -9,8 +9,8 @@
  * @access  public
  */
  session_start();
- require_once("../../../../opp_support/application/survey/lib/class.function.php");
- include "../../../../opp_support/common/php_class/class_calculate_kpi.php";	
+ require_once("../../../../<?php echo APP_SUPPORT; ?>/application/survey/lib/class.function.php");
+ include "../../../../<?php echo APP_SUPPORT; ?>/common/php_class/class_calculate_kpi.php";	
  $con = new Cfunction();
  $con->connectDB();
  	foreach($_GET as $name => $value)
