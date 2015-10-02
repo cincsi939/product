@@ -1257,7 +1257,7 @@ iframe#iframe-popup{
                 <td height="50" align="center" valign="top"><?php echo $i; ?></td>
                 <td height="50" align="center" valign="top"><?php /*?><a id="show" href="form2/show.php?id=<?php echo $row['eq_idcard']; ?>"><?php */?><?php echo $row['eq_idcard']; ?><!--</a>--></td>
                 <td height="50" align="left" valign="top">
-                <a href="../../../opp_master/application/personal_data/index.php?p=general_data&keyview=general_data&p_id=10074&p_join_number=58-013-021&gid=54&idcard=<?php echo $row['eq_idcard'];?>" target="_blank"><?php echo $row['eq_prename']; ?><?php echo $row['eq_firstname']; ?> <?php echo $row['eq_lastname']; ?></a></td>
+                <a href="../../../<?php echo APP_MASTER; ?>/application/personal_data/index.php?p=general_data&keyview=general_data&p_id=10074&p_join_number=58-013-021&gid=54&idcard=<?php echo $row['eq_idcard'];?>" target="_blank"><?php echo $row['eq_prename']; ?><?php echo $row['eq_firstname']; ?> <?php echo $row['eq_lastname']; ?></a></td>
                 <td height="50" align="center" valign="top"><?php echo $row['eq_age']; ?></td>
                 <td height="50" align="center" valign="top"><?php echo $row['eq_relation']; ?></td>
                 <td height="50" align="center" valign="top"><span style="cursor:pointer; text-decoration:underline;" onclick="popup('<?php echo $_GET['id'];?>','main/dr_doc1_part2.php?from=edit&eq_id=<?php echo $row['eq_id']; ?>')">·°È‰¢</span>&nbsp;/&nbsp;<a id="del" href="main_exc/dr_doc1_del_exc.php?id=<?php echo $row['eq_idcard']; ?>&mother_id=<?php echo $_GET['id']; ?>" OnClick="return chkdel();">≈∫</a></td>
