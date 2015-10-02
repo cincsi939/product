@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema>
+    <dbin status="on">
+        <host>localhost</host>
+        <user>dopa_ixdatau</user>
+        <password>Ffxk,klg9viN</password>
+        <dbs>dopa_ixdata</dbs>
+    </dbin>
+    <table name="rise_salary_121018" pk="autonoid"> 
+<field name="autono type="int" size="6”  atutoid=”no”  notnull=”yes” />
+<field name="autono_gov type="int" size="6”  notnull=”yes” />
+<field name="unitid type="varchar" size="50”  notnull=”yes” />
+<field name="prename type="varchar" size="50”  notnull=”yes” />
+<field name="fname type="varchar" size="200”  notnull=”yes” />
+<field name="lname type="varchar" size="200”  notnull=”yes” />
+<field name="idcard type="varchar" size="13”  notnull=”yes” />
+<field name="position_name type="varchar" size="200”  notnull=”yes” />
+<field name="position_type type="varchar" size="200”  notnull=”yes” />
+<field name="radub type="varchar" size="100”  notnull=”yes” />
+<field name="radub_prefix type="varchar" size="10”  notnull=”yes” />
+<field name="g_prefix type="varchar" size="50”  notnull=”yes” />
+<field name="position_number type="varchar" size="50”  notnull=”yes” />
+<field name="estimate_radub type="varchar" size="50”  notnull=”yes” />
+<field name="estimate_point type=double" size="6”  notnull=”yes” />
+<field name="salary_b4up type="int" size="6”  notnull=”yes” />
+<field name="salary_compute_base type="varchar" size="10”  notnull=”yes” />
+<field name="salary_compute_bath type="int" size="6”  notnull=”yes” />
+<field name="percen_up type=double" size="6”  notnull=”yes” />
+<field name="rise_bath_decimal type=double" size="10”  notnull=”yes” />
+<field name="rise_bath type="int" size="6”  notnull=”yes” />
+<field name="gotmoney_bath type=double" size="10”  notnull=”yes” />
+<field name="salary_new type="int" size="6”  notnull=”yes” />
+<field name="type_position type="varchar" size="50”  notnull=”yes” />
+<field name="typecomment type="varchar" size="200”  notnull=”yes” />
+
+    </table>
+
+
+
+
+
+</schema>

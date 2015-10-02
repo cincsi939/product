@@ -1,0 +1,124 @@
+body {
+	margin:0px;
+	font-size:12px;
+}
+table td{
+	font-size:12px;
+}
+.report_fieldset{
+		border-radius: 3px 3px 3px 3px;
+	 	box-shadow: 1px 1px 2px #888888;
+		border:#CCC 1px solid;
+}
+.report_legend{
+		border-radius: 5px 5px 5px 5px;
+	 	box-shadow: 1px 1px 2px #888888;
+		background-color:#BEE895;
+		border:#BBB 1px solid;
+		font-size:14px;
+		font-weight:bold;
+		padding:5px;
+}
+.header_search{
+	font-size:14px;
+	font-weight:bold;
+	color:#339;
+}
+.header_report{
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+	color:#339;
+}
+.header_sub_report{
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	color:#339;
+}
+.tbl_header{
+	background-color:#B2D7CE;
+	font-size:16px;
+	font-weight:bold;
+}
+
+.tbl_report{
+		border-radius: 3px 3px 3px 3px;
+	 	box-shadow: 1px 1px 2px #888888;
+		background-color:#AAA;		
+		border:#360 0px solid;
+}
+.exsum_header{
+	background-color:#B2D7CE;
+}
+.exsum_font{
+	font-size:14px;
+	color:#339;
+	font-weight:bold;
+}
+
+.dev_graph{
+		border-radius: 5px 5px 5px 5px;
+	 	box-shadow: 1px 1px 2px #888888;
+		border:#CCC 1px solid;
+}
+
+.button_confirm{
+		border-radius: 5px 5px 5px 5px;
+	 	box-shadow: 1px 1px 2px #888888;
+		border:#BBB 1px solid;
+		font-size:18px;
+		cursor:pointer;
+		color:#390;
+}
+
+.button_approve{
+		border-radius: 5px 5px 5px 5px;
+	 	box-shadow: 1px 1px 2px #888888;
+		border:#BBB 1px solid;
+		font-size:18px;
+		cursor:pointer;
+		color:#390;
+}
+
+.button_acknowledge{
+		border-radius: 5px 5px 5px 5px;
+	 	box-shadow: 1px 1px 2px #888888;
+		border:#BBB 1px solid;
+		font-size:18px;
+		cursor:pointer;
+		color:#390;
+}
+
+.button_unconfirm{
+		border-radius: 5px 5px 5px 5px;
+	 	box-shadow: 1px 1px 2px #888888;
+		border:#BBB 1px solid;
+		font-size:18px;
+		cursor:pointer;
+		color:#F00;
+}
+
+.button_unapprove{
+		border-radius: 5px 5px 5px 5px;
+	 	box-shadow: 1px 1px 2px #888888;
+		border:#BBB 1px solid;
+		font-size:18px;
+		cursor:pointer;
+		color:#F00;
+}
+
+.button_unacknowledge{
+		border-radius: 5px 5px 5px 5px;
+	 	box-shadow: 1px 1px 2px #888888;
+		border:#BBB 1px solid;
+		font-size:18px;
+		cursor:pointer;
+		color:#F00;
+}
+
+.txt_approve{
+		font-size:18px;
+		font-weight:bold;
+		color:#390;
+}

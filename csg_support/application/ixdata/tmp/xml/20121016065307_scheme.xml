@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema>
+    <table name="personal">
+        <field name="id" type="int" size="10" />
+        <field name="name" type="varchar" size="20" />
+        <field name="address" type="text" size="" />
+        <field name="isPerson" type="tinyint" size="1" />
+        <field name="idcard" type="varchar" size="13" />
+        <field name="govid" type="varchar" size="13" />
+        <field name="salary" type="double" size="" />
+        <field name="secid" type="int" size="10" />
+        <field name="siteid" type="varchar" size="5" />
+    </table>
+</schema>

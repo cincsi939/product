@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Thai Sans Neue Regular';
+    src: url('ThaiSansNeue-Regular.otf');
+    src: url('ThaiSansNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

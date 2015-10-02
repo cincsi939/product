@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema>
+    <dbin status="on">
+        <host>localhost</host>
+        <user>dopa_ixdatau</user>
+        <password>Ffxk,klg9viN</password>
+        <dbs>dopa_ixdata</dbs>
+    </dbin>
+    <table name="dopatransfer" pk="id">
+        <field name="id" type="int" size="10" autoid="yes" notnull="yes" text="ลำดับ" />
+        <field name="work" type="varchar" size="50" notnull="no" text="ปฏิบัติหน้าที่" />
+        <field name="prefix" type="varchar" size="20" notnull="no" text="คำนำหน้า" />
+        <field name="fname" type="varchar" size="50" notnull="no" text="ชื่อ" />
+        <field name="lname" type="varchar" size="50" notnull="no" text="สกุล" />
+        <field name="czid" type="varchar" size="13" notnull="no" text="เลขที่บัตรประชาชน" />
+        <field name="position_name" type="varchar" size="100" notnull="no" text="ชื่อตำแหน่ง" />
+        <field name="position_type" type="varchar" size="20" notnull="no" text="ประเภท" />
+        <field name="radab" type="varchar" size="40" notnull="no" text="ระดับ" />
+        <field name="radab_code" type="varchar" size="20" notnull="yes" text="รหัสระดับ" />
+        <field name="groups" type="varchar" size="50" notnull="yes" text="กลุ่ม" />
+        <field name="pay_num_id" type="varchar" size="50" notnull="no" text="เลขที่ตั้งจ่าย" />
+        <field name="estimate_value" type="varchar" size="20" notnull="no" text="ระดับผลการประเมิน" />
+        <field name="estimate_point" type="double" notnull="yes" text="คะแนนการประเมิน" />
+        <field name="salary_before" type="double" notnull="yes" text="เงินเดือนก่อนเลื่อน" />
+        <field name="calc_base" type="double" notnull="yes" text="ฐานในการคำนวณ" />
+        <field name="position_kp" type="varchar" size="100" notnull="yes" text="การกำหนดตำแหน่ง" />
+        <field name="percent_up" type="varchar" size="6" notnull="no" text="ร้อยละที่ได้เลื่อน" />
+        <field name="blanks" type="varchar" size="100" notnull="no" text="วางป่าว" />
+        <field name="money_up_value" type="double" notnull="no" text="จำนวนเงินได้เลื่อน" />
+        <field name="special_value" type="double" notnull="yes" text="ค่าตอบแทนพิเศษ" />
+        <field name="salary_after_exclude" type="double" notnull="no" text="เงินเดือนที่ได้รับหลังเลื่อน" />
+        <field name="position_status" type="varchar" size="50" notnull="yes" text="สถานะ" />
+        <field name="remarks" type="text" notnull="yes" text="หมายเหตุ" />
+    </table>
+</schema>

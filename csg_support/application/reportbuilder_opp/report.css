@@ -1,0 +1,50 @@
+body{
+	margin: 0px 0px;
+	padding: 0px 0px;
+}
+body,table,td,th,form,select,input{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12 px;
+}
+body,td,th {
+	font-size: smaller;
+}
+/*table {
+	border-collapse:collapse;
+}*/
+a:link {
+	/*font-family: verdana, arial, helvetica, sans-serif; */
+	font-size: 12px;
+	color: #000000;
+	text-decoration: underline;
+}
+a:visited {
+	/*font-family: verdana, arial, helvetica, sans-serif; */
+	font-size: 12px; 
+	color: #000000; 
+	text-decoration: underline;
+}
+a:active {
+	/*font-family: verdana, arial, helvetica, sans-serif; */
+	font-size: 12px; 
+	color: #014d5f; 
+	text-decoration: underline;
+}
+a:hover { 
+	/*font-family: verdana, arial, helvetica, sans-serif; */
+	font-size: 12px;
+	color: #f3960b;
+	text-decoration: underline
+}
+.menuitem {
+	/*font-family: verdana, arial, helvetica, sans-serif; */
+	font-size: 12px; 
+	font-weight: bold;
+}
+.xbutton {
+	font-size: 8pt; 
+	font-weight: bold;
+}
+thead, tfoot {
+	font-weight: bold;
+}

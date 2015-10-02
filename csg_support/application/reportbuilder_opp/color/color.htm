@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>ColorPicker</title>
+	<script language="JavaScript">
+		var color="#808080";
+	</script>
+</head>
+
+<body link="#0000BB" vlink="#0000BB">
+
+<table width="420"><tr><td align="center">
+
+<applet code="colorpicker.class" width="400" height="450" MAYSCRIPT>
+<param name="variable" value="color">
+</applet>
+
+
+<form>
+<input type="Button" value=" Select Color " onclick="if (window.opener.obj1) {window.opener.obj1.value=color;} window.close();">
+<input type="Button" value=" Cancel " onclick="window.close();">
+</form>
+</td></tr></table>
+
+<br><br>
+</body>
+</html>

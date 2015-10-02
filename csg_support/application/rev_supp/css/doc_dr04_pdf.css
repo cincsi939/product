@@ -1,0 +1,43 @@
+@charset "windows-874";
+
+body{
+	margin:0 auto;
+}
+
+div#logo-report{
+	margin:5px;
+	border:1px solid #000;
+	width:80px;
+	padding:5px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+table#tbl-topic{
+	border:0px;
+}
+
+.topic{
+	font-size:18px;
+	font-weight:bold;
+}
+
+table#tbl-detail{
+	border-collapse:collapse;
+	margin-top:10px;
+}
+
+table#tbl-detail td,th{
+	border:1px solid #000;
+	padding:5px;
+}
+
+table#tbl-comment{
+	margin:5px;
+}
+
+.comment{
+	font-size:18px;
+	font-weight:bold;
+	border-bottom:2px dotted #000;
+}

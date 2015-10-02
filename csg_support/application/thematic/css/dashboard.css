@@ -1,0 +1,18 @@
+@import url("style_font.css");
+body{
+	margin:0px;
+	background-image:url(../img/dashboard_bg.png);
+}
+.body_sys{
+  margin:2px;	
+}
+
+.box_sys{
+	border-top:#BBB 1px solid;
+	border-left:#BBB 1px solid;
+	border-right:#BBB 2px solid;
+	border-bottom:#BBB 1px solid;
+	/*box-shadow: 1px 2px 1px #EEE;*/
+	border-radius: 10px;
+	background-color:#FFF;
+}

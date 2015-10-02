@@ -1,0 +1,31 @@
+@import url("style_font.css");
+body{
+	font-family: !important; font-family: ThaiSansNeue-Regular,Tahoma,supermarketRegular,  "Microsoft Sans Serif" !important;
+	background-color:#FFF;
+}
+.title_name{
+	font-size:24px;
+	color:#183152;
+	font-family: !important; font-family: ThaiSansNeue-Regular,Tahoma,supermarketRegular,  "Microsoft Sans Serif" !important;
+}
+.bg{
+	font-size:30px;
+	border-top:#A4D1FF 1px solid;
+	border-left:#A4D1FF 1px solid;
+	border-right:#A4D1FF 2px solid;
+	border-bottom:#A4D1FF 1px solid;
+	/*box-shadow: 1px 2px 1px #EEE;*/
+	border-radius: 7px;
+	background-color:#abc8e2;
+	text-align:center;
+	padding:8px;
+	font-weight:bold;
+	height:46px;
+	font-family: !important; font-family: ThaiSansNeue-Regular,Tahoma,supermarketRegular,  "Microsoft Sans Serif" !important;
+}
+.title_name_t{
+	font-size:32px;
+	color:#FFF;
+	font-family: !important; font-family: ThaiSansNeue-Regular,Tahoma,supermarketRegular,  "Microsoft Sans Serif" !important;
+	font-weight:bold;
+}

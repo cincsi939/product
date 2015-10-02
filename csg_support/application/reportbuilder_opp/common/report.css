@@ -1,0 +1,22 @@
+body {  margin: 0px  0px; padding: 0px  0px}
+
+body,table,td,form,select,input{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12 px;
+}
+
+A:link {
+	FONT-SIZE: 12px;color: #000000;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;TEXT-DECORATION: underline
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: underline
+}
+A:active {
+	FONT-SIZE: 12px; COLOR: #014d5f; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: underline
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #f3960b; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: underline
+}
+.menuitem {FONT-FAMILY: verdana, arial, helvetica, sans-serif; font-size:12pt; font-weight: bold;}
+.xbutton {font-size: 8pt; font-weight: bold;}

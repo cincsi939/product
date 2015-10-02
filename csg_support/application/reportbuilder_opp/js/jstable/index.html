@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=TIS-620" />
+<link rel="stylesheet" type="text/css" href="http://akottr.github.io/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="http://akottr.github.io/css/akottr.css" />
+<link rel="stylesheet" type="text/css" href="dragtable.css" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script src="js/jstable/jquery.dragtable.js"></script>
+<script src="jquery.dragtable.js"></script>
+<!-- only for jquery.chili-2.2.js -->
+<script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+<script type="text/javascript" src="http://akottr.github.io/js/jquery.chili-2.2.js"></script>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+          
+    $('#defaultTable').dragtable();
+
+    $('#footerTable').dragtable({excludeFooter:true});
+
+    $('#onlyHeaderTable').dragtable({maxMovingRows:1});
+
+    $('#persistTable').dragtable({persistState:'/someAjaxUrl'});
+
+    $('#handlerTable').dragtable({dragHandle:'.some-handle'});
+
+    $('#constrainTable').dragtable({dragaccept:'.accept'});
+
+    $('#customPersistTable').dragtable({persistState: function(table) {
+        table.el.find('th').each(function(i) {
+          if(this.id != '') {table.sortOrder[this.id]=i;}
+        });
+        $.ajax({url: '/myAjax?hello=world',
+                data: table.sortOrder});
+      }
+    });
+
+    $('#localStorageTable').dragtable({
+        persistState: function(table) {
+          if (!window.sessionStorage) return;
+          var ss = window.sessionStorage;
+          table.el.find('th').each(function(i) {
+            if(this.id != '') {table.sortOrder[this.id]=i;}
+          });
+          ss.setItem('tableorder',JSON.stringify(table.sortOrder));
+        },
+        restoreState: eval('(' + window.sessionStorage.getItem('tableorder') + ')')
+    });    
+    
+  });
+</script>
+
+
+<title>jquery.dragtable.js</title>
+</head>
+<body>
+<table id="defaultTable" class="sar-table">
+        <thead>
+          <tr>
+            <th>TIME</th>
+
+            <th>%user</th>
+            <th>%nice</th>
+            <th>%system</th>
+            <th>%iowait</th>
+            <th>%idle</th>                     
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>12:10:01 AM</td><td>28.86</td><td>0.04</td><td>1.65</td><td>0.08</td><td>69.36</td>
+          </tr>
+          <tr>
+            <td>12:20:01 AM</td><td>26.54</td><td>0.00</td><td>1.64</td><td>0.08</td><td>71.74</td>
+
+          </tr> 
+          <tr>
+            <td>12:30:01 AM</td><td>29.73</td><td>0.00</td><td>1.66</td><td>0.09</td><td>68.52</td>
+          </tr>
+        </tbody>
+      </table>
+</body>
+</html>
