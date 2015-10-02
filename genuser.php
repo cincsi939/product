@@ -1,5 +1,6 @@
 <?php
 include "epm.inc.php";
+include('../../config/config_host.php');
 ?>
 <html>
 <head>
@@ -15,7 +16,7 @@ include "epm.inc.php";
 		FROM
 		org_staffgroup AS t1
 		WHERE t1.parent = '0' ";
-		$result = mysql_db_query('opp_usermanager',$sql);
+		$result = mysql_db_query(DB_USERMANAGER,$sql);
 		while($obj = mysql_fetch_object($result)){
 			$arrySubfix[$obj->gid] = $obj->comment;
 		}
@@ -30,7 +31,7 @@ include "epm.inc.php";
 		FROM
 				org_staffgroup AS t1
 		WHERE t1.parent != '0' ";
-		$result = mysql_db_query('opp_usermanager',$sql);
+		$result = mysql_db_query(DB_USERMANAGER,$sql);
 		while($obj = mysql_fetch_object($result)){
 			if(strlen($obj->gid) == '1'){
 				$digi = '0000'.$obj->gid;
@@ -52,13 +53,13 @@ include "epm.inc.php";
 			org_id = '2',
 			username = '{$user}',
 			password = '{$pass}' ";
-			mysql_db_query('opp_usermanager',$sql_insert);
+			mysql_db_query(DB_USERMANAGER,$sql_insert);
 			$staff_id = mysql_insert_id();
 			
 			$sql_insert = "INSERT INTO org_groupmember SET
 			gid = '{$obj->gid}',
 			staffid = '{$staff_id}' ";
-			mysql_db_query('opp_usermanager',$sql_insert);
+			mysql_db_query(DB_USERMANAGER,$sql_insert);
 		}
 ?>
 </body>

@@ -1,6 +1,7 @@
 <?
 ob_start();
 session_start();
+include('../../config/config_host.phpp');
 /*  include_once "../../config/config.inc.php";
 if (!$nochecklogin){
 	if ($_SESSION[session_staffid] <= 0){
@@ -11,7 +12,7 @@ if (!$nochecklogin){
 $host = "localhost"  ;
 $username = "wandc"  ;
 $password = "c;ofu:u" ;
-$dbname = "opp_usermanager";
+$dbname = DB_USERMANAGER;
 $myconnect = mysql_connect($host, $username, $password) OR DIE("Unable to connect to database");
 mysql_select_db($dbname) or die("cannot select database $dbname");
 $iresult = mysql_query("SET character_set_results=tis-620");

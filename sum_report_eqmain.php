@@ -1,5 +1,6 @@
 <?php
 include "epm.inc.php";
+include('../../config/config_host.php');
 ?>
 <html>
 <head>
@@ -21,7 +22,7 @@ include "epm.inc.php";
 		FROM
 		month_config AS t1
 		ORDER BY t1.orderby ";
-		$result = mysql_db_query('opp_data',$sql)or die(mysql_error());
+		$result = mysql_db_query(DB_DATA,$sql)or die(mysql_error());
 		while($obj = mysql_fetch_object($result)){
 			$monthList[$obj->mm_id] = $obj->yy1;
 		}
@@ -33,12 +34,12 @@ include "epm.inc.php";
 		Count(t1.eq_idcard) AS num_regis,
 		t3.areaid
 		FROM
-		opp_data.eq_person AS t1 
-		LEFT JOIN opp_usermanager.org_staffgroup AS t2 ON t1.eq_gid = t2.gid
-		LEFT JOIN opp_data.ccaa AS t3 ON IF(t2.tambon != '',t2.tambon,IF(t2.amphur != '',t2.amphur,t2.province))= t3.ccDigi
+		'.DB_DATA.'.eq_person AS t1 
+		LEFT JOIN '.DB_USERMANAGER.'.org_staffgroup AS t2 ON t1.eq_gid = t2.gid
+		LEFT JOIN '.DB_DATA.'.ccaa AS t3 ON IF(t2.tambon != '',t2.tambon,IF(t2.amphur != '',t2.amphur,t2.province))= t3.ccDigi
 		WHERE t1.eq_register_date BETWEEN '{$ksStart }-10-01' AND '{$ksEnd}-09-30'
 		GROUP BY t3.areaid ";
-		$result = mysql_db_query('opp_data',$sql)or die(mysql_error());
+		$result = mysql_db_query(DB_DATA,$sql)or die(mysql_error());
 		while($obj = mysql_fetch_object($result)){
 			$numRegis[$obj->areaid][$obj->mm] = $obj->num_regis;
 		}
@@ -53,15 +54,15 @@ include "epm.inc.php";
 		t3.areaid
 		FROM
 		eq_person AS t1
-		INNER JOIN opp_usermanager.org_staffgroup AS t2 ON t1.eq_gid = t2.gid
-		INNER JOIN opp_data.ccaa AS t3 ON IF(t2.tambon != '',t2.tambon,IF(t2.amphur != '',t2.amphur,t2.province))= t3.ccDigi
-		INNER JOIN opp_data.ccaa AS tambon ON t3.areaid = tambon.areaid
-		INNER JOIN opp_data.ccaa AS amphur ON CONCAT(SUBSTR(tambon.ccDigi,1,5),'000')= amphur.ccDigi
-		INNER JOIN opp_data.ccaa AS provice ON CONCAT(SUBSTR(amphur.ccDigi,1,2),'000000')= provice.ccDigi
+		INNER JOIN '.DB_USERMANAGER.'.org_staffgroup AS t2 ON t1.eq_gid = t2.gid
+		INNER JOIN '.DB_DATA.'.ccaa AS t3 ON IF(t2.tambon != '',t2.tambon,IF(t2.amphur != '',t2.amphur,t2.province))= t3.ccDigi
+		INNER JOIN '.DB_DATA.'.ccaa AS tambon ON t3.areaid = tambon.areaid
+		INNER JOIN '.DB_DATA.'.ccaa AS amphur ON CONCAT(SUBSTR(tambon.ccDigi,1,5),'000')= amphur.ccDigi
+		INNER JOIN '.DB_DATA.'.ccaa AS provice ON CONCAT(SUBSTR(amphur.ccDigi,1,2),'000000')= provice.ccDigi
 		WHERE t1.eq_b4preg_birthyear BETWEEN '{$psStart}' AND '{$psEnd}'
 		GROUP BY t3.areaid,t1.eq_b4preg_birthmonth, t1.eq_b4preg_birthyear
 		ORDER BY t1.eq_b4preg_birthyear,(mm*1) ";
-		$result = mysql_db_query('opp_data',$sql)or die(mysql_error());
+		$result = mysql_db_query(DB_DATA,$sql)or die(mysql_error());
 		while($obj = mysql_fetch_object($result)){
 			$numChild[$obj->areaid][$obj->mm]['math'] = $obj->sum;
 			$numChild[$obj->areaid][$obj->mm]['child'] = $obj->child;
@@ -77,15 +78,15 @@ include "epm.inc.php";
 		area.partid,
 		area.area_part
 		FROM
-		opp_data.eq_person AS t1
-		INNER JOIN opp_usermanager.org_staffgroup AS t2 ON t1.eq_gid = t2.gid
-		LEFT JOIN opp_data.ccaa AS tambon ON IF(t2.tambon != '',t2.tambon,IF(t2.amphur != '',t2.amphur,t2.province)) = tambon.ccDigi
-		LEFT JOIN opp_data.ccaa AS amphur ON CONCAT(SUBSTR(tambon.ccDigi,1,5),'000') = amphur.ccDigi
-		LEFT JOIN opp_data.ccaa AS provice ON CONCAT(SUBSTR(amphur.ccDigi,1,2),'000000') = provice.ccDigi
-		INNER JOIN opp_master.area_part AS area ON provice.partid = area.partid
+		'.DB_DATA.'.eq_person AS t1
+		INNER JOIN '.DB_USERMANAGER.'.org_staffgroup AS t2 ON t1.eq_gid = t2.gid
+		LEFT JOIN '.DB_DATA.'.ccaa AS tambon ON IF(t2.tambon != '',t2.tambon,IF(t2.amphur != '',t2.amphur,t2.province)) = tambon.ccDigi
+		LEFT JOIN '.DB_DATA.'.ccaa AS amphur ON CONCAT(SUBSTR(tambon.ccDigi,1,5),'000') = amphur.ccDigi
+		LEFT JOIN '.DB_DATA.'.ccaa AS provice ON CONCAT(SUBSTR(amphur.ccDigi,1,2),'000000') = provice.ccDigi
+		INNER JOIN '.DB_MASTER.'.area_part AS area ON provice.partid = area.partid
 		WHERE
 		t1.eq_register_date BETWEEN '{$ksStart }-10-01' AND '{$ksEnd}-09-30' GROUP BY tambon.areaid";
-		$result = mysql_db_query('opp_usermanager',$sql)or die(mysql_error());
+		$result = mysql_db_query(DB_USERMANAGER,$sql)or die(mysql_error());
 		echo '<pre>';
 		//print_r($numChild); die;
 		while($obj = mysql_fetch_object($result)){
@@ -107,7 +108,7 @@ include "epm.inc.php";
 				pay_per_month =  '0',
 				timecreate = NOW(),
 				timeupdate = NOW() ";	
-				mysql_db_query('opp_data',$replace)or die(mysql_error());
+				mysql_db_query(DB_DATA,$replace)or die(mysql_error());
 			}
 			# สร้างโครงร่างข้อมูลปีงบประมาณ แยกตาม areaid และเดือน
 			
@@ -117,7 +118,7 @@ include "epm.inc.php";
 				if($numRegis[$obj->areaid][$mm] != ''){
 					$update = "UPDATE report_eqmain SET register_num = '{$numRegis[$obj->areaid][$mm]}' 
 					WHERE yy = '{$psEnd}' AND mm = '{$mm}' AND area_id = '{$obj->areaid}' ";
-					mysql_db_query('opp_data',$update)or die(mysql_error());
+					mysql_db_query(DB_DATA,$update)or die(mysql_error());
 				}
 				
 				# นับจำนวนคนที่คลอด จำนวนบุตร และจำนวนเงินอุดหนุน
@@ -127,7 +128,7 @@ include "epm.inc.php";
 					child_num = '{$numChild[$obj->areaid][$mm][child]}' ,
 					pay_per_month = '{$numChild[$obj->areaid][$mm][money]}' 
 					WHERE yy = '{$psEnd}' AND mm = '{$mm}' AND area_id = '{$obj->areaid}' ";
-					mysql_db_query('opp_data',$update)or die(mysql_error());
+					mysql_db_query(DB_DATA,$update)or die(mysql_error());
 				}
 			}
 			# นับจำนวนคน แยกตามเดือนและปีงบประมาณ

@@ -1,4 +1,5 @@
 <?php
+include('../../config/config_host.php');
 /**
  * @comment 	configulation database
  * @projectCode
@@ -31,6 +32,6 @@ $db = array(
 	'password' => '2010cmss',
 	'host' => '192.168.2.102',
 	'database_reportbuiler' => 'reportbuilder_opp',
-	'database_name' => 'opp_master'
+	'database_name' => DB_MASTER
 );
 ?>
