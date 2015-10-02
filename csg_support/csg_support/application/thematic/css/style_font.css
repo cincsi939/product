@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'supermarket';
+    src: url('font/supermarket.eot');
+    src: url('font/supermarket.eot?#iefix') format('embedded-opentype'),
+         url('font/supermarket.woff') format('woff'),
+         url('font/supermarket.ttf') format('truetype'),
+		 url('font/supermarket.svg#supermarketRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ThaiSansNeue-Black';
+    src: url('font/ThaiSansNeue-Black.otf');
+    src: url('font/ThaiSansNeue-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ThaiSansNeue-Regular';
+    src: url('font/ThaiSansNeue-Regular.otf');
+    src: url('font/ThaiSansNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

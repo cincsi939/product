@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema>
+    <dbin status="on">
+        <host>localhost</host>
+        <user>dopa_ixdatau</user>
+        <password>Ffxk,klg9viN</password>
+        <dbs>dopa_ixdata</dbs>
+        <port>3306</port>
+        <charset>utf-8</charset>
+        <collection>utf8_general_ci</collection>
+    </dbin>
+    <dbout status="on">
+        <host>localhost</host>
+        <user>dopa_ixdatau</user>
+        <password>Ffxk,klg9viN</password>
+        <dbs>dopa_ixdata</dbs>
+        <port>3306</port>
+        <charset>utf-8</charset>
+        <collection>utf8_general_ci</collection>
+    </dbout>
+    <table name="personal" pd="id">
+        <field name="id" type="int" size="13" />
+        <field name="prefix" type="varchar" size="3" />
+        <field name="fname" type="varchar" size="10" />
+        <field name="lname" type="varchar" size="10" />
+        <field name="govid" type="varchar" size="5" />
+        <field name="sex" type="varchar" size="4" />
+        <field name="salary" type="double" size="" />
+    </table>
+</schema>

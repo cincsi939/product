@@ -1,0 +1,12 @@
+@import url("style_font.css");
+body{
+	font-family: !important; font-family: ThaiSansNeue-Regular,Tahoma,supermarketRegular,  "Microsoft Sans Serif" !important;
+	background-color:#FFF;
+	margin:3px;
+}
+.title_name{
+	font-size:24px;
+	color:#183152;
+	font-family: !important; font-family: ThaiSansNeue-Regular,Tahoma,supermarketRegular,  "Microsoft Sans Serif" !important;
+}
+

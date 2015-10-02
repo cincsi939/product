@@ -1,0 +1,255 @@
+body {
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+/*
+#tabs-1{
+	 height: 650px;
+}
+*/
+/*#draggable { width: 150px; height: 150px; padding: 0.5em; }*/
+
+.box_set{
+	padding: 0.1em;
+	/*position: absolute; */
+	text-align: center;
+}
+
+.box_report {
+	padding: 0.1em; 
+	position: absolute; 
+	text-align: center;
+	background-color: #FFFFFF;
+}
+.box_report h4 { text-align: center; margin: 0; }
+
+
+#box_summary {
+	padding: 0.1em; 
+	position: absolute; 
+	left: 50px; 
+	top: 125px; 
+	width: 225px; 
+	height: 150px;
+}
+#box_summary h4 { text-align: center; margin: 0; }
+
+#box_graph {
+	padding: 0.1em; 
+	position: absolute; 
+	left: 300px; 
+	top: 125px; 
+	width: 225px; 
+	height: 150px;
+}
+#box_graph h4 { text-align: center; margin: 0; }
+
+#box_table { 
+	padding: 0.1em;
+	position: absolute; 
+	left: 50px; 
+	top: 325px; 
+	width: 475px; 
+	height: 200px;
+}
+#box_table h4 { text-align: center; margin: 0; }
+
+#box_footnote { 
+	padding: 0.1em;
+	position: absolute; 
+	left: 50px; 
+	top: 550px; 
+	width: 475px; 
+	height: 50px;
+}
+#box_footnote h4 { text-align: center; margin: 0; }
+
+
+
+#frame-submit{
+	border: 1px solid black;
+	background-color: #eee;
+	height: 25px;
+	width: 600px;
+	float: top;
+	margin-bottom: 2px;
+	text-align: right;
+}
+
+#frame-main{
+	border: 1px solid black;
+	background-color: #fff;
+	height: 600px;
+	width: 600px;
+	float: left;
+	/*position: relative;*/
+}
+
+#frame-main-r{
+	border: 1px solid black;
+	background-color: #fff;
+	height: 600px;
+	width: 600px;
+	float: left;
+	/*position:absolute;*/
+}
+
+#frame-option{
+	height: 600px;
+	width: 250px;
+	float: left;
+}
+
+#frame-layout-setting{
+	border: 1px solid black;
+	background-color: #eee;
+	height: 200px;
+	width: 200px;
+	float: left;
+	padding: 0.2em;
+	margin-left: 2px; 
+}
+
+#frame-layout-setting h4 { 
+	text-align: center; 
+	margin: 0; 
+}
+
+#frame-display-option{
+	border: 1px solid black;
+	background-color: #eee;
+	height: 388px;
+	width: 200px;
+	float: left;
+	padding: 0.2em;
+	margin: 2px 0 0 2px;
+}
+
+#frame-display-option h4 { 
+	text-align: center; 
+	margin: 0; 
+}
+
+.submit-button a { 
+	width:155px; 
+	color:#000; 
+	line-height:25px;  
+	padding: 3 3 3 3; 
+	background:#fff; 
+	border:#333 1px solid; 
+	text-align: center; 
+	/*background:url(../images/button-1.jpg) 0 0;*/
+}
+
+
+
+/* Table ----------------------------------*/
+table.tableList
+{    
+	font-size: small;
+	color:#000;		 
+   white-space:nowrap;
+    
+    width:100%;
+    color:#000;
+       
+    /*background-color: #666;*/
+    border: 0px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    
+    /*font-size:.95em;*/
+    border: 1px #666 solid;    
+    
+    vertical-align:text-top;      
+}
+
+table.tableList tr
+{
+    /*background-color:White;*/
+}
+
+table.tableList td
+{       
+    /*background-color:White;
+    color: #000; */   
+    padding-left:5px; 
+    padding-right:5px;   
+    border: 1px #E4E4E4 solid;
+}
+
+table.tableList th.header
+{
+	
+    background-color: #666;
+    color: #fff;
+    padding-left:5px;
+    font-weight: normal;
+    
+    border: 1px #E4E4E4 solid;
+    white-space:nowrap;
+    
+    background-repeat:no-repeat;
+    background-position: center right; 
+    
+    
+}
+
+table.tableList thead tr .headerSortUp 
+{
+    background-image: url(../images/imgPaging/arrow_up.png);  
+    padding-right:15px; 
+}
+table.tableList thead tr .headerSortDown 
+{
+   background-image: url(../images/imgPaging/arrow_down.png);
+   padding-right:15px; 
+}
+
+table.table-option 
+{
+	width:100;
+	border: 0px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+	/*border-bottom: 1px #E4E4E4 dotted;*/
+}
+table.table-option td
+{
+	border-bottom: 1px #E4E4E4 dotted; 
+	padding: -2px 0px -2px 0px;
+}
+
+.drag-row{
+	position: absolute;
+	/*width: 90%;*/
+	border: 1px #E4E4E4 solid;
+	background-color: #666699;
+}
+
+.submit-button a { 
+	width:155px; 
+	color:#ffffff; 
+	font-size:14px; 
+	font-weight:normal; 
+	line-height:24px;  
+	padding: 5px 0 5px 0; 
+	background:#fff;
+	border:#fff 1px solid; 
+}
+
+.a-buton{
+	text-decoration: none;
+	border: 1px #E4E4E4 solid;
+	padding: 2px;
+	 font-style: normal;
+}
+
+.ui-button{ 
+    font-size: 11px;
+}
+
+.ui-button-text-only .ui-button-text { 
+    padding: .1em .6em .2em; 
+}
+

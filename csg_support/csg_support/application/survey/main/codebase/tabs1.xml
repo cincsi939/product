@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tabbar>
+    <row>
+        <tab id="b1" width='120px' selected="1">ข้อมูลส่วนตัว</tab>
+        <tab id="b2" width='120px'>ข้อมูลสมาชิก ศูนย์ ๓ วัย</tab>
+        <tab id="b3" width='120px'>หลักฐานการสมัคร</tab>
+    </row>
+</tabbar>
