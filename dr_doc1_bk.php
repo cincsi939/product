@@ -439,7 +439,7 @@ if($_GET['eq_id'] != ""){ # กรณีเป็นการแก้ไขข้อมูล
 			<select name="v903" id="v903" onchange="count_month_born()">
 				<?php 
 					$sql_config2="SELECT value FROM tbl_dr01_config WHERE config_id in (2,3)";
-					$rs2 = mysql_db_query('opp_master',$sql_config2);
+					$rs2 = mysql_db_query(DB_MASTER,$sql_config2);
 					$j=1;
 					$year=array();
 					while($result2=mysql_fetch_assoc($rs2)){
@@ -463,7 +463,7 @@ if($_GET['eq_id'] != ""){ # กรณีเป็นการแก้ไขข้อมูล
 			<select name="v415" id="v415">
 				<?php 
 					$sql_config1="SELECT value FROM tbl_dr01_config WHERE config_id = '1'";
-					$rs = mysql_db_query('opp_master',$sql_config1);
+					$rs = mysql_db_query(DB_MASTER,$sql_config1);
 					$result=mysql_fetch_assoc($rs);
 					for($i=1;$i<=$result['value'];$i++){?>
 						<option value="<?php echo $i;?>" <?php if($i==$value[415]){echo 'selected';} ?>><?php echo $i;?></option>
