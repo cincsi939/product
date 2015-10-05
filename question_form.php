@@ -361,6 +361,7 @@ else
 		}
 	 }
 	$con->connectDB() ;
+	mysql_select_db(DB_DATA);
 	$results = $con->select($sql);
 	if($_GET["debug"] == "ON"){
 		echo $sql;
