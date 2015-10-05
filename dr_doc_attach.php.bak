@@ -177,7 +177,8 @@
 		?>
 
 			
-            <h3><font style="font-weight:bold;"><?php echo $value['doc_orderby']?>. <?php echo $value['doc_type_name'];?></font>&nbsp;<?php echo $mark;?>&nbsp;</h3>
+            <h3><font style="font-weight:bold;"><?php echo $value['doc_orderby']?>. <?php echo $value['doc_type_name'];?></font>&nbsp;<?php echo $mark;?>&nbsp;$mark;?>&nbsp;</h3>
+            </h3>
             
 			<div group="msg" upload_area="<?php echo $key;?>">
             	<table width="100%" align="center" style="font-size:12px;">
