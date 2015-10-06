@@ -196,9 +196,10 @@
                             </td>
                     </tr>
                 	<tr>
-                    	<td valign="top" width="65%">
+                    	<td valign="top" width="65%" >
+
 							<div id="startUpload<?php echo $key;?>" class="ajax-file-upload-green" style="margin-left:10px;">‡√‘Ë¡Õ—æ‚À≈¥</div>
-							<div id="deleteFileUpload<?php echo $key;?>" style="display: none;">·π∫‰ø≈Ï</div>
+							<div id="deleteFileUpload<?php echo $key;?>" style="display: none;">·π∫‰ø≈Ï </div>
 						</td>
                     	<td valign="top" align="center"><div class="file-uploaded-<?php echo $key;?>" style="padding:10px 10px 10px 10px; margin:10px 10px 10px 10px; float:right; border:1px dashed #CCC; width:98%; text-align:left;">
                         <?php
