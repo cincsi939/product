@@ -197,7 +197,7 @@
                     </tr>
                 	<tr>
                     	<td valign="top" width="65%" >
-
+									
 							<div id="startUpload<?php echo $key;?>" class="ajax-file-upload-green" style="margin-left:10px;">‡√‘Ë¡Õ—æ‚À≈¥</div>
 							<div id="deleteFileUpload<?php echo $key;?>" style="display: none;">·π∫‰ø≈Ï </div>
 						</td>

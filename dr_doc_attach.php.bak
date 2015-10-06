@@ -71,7 +71,7 @@
 		 cancelStr:'ยกเลิก',
 		 req_id:req_id,
 		 doc_id:doc_id,
-		 dragDropStr: "<span style="color:black;">สามารถลากรายการเอกสารที่ต้องการมาวางเพื่อแนบได้</span>",
+		 dragDropStr: "<span>สามารถลากรายการเอกสารที่ต้องการมาวางเพื่อแนบได้</span>",
 		 showStatusAfterSuccess:false,
 			onSuccess:function(files,data,xhr)
 			{
@@ -196,8 +196,8 @@
                             </td>
                     </tr>
                 	<tr>
-                    	<td valign="top" width="65%" >
-
+                    	<td valign="top" width="65%" ><?php echo $key;?><?php echo $key;?>
+									
 							<div id="startUpload<?php echo $key;?>" class="ajax-file-upload-green" style="margin-left:10px;">เริ่มอัพโหลด</div>
 							<div id="deleteFileUpload<?php echo $key;?>" style="display: none;">แนบไฟล์ </div>
 						</td>
