@@ -397,11 +397,8 @@ function CheckNum(){
 function fncSubmit()
 {
 		var verify = '';
-	if($('#dataApprove').is(':checked')){}else{
-		alert('กรุณาเลือกยืนยันข้อมูลของท่าน');
-		$('#dataApprove').focus();
-		return false;
-	}
+	
+	
 	
 
 	
@@ -487,6 +484,12 @@ function fncSubmit()
 	if(verify != ''){
 		alert(verify);	
 		return false;	
+	}
+	
+	if($('#dataApprove').is(':checked')){}else{
+		alert('กรุณาเลือกยืนยันข้อมูลของท่าน');
+		$('#dataApprove').focus();
+		return false;
 	}
 	
 	
@@ -629,8 +632,16 @@ iframe#iframe-popup{
 </style>
 <?php
 	$sql_consider_result="SELECT consider_result FROM eq_approve_person WHERE eq_id = '".$_GET['eq_id']."'";
+//echo $sql_consider_result;
 	$rs_consider_result = mysql_query($sql_consider_result);
 	$result_consider_result = mysql_fetch_assoc($rs_consider_result);
+//echo'<hr>';
+//print_r($rs_consider_result);
+//echo'<hr>';
+
+//print_r($result_consider_result);
+//echo'<hr>';
+
 ?>
 <div class="container">
 <div class="tab-example">
@@ -644,15 +655,13 @@ iframe#iframe-popup{
   <div class="tab-pane current" id="part_1">
 <form action="main_exc/<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form1" name="form1" onSubmit="JavaScript:return fncSubmit();">
 <header>
-        <div >แบบ ดร. 01</div>
-        <div class="title-logo clear">
-            <span><b>แบบรับรองสถานะของครัวเรือน</b></span>
-        </div>
         
-        <div class="clear"></div>
+        <!--<div class="clear"></div>-->
     </header>
 <table width="90%" border="0">
 <tbody>
+	<div class="form-code" align="right" style="
+    margin-left: 81%;"><span>แบบ ดร. 01</span></div>
 	  <div class="write-at" align="right">
             <span class="require">เขียนที่</span>
             <input 	type="text" 
@@ -751,7 +760,7 @@ iframe#iframe-popup{
       <td height="25" colspan="2" valign="middle">
         เลขประจำตัวประชาชน<span class="style1"> *</span>
         <INPUT name="v3" type="text" id="v3" value="<?php echo $value[3]; ?>" size="30" <?php if($value[3]==''){}else{echo 'readonly';} ?>  onblur="chk_dupp()" onkeypress='return numonly()'/>        
-        <!--span  id="idClassCheck" class="bIdCard">ตรวจสอบ</span-->   <span  id="random2" class="bIdCard">สุ่มเลขบัตร</span><span id="showLabel1"></span></td>
+        <!--span  id="idClassCheck" class="bIdCard">ตรวจสอบ</span-->   <!--<span  id="random2" class="bIdCard">สุ่มเลขบัตร</span><span id="showLabel1"></span></td>-->
       </tr>
 	
     <tr>
@@ -792,7 +801,7 @@ iframe#iframe-popup{
          </tr>
         <tr>
           <td width="61" align="left">บ้านเลขที่</td>
-          <td width="152"><INPUT type="text" value="<?php echo $value[5]; ?>" name="v5" style="width:100px" id="v5" /></td>
+          <td width="152"><INPUT type="text" value="<?php echo $value[5]; ?>" name="v5" style="width:100px" id="v5" onkeypress='return numonly()'/></td>
           <td width="76" align="left">หมู่ที่</td>
           <td width="151"><input type="text" value="<?php echo $value[6]; ?>"  name="v6" style="width:50px" id="v6" onkeypress='return numonly()'/></td>
           
@@ -828,13 +837,14 @@ iframe#iframe-popup{
 				}
 			 ?>
 		</select></td>
-          <td align="left">อำเภอ </td>
+          <td align="left">อำเภอ/เขต </td>
           <td>
            <LABEL id="lblAmphur">
           	<select id="v9" name="v9" onChange = "chgTambon(this.value, '');" style="width:90%">
             <option value="">โปรดระบุ</option>
             <?php
-				/*$sql_Changwat = "Select ccDigi,ccName,areaid,group_id,areaid FROM ccaa WHERE ccType = 'Aumpur' ".$conn1;
+			if($value[10]!=''){
+				$sql_Changwat = "Select ccDigi,ccName,areaid,group_id,areaid FROM ccaa WHERE ccType = 'Aumpur' ".$conn1;
 				$results_Changwat = $con->select($sql_Changwat);
 				foreach($results_Changwat as $rd){
 					if($value[9]==$rd['ccDigi'])
@@ -845,20 +855,22 @@ iframe#iframe-popup{
 					{
 						echo '<option  value="'.$rd['ccDigi'].'">'.$rd['ccName'].'</option>';
 					}
-				}*/
+				}
+			 }
 			 ?>
             </select>
             </LABEL>
           
            <!--<input type="text" value="" name="tDistrict"/>--></td>
           
-          <td align="left">ตำบล </td>
+          <td align="left">ตำบล/แขวง </td>
           <td><!--<input type="text" value=""  name="tParish"/>-->
           <LABEL id="lblTambon">
           <select id="v8" name="v8" style="width:90%">
           <option value="">โปรดระบุ</option>
           <?php
-				/*$sql_Changwat = "Select ccDigi,ccName,areaid,group_id,areaid FROM ccaa WHERE ccType = 'Tamboon' ".$conn1;
+				if($value[9]!=''){
+				$sql_Changwat = "Select ccDigi,ccName,areaid,group_id,areaid FROM ccaa WHERE ccType = 'Tamboon' ".$conn1;
 				$results_Changwat = $con->select($sql_Changwat);
 				foreach($results_Changwat as $rd){
 					if($value[8]==$rd['ccDigi'])
@@ -869,17 +881,18 @@ iframe#iframe-popup{
 					{
 						echo '<option  value="'.$rd['ccDigi'].'">'.$rd['ccName'].'</option>';
 					}
-				}*/
+				}
+		  }
 			 ?>
           </select>
           </LABEL></td>
           <td align="left">รหัสไปรษณีย์</td>
-          <td><input type="text" value="<?php echo $value[406]; ?>"  name="v406" style="width:90%" id="v406"/></td>
+          <td><input type="text" value="<?php echo $value[406]; ?>"  name="v406" style="width:30%" id="v406" onkeypress='return numonly()' maxlength="5"/></td>
           </tr>
 		  <tr>
 		  <td align="left">โทรศัพท์</td>
           <td><input type="text" value="<?php echo $value[11]; ?>"  name="v11" style="width:90%" id="v11"/></td>
-		  <td align="left">โทรศัพท์มือถือ</td>
+		  <td align="left" style="height: 60px;width: 90px;">โทรศัพท์มือถือ</td>
           <td><input type="text" value="<?php echo $value[410]; ?>"  name="v410" style="width:90%" id="v410"/></td>
 		  </tr>
       </table>
@@ -889,7 +902,7 @@ iframe#iframe-popup{
          </tr>
          <tr>
           <td width="61" align="left">บ้านเลขที่</td>
-          <td width="152"><INPUT type="text" value="<?php echo $value[805]; ?>" name="v805" style="width:100px" id="v805" /></td>
+          <td width="152"><INPUT type="text" value="<?php echo $value[805]; ?>" name="v805" style="width:100px" id="v805" onkeypress='return numonly()'/></td>
          <td align="left" width="76">หมู่ที่</td>
           <td width="151"><input type="text" value="<?php echo $value[806]; ?>"  name="v806" style="width:50px" id="v806" onkeypress='return numonly()' /></td>
           <td align="left" width="76">หมู่บ้าน</td>
@@ -901,9 +914,7 @@ iframe#iframe-popup{
           
           <td align="left">ถนน </td>
           <td><input type="text" value="<?php echo $value[807]; ?>" name="v807" style="width:90%" id="v807" /></td>
-        </tr>
-        <tr>
-          <td align="left">จังหวัด <span class="style1"> *</span></td>
+		   <td align="left">จังหวัด <span class="style1"> *</span></td>
           <td><!--<input type="text" value="" name="tProvince" />-->
           
           <select id="v810" name="v810" onChange = "chgAmphur2(this.value);"  style="width:90%" >
@@ -929,13 +940,15 @@ iframe#iframe-popup{
 				}
 			 ?>
 		</select></td>
-          <td align="left">อำเภอ/เขต <span class="style1"> *</span></td>
+		
+		<td align="left">อำเภอ/เขต <span class="style1"> *</span></td>
           <td>
            <LABEL id="lblAmphur2">
           	<select id="v809" name="v809" onChange = "chgTambon2(this.value, '');" style="width:90%">
             <option value="">โปรดระบุ</option>
             <?php
-				/*$sql_Changwat = "Select ccDigi,ccName,areaid,group_id,areaid FROM ccaa WHERE ccType = 'Aumpur' ".$conn2;
+				if($value[810]!=''){
+				$sql_Changwat = "Select ccDigi,ccName,areaid,group_id,areaid FROM ccaa WHERE ccType = 'Aumpur' ".$conn2;
 				$results_Changwat = $con->select($sql_Changwat);
 				foreach($results_Changwat as $rd){
 					if($value[809]==$rd['ccDigi'])
@@ -946,20 +959,22 @@ iframe#iframe-popup{
 					{
 						echo '<option  value="'.$rd['ccDigi'].'">'.$rd['ccName'].'</option>';
 					}
-				}*/
+				}
+		}
 			 ?>
             </select>
             </LABEL>
           
            <!--<input type="text" value="" name="tDistrict"/>--></td>
           
-          <td align="left">ตำบล/แขวง <span class="style1"> *</span></td>
+          <td align="left" style="width: 85px;">ตำบล/แขวง <span class="style1"> *</span></td>
           <td><!--<input type="text" value=""  name="tParish"/>-->
           <LABEL id="lblTambon2">
           <select id="v808" name="v808" style="width:90%">
           <option value="">โปรดระบุ</option>
           <?php
-				/*$sql_Changwat = "Select ccDigi,ccName,areaid,group_id,areaid FROM ccaa WHERE ccType = 'Tamboon' ".$conn2;
+				if($value[809]!=''){
+				$sql_Changwat = "Select ccDigi,ccName,areaid,group_id,areaid FROM ccaa WHERE ccType = 'Tamboon' ".$conn2;
 				$results_Changwat = $con->select($sql_Changwat);
 				foreach($results_Changwat as $rd){
 					if($value[808]==$rd['ccDigi'])
@@ -970,19 +985,23 @@ iframe#iframe-popup{
 					{
 						echo '<option  value="'.$rd['ccDigi'].'">'.$rd['ccName'].'</option>';
 					}
-				}*/
+				}
+		  }
 			 ?>
           </select>
           </LABEL></td>
-          <td align="left">รหัสไปรษณีย์</td>
-          <td><input type="text" value="<?php echo $value[407]; ?>"  name="v407" style="width:90%" id="v407"/></td>
-          </tr>
-		  <tr>
+        </tr>
+        <tr>
+         
+          
+          <td align="left" style="width: 85px;">รหัสไปรษณีย์</td>
+          <td><input type="text" value="<?php echo $value[407]; ?>"  name="v407" style="width:30%" id="v407" onkeypress='return numonly()' maxlength="5"/></td>
 		  <td align="left">โทรศัพท์</td>
           <td><input type="text" value="<?php echo $value[811]; ?>"  name="v811" style="width:90%" id="v811"/></td>
-		  <td align="left">โทรศัพท์มือถือ</td>
+		  <td align="left" style="height: 60px;width: 90px;">โทรศัพท์มือถือ</td>
           <td><input type="text" value="<?php echo $value[411]; ?>"  name="v411" style="width:90%" id="v411"/></td>
-		  </tr>
+          </tr>
+		 
       </table>
       
       </td>
@@ -1143,11 +1162,11 @@ iframe#iframe-popup{
     </tr>
 	<tr class="father_data">
     	<td height="25" ></td>
-        <td align="left" colspan="3">ชื่อ(นาย) <span class="style1"> *</span><input type="text" name="v412" id="v412" value="<?php echo $value[412];?>"> นามสกุล <span class="style1"> *</span><input type="text" name="v413" id="v413" value="<?php echo $value[413];?>"></td>
+        <td align="left" colspan="3">ชื่อ(นาย) <span class="style1"> *</span><input type="text" name="v412" id="v412" value="<?php echo $value[412];?>" onkeypress='return chaonly()'> นามสกุล <span class="style1"> *</span><input type="text" name="v413" id="v413" value="<?php echo $value[413];?>" onkeypress='return chaonly()'></td>
     </tr>
 	<tr class="father_data">
     	<td height="25" ></td>
-        <td align="left" colspan="3">เลขประจำตัวประชาชน <span class="style1"> *</span><input type="text" name="v414" id="v414" value="<?php echo $value[414];?>" onKeyPress="CheckNum()"> &nbsp;<!--span  id="idClassCheck2" class="bIdCard">ตรวจสอบ</span--> <span  id="random3" class="bIdCard">สุ่มเลขบัตร</span><span id="showLabel2"></span></td>
+        <td align="left" colspan="3">เลขประจำตัวประชาชน <span class="style1"> *</span><input type="text" name="v414" id="v414" value="<?php echo $value[414];?>" onKeyPress="CheckNum()"> &nbsp;<!--span  id="idClassCheck2" class="bIdCard">ตรวจสอบ</span--> <!--<span  id="random3" class="bIdCard">สุ่มเลขบัตร</span><span id="showLabel2"></span>--></td>
     </tr>
 	<tr class="father_data">
     	<td height="25" ></td>
@@ -1213,7 +1232,7 @@ iframe#iframe-popup{
 			}
 		?>
         <td align="left" width="20"><input type="checkbox" name="v912" id="v912" value="1" <?php echo $check3;?>/></td>
-        <td align="left" colspan="2">นำเอกสารการฝากครรภ์หรือสมุดบันทึกสุขภาพแม่และเด็กมาแสดง(เจ้าหน้าที่บันทึกสถานที่ฝากครรภ์และกำหนดคลอด)</td>
+        <td align="left" colspan="2">สำเนาเอกสารการฝากครรภ์หรือสมุดบันทึกสุขภาพแม่และเด็กมาแสดง(เจ้าหน้าที่บันทึกสถานที่ฝากครรภ์และกำหนดคลอด)</td>
     </tr>
     <tr>
     	<td height="25" ></td>
@@ -2345,7 +2364,7 @@ dateFormat: 'dd/mm/yy',
 	
 	function numonly() {
     
-   if(  event.charCode >= 48 && event.charCode <= 57)
+   if(  event.charCode >= 48 && event.charCode <= 57 || event.charCode == 47)
    {
    	return true;    
    }else{
