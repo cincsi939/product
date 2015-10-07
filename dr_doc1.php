@@ -653,7 +653,14 @@ iframe#iframe-popup{
     </header>
 <table width="90%" border="0">
 <tbody>
-	  
+	  <div class="write-at" align="right">
+            <span class="require">เขียนที่</span>
+            <input 	type="text" 
+            		id=""
+                    name="" 
+                    value="" size="15" style="margin-right:5.2%">
+        </div>
+		
 		
     	<td colspan="4" align="right" >ลงทะเบียน ณ วันที่ <?php
 		if($results['0']['reportdate']){

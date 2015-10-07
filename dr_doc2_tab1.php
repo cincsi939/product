@@ -173,12 +173,12 @@
                                         <?php $district_list = getDistrict($val['guarantee'][$i]['address_province'],'array'); ?>
                                         <select name="address_district[]" id="verify_tab1-12<?= $i+1 ?>">
                                             <option>กรุณาเลือกอำเภอ/เขต</option>
-                                            <?php foreach($district_list as $ccDigi=>$ccName){ ?>
+                                            <?php /*foreach($district_list as $ccDigi=>$ccName){ 
                                                 <option value="<?=$ccDigi?>" 
                                                         <?= $val['guarantee'][$i]['address_district']==$ccDigi?'SELECTED':''?>>
                                                     <?=$ccName?>
                                                 </option>	
-                                            <?php } ?>
+                                            <?php } */?>
                                         </select>
                                     </td>
                                 </tr>
@@ -188,12 +188,12 @@
                                         <?php $sub_district_list = getSubDistrict($val['guarantee'][$i]['address_district'],'array'); ?>
                                         <select name="address_subdistrict[]" id="verify_tab1-13<?= $i+1 ?>">
                                             <option>กรุณาเลือกตำบล/แขวง</option>
-                                            <?php foreach($sub_district_list as $ccDigi=>$ccName){ ?>
+                                            <?php /*foreach($sub_district_list as $ccDigi=>$ccName){ 
                                                 <option value="<?=$ccDigi?>" 
                                                         <?= $val['guarantee'][$i]['address_subdistrict']==$ccDigi?'SELECTED':''?>>
                                                     <?=$ccName?>
                                                 </option>	
-                                            <?php } ?>
+                                            <?php } */?>
                                         </select>
                                     </td>
                                     <td class="require">รหัสไปรษณีย์</td>
