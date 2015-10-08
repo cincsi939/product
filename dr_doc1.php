@@ -471,7 +471,7 @@ function fncSubmit()
 	
 	if($('#v414').val().trim() == "" && ($('#chk_m_status').val()=='2' || $('#chk_m_status').val()=='3'))
 	{
-		verify += '-กรุณากรอกบัตรประชาชนของบิดา หรือ คลิกที่สุ่มบัตรประชาชนของบิดา\n';
+		verify += '-กรุณากรอกบัตรประชาชนของบิดา \n';
 	}
 	
 	if($('#v414').val().length != 13 && ($('#chk_m_status').val()=='2' || $('#chk_m_status').val()=='3'))
@@ -570,6 +570,9 @@ dateFormat: 'dd/mm/yy',
 			selectOtherMonths: true,
 			showButtonPanel: false,
 			maxDate:+0,
+	beforeShow: function(){    
+    $(".ui-datepicker, select").css('font-size', 14) 
+   }
     });
   });
 
@@ -643,6 +646,13 @@ iframe#iframe-popup{
 //echo'<hr>';
 
 ?>
+<?php 
+$then = $value[701];
+$then = strtotime($then); 
+$now = time();
+$difference = $now - $then;
+$days = floor(($difference / (60*60*24))-1);
+?>
 <div class="container">
 <div class="tab-example">
   <ul class="tabs">
@@ -696,11 +706,11 @@ iframe#iframe-popup{
       <?php
 	  	if(($value['378'] =='')or($value['378']==NULL))
 		{
-			$valueImg = '<img src="../img/nopicture.gif" width="150" height="180" id="imgprvw" alt="uploaded image preview" name="pPicture">';
+			$valueImg = '<img src="../img/nopicture.gif" width="120" height="160" id="imgprvw" alt="uploaded image preview" name="pPicture">';
 		}
 		else
 		{
-			$valueImg = '<img src="../../../repo_csg/profile/'.$value['378'].'" width="320" height="240" id="imgprvw" alt="uploaded image preview" name="pPicture">';
+			$valueImg = '<img src="../../../repo_csg/profile/'.$value['378'].'" width="120" height="160" id="imgprvw" alt="uploaded image preview" name="pPicture">';
 		}
 		echo $valueImg;
 	  ?>
@@ -1107,9 +1117,11 @@ iframe#iframe-popup{
 			if( $value[908] == '1' ){
 				$check2 = ' checked="checked" '; 
 			}else{
+				$value[908] == '0';
 				$disable_after="disabled";
 			}
 		?>
+		
         <td align="left" width="20"><input type="checkbox" name="v908" id="v908" value="1" <?php echo $check2;?>/></td>
         <?php
 			/*$para3 = array(
@@ -1130,7 +1142,9 @@ iframe#iframe-popup{
 											class="datepick" 
 											name="v905" 
                                             id = "v905" 
-											value="<?php echo change_date_format($value[905]);?>"
+											value="<?php 
+												echo ($value[905]==""?"":change_date_format($value[905]));
+											 		?>"
 											onChange="cal_join_date()"
 											>
 			&nbsp;อายุ&nbsp;
@@ -1156,7 +1170,7 @@ iframe#iframe-popup{
 		</td>
       </tr>
 	<tr class="father_data">
-   	  <td colspan="3" align="left"><b>ข้อมูลบิดาของเด็ก</b> (กรณีมารดาเด็กเป็นบุคคลต่างด้าว หรือเป็นบุคคลไร้สถานะทางทะเบียนราษฎร์ หรือเสียชีวิต อนุโลมให้บิดาของเด็กตามสูติบัตรผู้มีคุณสมบัติซึ่งมีสัญชาติไทย ลงทะเบียนแทน)</td>
+   	  <td colspan="3" align="left"><mark><b>ข้อมูลบิดาของเด็ก</b> </mark>(กรณีมารดาเด็กเป็นบุคคลต่างด้าว หรือเป็นบุคคลไร้สถานะทางทะเบียนราษฎร์ หรือเสียชีวิต อนุโลมให้บิดาของเด็กตามสูติบัตรผู้มีคุณสมบัติซึ่งมีสัญชาติไทย ลงทะเบียนแทน)</td>
    	  <td width="246">
       </td>
     </tr>
@@ -1327,7 +1341,7 @@ iframe#iframe-popup{
 		?>
     <tr height="50px;">
      <td colspan="4" align="right" valign="middle"><input type="submit" style="cursor:pointer; width:100px; height:30px;" value="บันทึก">
-	  <input type="button" style="cursor:pointer; width:100px; height:30px;" onclick="javascript:location.href='dashboard.php'" value="ยกเลิก">
+	  <input type="button" style="cursor:pointer; width:100px; height:30px;" onclick="javascript:location.href='<?php echo $_SESSION['session_mainfile'] ?>'" value="ยกเลิก">
       </tr>
       <?php
 			}else{
@@ -1362,10 +1376,18 @@ iframe#iframe-popup{
 </table>
 </div>
 <div class="tab-pane" id="part_2">
-<table align="center" style="margin-right: 50%;">
-    <tr>
-    	<td align="left"><b><u>ส่วนที่ 2</u> สำหรับเจ้าหน้าที่เป็นผู้บันทึก</b>&nbsp;<img src="../../images_sys/plus.gif" align="absmiddle" onclick="popup('<?php echo $_GET['id'];?>','main/dr_doc1_part2.php?from=add')" style="cursor:pointer;" title="เพิ่มข้อมูลการเกิดของเด็ก"/></td>
+<table>
+  <tbody><tr>
+    	<td align="left" style="margin-right: %;width: 1118px;"><b><u>ส่วนที่ 2</u> สำหรับเจ้าหน้าที่เป็นผู้บันทึก</b>&nbsp;</td>
+    <td>
+      <img src="../../images_sys/plus.gif" align="absmiddle" onclick="popup('ส846084871455','main/dr_doc1_part2.php?from=add')" style="cursor:pointer;" title="เพิ่มข้อมูลการเกิดของเด็ก">
+    </td>
     </tr>
+ </tbody></table>
+<table align="center" style="margin-right: 50%;">
+    <!--<tr>
+    	<td align="left"><b><u>ส่วนที่ 2</u> สำหรับเจ้าหน้าที่เป็นผู้บันทึก</b>&nbsp;<img src="../../images_sys/plus.gif" align="absmiddle" onclick="popup('<?php echo $_GET['id'];?>','main/dr_doc1_part2.php?from=add')" style="cursor:pointer;" title="เพิ่มข้อมูลการเกิดของเด็ก"/></td>
+    </tr>-->
      <tr>
 	<td colspan="4">
         <table border="0" cellpadding="0" cellspacing="1" id="ppDriverTable" class="order-list" width="200%">
@@ -1382,7 +1404,7 @@ iframe#iframe-popup{
         <tbody>
         <?php
 			$i = 0;
-			$sql = "select eq_id,eq_type,eq_idcard,eq_prename,eq_firstname,eq_lastname,eq_age,eq_education,eq_relation from ".DB_DATA.".eq_child where eq_mother_idcard = '".$_GET['id']."'";
+			$sql = "select eqc_id, eq_id,eq_type,eq_idcard,eq_prename,eq_firstname,eq_lastname,eq_age,eq_education,eq_relation from ".DB_DATA.".eq_child where eq_mother_idcard = '".$_GET['id']."'";
 			//echo $sql;
 			$tbl2 = $con->select($sql);
 			foreach($tbl2 as $row){
@@ -1395,7 +1417,7 @@ iframe#iframe-popup{
                 <a href="../../../opp_master/application/personal_data/index.php?p=general_data&keyview=general_data&p_id=10074&p_join_number=58-013-021&gid=54&idcard=<?php echo $row['eq_idcard'];?>" target="_blank"><?php echo $row['eq_prename']; ?><?php echo $row['eq_firstname']; ?> <?php echo $row['eq_lastname']; ?></a></td>
                 <td height="50" align="center" valign="top"><?php echo $row['eq_age']; ?></td>
                 <td height="50" align="center" valign="top"><?php echo $row['eq_relation']; ?></td>
-                <td height="50" align="center" valign="top"><a href="../rev_supp/index.php?p=dashboard_dr03&child_eq_id=<?php echo $row['eq_id'];?>&mother_eq_id=<?=$_GET['id'] ; ?>"><span style="cursor:pointer; text-decoration:underline;"; ><img src="../img/docre.png" width="16" height="16" border="0" title="เพิ่มข้อมูลการรับเงินอุดหนุน"></span></a>&nbsp;/&nbsp;<span style="cursor:pointer; text-decoration:underline;" onclick="popup('<?php echo $_GET['id'];?>','main/dr_doc1_part2.php?from=edit&eq_id=<?php echo $row['eq_id']; ?>' )"><img src="../img/b_edit.png" width="16" height="16" border="0" title="แก้ไขข้อมูล"></span>&nbsp;/&nbsp;<a id="del" href="main_exc/dr_doc1_del_exc.php?eq_id=<?php echo $row['eq_id']; ?>" OnClick="return chkdel();"><img src="../img/b_drop.png" width="16" height="16" border="0" title="ลบข้อมูล"></a></td>
+                <td height="50" align="center" valign="top"><a href="../rev_supp/index.php?p=dashboard_dr03&child_eq_id=<?php echo $row['eqc_id'];?>&mother_eq_id=<?php echo $row['eq_id']; ?>"><span style="cursor:pointer; text-decoration:underline;"; ><img src="../img/docre.png" width="16" height="16" border="0" title="เพิ่มข้อมูลการรับเงินอุดหนุน"></span></a>&nbsp;/&nbsp;<span style="cursor:pointer; text-decoration:underline;" onclick="popup('<?php echo $_GET['id'];?>','main/dr_doc1_part2.php?from=edit&eq_id=<?php echo $row['eqc_id']; ?>' )"><img src="../img/b_edit.png" width="16" height="16" border="0" title="แก้ไขข้อมูล"></span>&nbsp;/&nbsp;<a id="del" href="main_exc/dr_doc1_del_exc.php?eq_id=<?php echo $row['eqc_id']; ?>" OnClick="return chkdel();"><img src="../img/b_drop.png" width="16" height="16" border="0" title="ลบข้อมูล"></a></td>
           </tr>
          <?php
 			}
@@ -2324,6 +2346,24 @@ function cal_join_date(){
 <script type="text/javascript">
 
 	$(document).ready(function() {
+		var datedatadb = '<?=$value[701];?>';
+if(datedatadb!=''){
+$( ".datepick1001" ).datepicker({
+dateFormat: 'dd/mm/yy',
+			isBuddhist: true,
+			dayNames: ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'],
+			dayNamesMin: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'],
+			monthNames: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+			monthNamesShort: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+			showOtherMonths: true,
+			selectOtherMonths: true,
+			showButtonPanel: false,
+			minDate:-<?=$days;?>,
+	beforeShow: function(){    
+    $(".ui-datepicker, select").css('font-size', 14) 
+   }
+    });
+	}
 
 		$('.datepick1000').change(function() {
 
@@ -2356,7 +2396,10 @@ dateFormat: 'dd/mm/yy',
 			showOtherMonths: true,
 			selectOtherMonths: true,
 			showButtonPanel: false,
-			minDate:-value
+			minDate:-value,
+	beforeShow: function(){    
+    $(".ui-datepicker, select").css('font-size', 14) 
+   }
     });
 }
 

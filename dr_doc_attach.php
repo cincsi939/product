@@ -1,6 +1,7 @@
 <?php
 	@session_start();
 	require_once("lib/class.function.php");
+	
 	$con = new Cfunction();
 	$con->connectDB();
 	
@@ -27,6 +28,7 @@
 		return $arrOutput;
 	}
 	$arrDocType = getDocType();
+	
 ?>
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/jquery-ui.css">
@@ -56,7 +58,7 @@
 		}*/
 		var max_size_upload = 1024*10000;
 		var uploadObj = $("#deleteFileUpload"+doc_id).uploadFile({
-		 url: "upload.php?req_id="+req_id+"&doc_id="+doc_id,
+		 url: "multi_upload_file/upload.php?req_id="+req_id+"&doc_id="+doc_id,
 		 dragDrop: true,
 		 
 		 fileName: "myfile",
