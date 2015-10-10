@@ -1,7 +1,7 @@
 <?php
 	@session_start();
 	require_once("lib/class.function.php");
-	include("multi_upload_file/upload.php");
+	
 	$con = new Cfunction();
 	$con->connectDB();
 	
@@ -37,7 +37,7 @@
 <script src="../js/jquery-ui.js"></script>
 <script src="../js/jquery.uploadfile.min.js"></script>
 <script>
-	var req_id = "<?php echo $_GET['req_id']?>";
+	var req_id = "<?php echo $_GET['req_id']; ?>";
 	$(function(){
 		$( "#accordion" ).accordion();
 		$("div[group=msg]").each(function(){
