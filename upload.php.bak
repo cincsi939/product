@@ -1,13 +1,23 @@
+
 <?php
 session_start();
 ini_set('post_max_size', '2M');
 ini_set('upload_max_filesize', '2M');
-include('../../../config/conndb_nonsession.inc.php');
+include("../../../../config/config_host.php"); #อ้างหาค่า Define
+require_once("../../lib/class.function.php");
+$con = new Cfunction();
+$con->connectDB();
 include('function_sql.php');
-$output_dir = "../../repo_csg/survey/";
+$output_dir = "../../../../../repo_csg/survey/";
 $req_id = $_GET['req_id'];
 $doc_id = $_GET['doc_id'];
 $caption = $_GET['caption'];
+
+echo $req_id;
+echo $doc_id;
+
+echo $caption;
+
 
 if(isset($_FILES["myfile"]))
 {
@@ -20,7 +30,7 @@ if(isset($_FILES["myfile"]))
 	{
  	 	$fileName =  generateFileName($req_id,$doc_id);
  		if(move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName)){
-			addfileToDB($req_id,$doc_id,$caption,'REQ');
+			//addfileToDB($req_id,$doc_id,$caption,'REQ');
 		}
     	$ret[]= $fileName;
 	}
@@ -31,7 +41,7 @@ if(isset($_FILES["myfile"]))
 	  {
 	  	$fileName =  generateFileName($req_id,$doc_id);
 		if(move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName)){
-			addfileToDB($req_id,$doc_id,$caption,'REQ');
+			//addfileToDB($req_id,$doc_id,$caption,'REQ');
 		}
 	  	$ret[]= $fileName;
 	  }
@@ -39,5 +49,6 @@ if(isset($_FILES["myfile"]))
 	}
     echo json_encode($_GET);
  }
+ 
  
  ?>

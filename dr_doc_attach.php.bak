@@ -30,6 +30,7 @@
 	$arrDocType = getDocType();
 	
 ?>
+
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/jquery-ui.css">
 <link href="../css/uploadfile.min.css" rel="stylesheet">
@@ -37,7 +38,7 @@
 <script src="../js/jquery-ui.js"></script>
 <script src="../js/jquery.uploadfile.min.js"></script>
 <script>
-	var req_id = "<?php echo $_GET['req_id']; ?>";
+	var req_id = "<?php echo $_GET['eq_id']; ?>";
 	$(function(){
 		$( "#accordion" ).accordion();
 		$("div[group=msg]").each(function(){
@@ -58,7 +59,7 @@
 		}*/
 		var max_size_upload = 1024*10000;
 		var uploadObj = $("#deleteFileUpload"+doc_id).uploadFile({
-		 url: "multi_upload_file/upload.php?req_id="+req_id+"&doc_id="+doc_id,
+		 url: "main/multi_upload_file/upload.php?req_id="+req_id+"&doc_id="+doc_id,
 		 dragDrop: true,
 		 
 		 fileName: "myfile",
