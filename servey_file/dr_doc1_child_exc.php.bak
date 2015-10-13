@@ -84,9 +84,6 @@
 	eq_mother_idcard = '".$VAR['idcard_mother']."',
 	eq_mobilephone = '".$VAR['eq_mobilephone']."',
 	eq_postcode = '".$VAR['eq_postcode']."',
-	eq_care_name = '".$VAR['eq_care_name']."',
-	eq_care_lastname = '".$VAR['eq_care_lastname']."',
-	eq_Relationship = '".$VAR['eq_Relationship']."',
 	eq_date_create = NOW()";
 	
 	$rsConn = mysql_query($sql);	
@@ -134,9 +131,6 @@
 	eq_birthday = '".$VAR['birthDate']."',
 	eq_mobilephone = '".$VAR['eq_mobilephone']."',
 	eq_postcode = '".$VAR['eq_postcode']."',
-	eq_care_name = '".$VAR['eq_care_name']."',
-	eq_care_lastname = '".$VAR['eq_care_lastname']."',
-	eq_Relationship = '".$VAR['eq_Relationship']."',
 	eq_mother_idcard = '".$VAR['idcard_mother']."'
 	WHERE eqc_id = '".$VAR['eqc_id']."' ";
 	//echo $sql;

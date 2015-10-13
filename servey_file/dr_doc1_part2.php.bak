@@ -55,7 +55,10 @@
 						eq_child.eq_birthday AS eq_birthday,
 						eq_child.eq_postcode AS eq_postcode,
 						eq_child.eq_mobilephone AS eq_mobilephone,
-						eq_child.eq_mother_idcard AS eq_mother_idcard
+						eq_child.eq_mother_idcard AS eq_mother_idcard,
+						eq_child.eq_care_name AS eq_care_name,
+						eq_child.eq_care_lastname AS eq_care_lastname,
+						eq_child.eq_Relationship AS eq_Relationship
 					FROM eq_child
 					WHERE eq_child.eqc_id = '".$_GET['eqc_id']."' ";
 		$result = mysql_query($sql);
@@ -160,14 +163,17 @@
 		});
 		$('.presStatus').click(function(){
 			if($('input[name=presStatus]:radio:checked').val()=='1'){
-				$('#comment').attr('disabled','disabled');
-				$('#rerel').attr('disabled','disabled');
-				$('#comment').val("");
-				$('#rerel').val("");
+				$('#eq_care_name').attr('disabled','disabled');
+				$('#eq_care_lastname').attr('disabled','disabled');
+				$('#eq_Relationship').attr('disabled','disabled');
+				$('#eq_care_name').val("");
+				$('#eq_care_lastname').val("");
+				$('#eq_Relationship').val("");
 				
 			}else{
-				$('#comment').attr('disabled',false);
-				$('#rerel').attr('disabled',false);
+				$('#eq_care_name').attr('disabled',false);
+				$('#eq_care_lastname').attr('disabled',false);
+				$('#eq_Relationship').attr('disabled',false);
 			}
 		});
 		$('.stayPlace').click(function(){
@@ -295,6 +301,10 @@ function saveData(){
 	var address7 = $('#address7').val();
 	var eq_postcode = $('#eq_postcode').val();
 	var eq_mobilephone = $('#eq_mobilephone').val();
+	var eq_care_name = $('#eq_care_name').val();
+	var eq_care_lastname = $('#eq_care_lastname').val();
+	var eq_Relationship = $('#eq_Relationship').val();
+
 	
 	if(idcard==""){
 		alert('กรูณากรอกเลขประจำตัวประชาชน');
@@ -324,8 +334,16 @@ function saveData(){
 		alert('กรูณาระบุสถานที่คลอดบุตร');
 		return false;
 	}
-	if(presStatus=="2" && comment==""){
+	if(presStatus=="2" && eq_care_name==""){
 		alert('กรูณาระบุชื่อผู้เลี้ยงดูบุตร');
+		return false;
+	}
+	if(presStatus=="2" && eq_care_lastname==""){
+		alert('กรูณาระบุนามสกุลผู้เลี้ยงดูบุตร');
+		return false;
+	}
+	if(presStatus=="2" && eq_Relationship==""){
+		alert('กรูณาระบุความเกี่ยวข้อง');
 		return false;
 	}
 	if(stayPlace=="2" && address4==""){
@@ -347,7 +365,7 @@ function saveData(){
 		var eqc_id = '<?=$_GET['eqc_id'];?>';
 
 
-		var url = '../main_exc/dr_doc1_child_exc.php?from='+from+'&idcard_mother='+idcard_mother+'&idcard='+idcard+'&prename='+prename+'&firstname='+firstname+'&surname='+surname+'&birthDate='+birthDate+'&bdoc_no='+bdoc_no+'&bdoc_staff='+bdoc_staff+'&docDate='+docDate+'&birthPlace='+birthPlace+'&presStatus='+presStatus+'&comment='+comment+'&stayPlace='+stayPlace+'&address1='+address1+'&address2='+address2+'&address8='+address8+'&address9='+address9+'&address3='+address3+'&address4='+address4+'&address5='+address5+'&address6='+address6+'&address7='+address7+'&eq_postcode='+eq_postcode+'&eq_mobilephone='+eq_mobilephone+'&eq_id='+eq_id+'&eqc_id='+eqc_id;
+		var url = '../main_exc/dr_doc1_child_exc.php?from='+from+'&idcard_mother='+idcard_mother+'&idcard='+idcard+'&prename='+prename+'&firstname='+firstname+'&surname='+surname+'&birthDate='+birthDate+'&bdoc_no='+bdoc_no+'&bdoc_staff='+bdoc_staff+'&docDate='+docDate+'&birthPlace='+birthPlace+'&presStatus='+presStatus+'&comment='+comment+'&stayPlace='+stayPlace+'&address1='+address1+'&address2='+address2+'&address8='+address8+'&address9='+address9+'&address3='+address3+'&address4='+address4+'&address5='+address5+'&address6='+address6+'&address7='+address7+'&eq_postcode='+eq_postcode+'&eq_mobilephone='+eq_mobilephone+'&eq_care_name='+eq_care_name+'&eq_care_lastname='+eq_care_lastname+'&eq_Relationship='+eq_Relationship+'&eq_id='+eq_id+'&eqc_id='+eqc_id;
 		//alert(url);
 	$.get(url,function(data){
 		
@@ -487,7 +505,13 @@ $ws_client = $con->configIPSoap();
 				}
 			?>
             <input type="radio" name="presStatus" id="presStatus_1" class="presStatus" value="1" <?php echo $check1;?>>&nbsp;มารดาเลี้ยงดูเด็กเอง<br>
-            <input type="radio" name="presStatus" id="presStatus_2" class="presStatus" value="2" <?php echo $check2;?>>&nbsp;ให้ผู้อื่นเลี้ยงดู (ชื่อ-สกุลผู้เลี้ยงดู) <span class="style1"> *</span>&nbsp;<input type="text" id="comment" name="comment" <?php echo $disabled; ?> value="<?php echo $row['eq_comment'];?>" style="width:170px;"> เกี่ยวข้องเป็น&nbsp;<input type="text" id="rerel" name="rerel" <?php echo $disabled; ?> value="<?php echo $row['eq_comment'];?>" style="width:170px;">
+            <input type="radio" name="presStatus" id="presStatus_2" class="presStatus" value="2" <?php echo $check2;?>>&nbsp;ให้ผู้อื่นเลี้ยงดู (ชื่อ-สกุลผู้เลี้ยงดู) <span class="style1"> *</span>&nbsp;
+			ชื่อ&nbsp;
+			<input type="text" id="eq_care_name" name="eq_care_name" <?php echo $disabled; ?> value="<?php echo $row['eq_care_name'];?>" style="width:170px;" onkeypress='return chaonly()'> 
+			นามสกุล&nbsp;
+			<input type="text" id="eq_care_lastname" name="eq_care_lastname" <?php echo $disabled; ?> value="<?php echo $row['eq_care_lastname'];?>" style="width:170px;" onkeypress='return chaonly()'>
+			เกี่ยวข้องเป็น&nbsp;
+			<input type="text" id="eq_Relationship" name="eq_Relationship" <?php echo $disabled; ?> value="<?php echo $row['eq_Relationship'];?>" style="width:170px;" onkeypress='return chaonly()'>
         </td>
     </tr>
      <tr>
