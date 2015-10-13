@@ -1355,7 +1355,7 @@ $days = floor(($difference / (60*60*24))-1);
 				$check3 = ' checked="checked" '; 
 			}
 		?>
-        <td align="left" width="20"><input type="checkbox" name="v917" id="v917" value="1" <?php echo $check3;?>/></td>
+        <td align="left" width="20"><input type="radio" name="v917" id="v917" value="1" <?php echo $check3;?>/></td>
         <td align="left" colspan="2">รับเงินด้วยตนเอง ณ กรมกิจการเด็กและเยาวชน หรือ สำนักงานพัฒนาสังคมและความมั่นคงของมนุษย์จังหวัด</td>
     </tr>
     <tr>
@@ -1368,7 +1368,7 @@ $days = floor(($difference / (60*60*24))-1);
 				$disabled = '';
 			}
 		?>
-		<td align="left" width="20"><input type="checkbox" name="v916" id="v916" value="1" <?php echo $check3;?>/></td>
+		<td align="left" width="20"><input type="radio" name="v916" id="v916" value="1" <?php echo $check3;?>/></td>
         <td align="left" colspan="2">รับเงินผ่านธนาคารกรุงไทย เลขที่บัญชี&nbsp;<input type="text" name="v921" id="v921" <?php echo $disabled;?> value="<?php echo $value[921];?>"/>สาขา&nbsp;<input type="text" name="v925" id="v925" <?php echo $disabled;?> value="<?php echo $value[925];?>"  style="width:200px;"/></td>
     </tr>
     <tr>

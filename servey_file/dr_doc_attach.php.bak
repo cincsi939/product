@@ -61,7 +61,7 @@
 		 dragDrop: true,
 		 fileName: "myfile",
 		 returnType: "json",
-		 allowedTypes:"pdf,jpg,jpeg,png,gif",
+		 allowedTypes:"pdf",
 		 extErrorStr:"กรุณาแนบไฟล์เป็น : ",
 		 doneStr:"เสร็จสิ้น",
 		 sizeErrorStr:"เอกสารมีขนาดเกิน : ",

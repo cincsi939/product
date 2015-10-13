@@ -861,7 +861,7 @@ $days = floor(($difference / (60*60*24))-1);
           <td width="152"><INPUT type="text" value="<?php echo $value[5]; ?>" name="v5" style="width:100px" id="v5" onkeypress='return numonly()'/></td>
           <td width="76" align="left">หมู่ที่</td>
           <td width="151"><input type="text" value="<?php echo $value[6]; ?>"  name="v6" style="width:50px" id="v6" onkeypress='return numonly()'/></td>
-          <td width="61" align="left">ตึก</td>
+          <td width="61" align="left">อาคาร/ตึก</td>
           <td width="152"><INPUT type="text" value="" name="tuk1" style="width:100px" id="tuk1" /></td>
           <td width="76" align="left">ชั้น</td>
           <td width="151"><input type="text" value=""  name="chan1" style="width:50px" id="chan1" /></td>
@@ -974,7 +974,7 @@ $days = floor(($difference / (60*60*24))-1);
           <td width="152"><INPUT type="text" value="<?php echo $value[805]; ?>" name="v805" style="width:100px" id="v805" onkeypress='return numonly()'/></td>
          <td align="left" width="76">หมู่ที่</td>
           <td width="151"><input type="text" value="<?php echo $value[806]; ?>"  name="v806" style="width:50px" id="v806" onkeypress='return numonly()' /></td>
-		  <td width="61" align="left">ตึก</td>
+		  <td width="61" align="left">อาคาร/ตึก</td>
           <td width="152"><INPUT type="text" value="" name="tuk1" style="width:100px" id="tuk2" /></td>
           <td width="76" align="left">ชั้น</td>
           <td width="151"><input type="text" value=""  name="chan2" style="width:50px" id="chan2" /></td>
