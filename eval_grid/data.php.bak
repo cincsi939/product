@@ -13,10 +13,21 @@ include('connect.php');
 //   print "can't find $database";
 //}
 // get data and store in a json array
-$query = "SELECT * FROM personal_point_2557 LIMIT 10";
+$data;
+$query = "SELECT * FROM personal_point_2557 LIMIT 20";
 if (isset($_GET['update']))
 {
+	//$wp=$_GET['WorkingPeple'];
+	//$WPeple=json_decode($wp, true);
+	//$wPe = json_decode($wp, true);
+	//$wPeple=iconv("TIS-620","UTF-8",$wp);
+	//print_r($obj);
+	//echo $obj;
+	//$obj = json_decode($wPeple, true);
+	//print_r($obj);
 	// UPDATE COMMAND 
+	//echo $obj;
+	//console.log($obj);
 	$update_query = "UPDATE personal_point_2557 SET 
 	
 	`Working_log_id`='".$_GET['Working_log_id']."',
@@ -43,8 +54,11 @@ if (isset($_GET['update']))
 	`ABS_result`='".$_GET['ABS_result']."'
 	
 	WHERE 
-	`id`='".$_GET['id']."' and `IdCard`='".$_GET['IdCard']."'";
+	`id`='".$_GET['id']."' AND `IdCard`='".$_GET['IdCard']."'";
+	//$WPeple=json_decode($update_query);
+	//$WPeple=json_decode($update_query, true);
 	 $result = mysql_query($update_query) or die("SQL Error 1: " . mysql_error());
+	//$WPeple=json_decode($result, true);
      echo $result;
 }
 else
@@ -57,7 +71,7 @@ else
 		$employees[] = array(
 				'id'=>$row['id'],
 				'Working_log_id'=>$row['Working_log_id'],
-				'WorkingDate'=>''.$_GET['WorkingDate'],
+				'WorkingDate'=>''.$row['WorkingDate'],
 				'IdCard'=>$row['IdCard'],
 				'WorkingPeple'=>iconv("TIS-620","UTF-8",$row['WorkingPeple']),
 				'ProjectCode'=>$row['ProjectCode'],
@@ -82,11 +96,14 @@ else
 		  );
 	}
 	//echo '<pre>';
-	 //print_r($employees);
-	 //$data = iconv("tis-620",$employees);
+	// print_r($employees);
+
 	 
 	$data = json_encode($employees);
 	//print_r( json_decode($data));
+	$datap = jquery.parsejson($data);
+	echo $datap;
+
 	
 }
 

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<!--<meta http-equiv="Content-Type" content="text/html; charset=tis-620" />-->
     <link rel="stylesheet" href="jqwidgets-ver3.9.0/jqwidgets/styles/jqx.base.css" type="text/css" />
     <link rel="stylesheet" href="jqwidgets-ver3.9.0/jqwidgets/styles/jqx.classic.css" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
@@ -16,6 +18,7 @@
     <script type="text/javascript" src="jqwidgets-ver3.9.0/jqwidgets/jqxgrid.selection.js"></script>
     <script type="text/javascript" src="jqwidgets-ver3.9.0/jqwidgets/jqxgrid.edit.js"></script>
     <script type="text/javascript">
+
         $(document).ready(function () {
 			
 
@@ -53,9 +56,10 @@
 					     ],
                 id: 'id,IdCard',
                 url: 'data.php',
-                updaterow: function (rowid, rowdata) {
-					console.log(datafields);
+                updaterow: function (rowid, rowdata,commit) {
+					//console.log(datafields);
                     // synchronize with the server - send update command
+					commit(true);
                     var data = "update=true&id=" + rowdata.id + 
 							   "&Working_log_id=" + rowdata.Working_log_id + 
 							   "&WorkingDate=" + rowdata.WorkingDate + 
@@ -85,7 +89,7 @@
                         url: 'data.php',
                         data: data,
                         success: function (data, status, xhr) {
-							console.log(data);
+							console.log('data');
                             // update command is executed.
                         }
                     });
@@ -94,12 +98,15 @@
             // initialize jqxGrid
             $("#jqxgrid").jqxGrid(
             {
-                width: 700,
-                height: 350,
+                width: 1300,
+               height: 500,
                 selectionmode: 'singlecell',
                 source: source,
                 theme: theme,
                 editable: true,
+				 
+                
+                
                 columns: [
                       { text: 'id', editable: false, datafield: 'id', width: 100 },
                       { text: 'Working_log_id', columntype: 'dropdownlist', datafield: 'Working_log_id', width: 100 },
