@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>This sample illustrates how to add a button after jqxInput. The same approach can be used for adding content before, after, or on both sides of the jqxInput.</title>
+    <link rel="stylesheet" href="../../jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="../../jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+    <link rel="stylesheet" href="../../jqwidgets/styles/jqx.orange.css" type="text/css" />
+    <script type="text/javascript" src="../../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../scripts/demos.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxvalidator.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxbuttons.js"></script>
+</head>
+<body class='default'>
+    <div id='content'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#VendorNum').jqxInput({ theme: 'energyblue', width: 100, height: 25 });
+                $('#PONumber').jqxInput({ theme: 'energyblue', width: 100, height: 25 });
+                $('#AccountNumber').jqxInput({ theme: 'energyblue', width: 100, height: 25 });
+                $("#jqxbutton").jqxButton({ theme: 'energyblue', width: 100, height: 30 });
+                $('#ChangeToBlue').jqxButton({ theme: 'energyblue', width: 250, height: 30 });
+                $('#ChangeToOrange').jqxButton({ theme: 'energyblue', width: 250, height: 30 });
+                $('#testForm').jqxValidator({
+                    rules: [
+                      {
+                          input: '#userInput',
+                          message: 'Username is required!',
+                          action: 'blur',
+                          rule: 'required'
+
+                      },
+                      {
+                          input: '#emailInput',
+                          message: 'Invalid e-mail!',
+                          action: 'blur',
+                          rule: 'email'
+                      },
+                      {
+                          input: '#VendorNum',
+                          message: 'Invalid Vendor Number!',
+                          action: 'blur',
+                          rule: function () {
+                              var v = $('#VendorNum').jqxInput('val'),
+                                  p = $('#PONumber').jqxInput('val'),
+                                  themeSettingForValid = { theme: 'energyblue' },
+                                  themeSettingForInvalid = { theme: 'orange' },
+                                  result = false;
+                              console.log('v.length = ' + v.length + ', v = "' + v + '", p.length = ' + p.length + ', p = "' + p + '"');
+                              if (v.length == 6) {
+                                  if (p.length == 6) {
+                                      if (v == '999999' && p != 'PYROLL' && p.substr(0, 4) != 'PYRL') {
+                                          return false;
+                                      }
+                                  }
+                              }
+                              console.log('setting VendorNum theme valid');
+                              $('#VendorNum').jqxInput(themeSettingForValid);
+                              return true;
+                          }
+                      },
+                      {
+                          input: '#PONumber',
+                          message: 'Invalid PO Number!',
+                          action: 'blur',
+                          rule: function () {
+                              var p = $('#PONumber').jqxInput('val'),
+                                  v = $('#VendorNum').jqxInput('val'),
+                                  themeSettingForValid = { theme: 'energyblue' },
+                                  themeSettingForInvalid = { theme: 'orange' },
+                                  result = false;
+                              console.log('p.length = ' + p.length + ', p = "' + p + '", v.length = ' + v.length + ', v = "' + v + '"');
+                              if (p.length == 6) {
+                                  if (v.length == 6) {
+                                      if ((p == 'PYROLL' || p.substr(0, 4) == 'PYRL') && v != '999999') {
+                                          $('#VendorNum').jqxInput(themeSettingForInvalid);
+                                          return false;
+                                      } else {
+                                          console.log('setting VendorNum theme valid');
+                                          $('#VendorNum').jqxInput(themeSettingForValid);
+                                      }
+                                  }
+                              }
+                              return true;
+                          }
+                      },
+                      {
+                          input: '#AccountNumber',
+                          message: 'Invalid Account Number!',
+                          action: 'blur',
+                          rule: 'required'
+                      }
+                    ],
+                });
+                $("#jqxbutton").click(function () {
+                    $('#testForm').jqxValidator('validate');
+                });
+                $('#ChangeToBlue').click(function () {
+                    var themeSettingForValid = { theme: 'energyblue' };
+                    $('#VendorNum').jqxInput(themeSettingForValid);
+                });
+                $('#ChangeToOrange').click(function () {
+                    var themeSettingForInvalid = { theme: 'orange' };
+                    $('#VendorNum').jqxInput(themeSettingForInvalid);
+                });
+
+              
+            });
+        </script>
+   <form id="testForm" action="./">
+    <table class="register-table">
+        <tr>
+            <td>Username:</td>
+            <td>
+                <input type="text" id="userInput" class="text-input" />
+            </td>
+        </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td>
+                <input type="text" id="emailInput" class="text-input" />
+            </td>
+        </tr>
+        <tr>
+            <td>VendorNum:</td>
+            <td><input id="VendorNum" maxlength="6"/></td>
+        </tr>
+        <tr>
+            <td>PONumber: 16</td>
+            <td><input id="PONumber" maxlength="6"/></td>
+        </tr>
+        <tr>
+            <td>AccountNumber:</td>
+            <td><input id="AccountNumber" maxlength="18"/></td>
+        </tr>
+    </table>
+</form>
+
+<input type="button" style="margin:30px;" id="jqxbutton" value="Submit" />
+<input type="button" style="margin:30px;" id="ChangeToBlue" value="Change VendorNum To Blue" />
+<input type="button" style="margin:30px;" id="ChangeToOrange" value="Change VendorNum To Orange" />
+
+    </div>
+</body>
+</html>

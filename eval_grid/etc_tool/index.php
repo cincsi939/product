@@ -10,7 +10,7 @@ $ApplicationName   = 'etc_tool';
 $VERSION             = "1.0";
 #############################################################
 session_start();
-include ("../../config/config.inc.php");	
+include ("config/config.inc.php");	
 ?>
 <html>
 <head>

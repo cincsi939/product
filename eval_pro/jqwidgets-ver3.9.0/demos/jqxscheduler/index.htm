@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQuery Scheduler</title>
+    <meta name="keywords" content="jQuery Scheduler, Scheduler, JavaScript Scheduler, Scheduler component, Scheduler control, JS Scheduler" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="jQuery Number Input - Demos" />
+    <link rel="stylesheet" href="../../jqwidgets/styles/jqx.base.css" media="screen" />
+    <link rel="stylesheet" href="../../jqwidgets/styles/jqx.arctic.css" media="screen" />
+    <link rel="stylesheet" href="../../styles/jqx.apireference.css" media="screen" />
+    <link rel="stylesheet" href="../../styles/site.css" media="screen" />
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-25803467-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+    <div id="pageTop" class="top">
+    </div>
+    <div class="rc-all pageWrap">
+        <table class="rc-all navigatorOuterTable" id="demostable">
+            <tr valign="top">
+                <td>
+                    <table class="navigatorTable" cellspacing='0' cellpadding='0'>
+                        <tr>
+                            <td colspan="2" valign="top" id="Td1" class='rc-all navigatorInnerContainer'>
+                                <table class='navigatorInnerTable'>
+                                    <tr>
+                                        <td colspan="2" valign="top">
+                                            <div class="topExpander">
+                                            </div>
+                                            <div id="widgetsNavigation" class="widgetsNavigation">
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table class="jqxDemoContainer">
+            <tr id="widgetsNavigationTree">
+                <td valign="top" align="left" class='navigation'>
+                    <div id='navigationTitle' class='navigationTitle'>
+                        <div style='float: left; margin-right: 4px;' class="widget-icon jqx-scheduler-icon"></div>
+                        <a>jqxScheduler</a>
+                    </div>
+                    <div class='navigationItem'>
+                        <ul class='navigationContent'>
+                            <li class='navigationItemContent'><a href='defaultfunctionality.htm'>Default Functionality</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-timeline-views.htm'>Timeline Views</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-localization.htm'>Localization</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-binding-to-json.htm'>Binding to JSON</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-appointment-statuses.htm'>Appointment Statuses</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-appointment-restrictions.htm'>Appointment Restrictions</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-appointment-customization.htm'>Appointment Customization</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-recurring-appointment.htm'>Recurring Appointments</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-time-zones.htm'>Time Zones</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-configure-scales.htm'>Time Scales Zooming</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-configure-start-end-scale-hours.htm'>Time Scales Configuration</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-configure-row-height.htm'>Row Height</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-hide-time-ruler.htm'>Hide Time Ruler</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-hide-weekends.htm'>Hide Weekends</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-context-menu.htm'>Context Menu</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-edit-dialog.htm'>Edit Dialog</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-configure-work-hours.htm'>Work Time</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-configure-row-height.htm'>Row Height Configuration</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-resources.htm'>Resources</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-events.htm'>Events</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-keyboard-navigation.htm'>Keyboard Navigation</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-resources-columns-width.htm'>Resources with custom column widths</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-vertical-resources.htm'>Vertical Resources</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-timeline-views-resources.htm'>Timeline Views with Resources</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-fluid-size.htm'>Fluid Size</a>
+                            </li>
+                            <li class='navigationItemContent'><a href='scheduler-right-to-left.htm'>Right to Left</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id='Div11' class='navigationBottom'>
+                    </div>
+                </td>
+                <td valign="top" id="demos" class='rc-all content'>
+                    <table class='contentTable'>
+                        <tr>
+                            <td id="samplesPath"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="demoContainer" class='demoContainer'>
+                                    <div id="divWelcome" class="welcomeContent">
+                                        <h2>Introduction</h2>
+                                        The jqxScheduler widget displays a set of Appointments in Day, Week, Month, Timeline Day, Timeline Week and Timeline Month views.
+                                        <div>
+                                            <h3>Features</h3>
+                                            <ul>
+                                                <li>Multiple Views - Day, Week, Month, Timeline Day, Timeline Week and Timeline Month</li>
+                                                <li>Edit Dialogs</li>
+                                                <li>Recurring Appointments</li>
+                                                <li>Context Menus</li>
+                                                <li>Keyboard navigation</li>
+                                                <li>Cells Selection</li>
+                                                <li>Easy Navigation through Views</li>
+                                                <li>Customizable Appearance</li>
+                                                <li>Binding to JSON, XML, TSV, CSV or Array through jqxDataAdapter</li>
+                                                <li>Resources</li>
+                                                <li>Dynamic Apointments customization</li>
+                                                <li>Work Time configuration</li>
+                                                <li>Time zones</li>
+                                                <li>Time Scales configuration</li>
+                                                <li>Cross-browser/cross-platform support </li>
+                                                <li>Appearance and Themes </li>
+                                            </ul>
+                                        </div>
+                                        <div id="scheduler"></div>
+                                    </div>
+                                    <div id="tabs" class="demoTabs" style='width: 100%; padding: 0px; margin: 0px; visibility: hidden;'>
+                                        <ul style='margin-left: 30px;'>
+                                            <li id='tab1'>Demo</li>
+                                            <li id='tab2'>View Source</li>
+                                            <li id='tab3'>API Reference</li>
+                                        </ul>
+                                        <div style="overflow: hidden;" id="tabs-1">
+                                            <table border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
+                                                <tr>
+                                                    <td>
+                                                        <div id='divDescription'>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div id='innerdemoContainer'>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div style="overflow: auto;" id="tabs-2">
+                                        </div>
+                                        <div style="overflow: auto;" id="tabs-3">
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class='copyright'>Copyright © 2011-2015 jQWidgets. All rights reserved.|
+                                                            <a title='Contact Us' target='_blank' href="http://jqwidgets.com/contact-us/">Contact
+                                                                Us</a> | <a target='_blank' title='Follow Us' href="http://jqwidgets.com/follow/">Follow
+                                                                    Us</a> | <a target='_blank' title='Purchase' href="http://jqwidgets.com/license/">Purchase</a></span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="pageBottom" class="bottom">
+    </div>
+</body>
+<script type="text/javascript" src="../../scripts/format.js"></script>
+<script type="text/javascript" src="../../scripts/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../scripts/demos.js"></script>
+<script type="text/javascript" src="../../scripts/demofunctions.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxdata.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxdate.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxradiobutton.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxinput.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxmenu.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxscheduler.api.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxtabs.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxbuttons.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxscrollbar.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxlistbox.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxdropdownlist.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxmenu.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxnumberinput.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxscheduler.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxcalendar.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxcheckbox.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxdatetimeinput.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxscheduler.js"></script>
+<script type="text/javascript" src="../../jqwidgets/globalization/globalize.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxwindow.js"></script>
+<script type="text/javascript" src="../../jqwidgets/jqxresponse.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        initDemo();
+        var theme = 'arctic';
+        var appointments = new Array();
+
+        var appointment1 = {
+            id: "id1",
+            description: "George brings projector for presentations.",
+            location: "",
+            subject: "Quarterly Project Review Meeting",
+            calendar: "Room 1",
+            start: new Date(2015, 10, 23, 9, 0, 0),
+            end: new Date(2015, 10, 23, 16, 0, 0)
+        }
+
+        var appointment2 = {
+            id: "id2",
+            description: "",
+            location: "",
+            subject: "IT Group Mtg.",
+            calendar: "Room 2",
+            start: new Date(2015, 10, 24, 10, 0, 0),
+            end: new Date(2015, 10, 24, 15, 0, 0)
+        }
+
+        var appointment3 = {
+            id: "id3",
+            description: "",
+            location: "",
+            subject: "Course Social Media",
+            calendar: "Room 3",
+            start: new Date(2015, 10, 27, 11, 0, 0),
+            end: new Date(2015, 10, 27, 13, 0, 0)
+        }
+
+        var appointment4 = {
+            id: "id4",
+            description: "",
+            location: "",
+            subject: "New Projects Planning",
+            calendar: "Room 2",
+            start: new Date(2015, 10, 23, 16, 0, 0),
+            end: new Date(2015, 10, 23, 18, 0, 0)
+        }
+
+        var appointment5 = {
+            id: "id5",
+            description: "",
+            location: "",
+            subject: "Interview with James",
+            calendar: "Room 1",
+            start: new Date(2015, 10, 25, 15, 0, 0),
+            end: new Date(2015, 10, 25, 17, 0, 0)
+        }
+
+        var appointment6 = {
+            id: "id6",
+            description: "",
+            location: "",
+            subject: "Interview with Nancy",
+            calendar: "Room 4",
+            start: new Date(2015, 10, 26, 14, 0, 0),
+            end: new Date(2015, 10, 26, 16, 0, 0)
+        }
+        appointments.push(appointment1);
+        appointments.push(appointment2);
+        appointments.push(appointment3);
+        appointments.push(appointment4);
+        appointments.push(appointment5);
+        appointments.push(appointment6);
+
+
+        // prepare the data
+        var source =
+        {
+            dataType: "array",
+            dataFields: [
+                { name: 'id', type: 'string' },
+                { name: 'description', type: 'string' },
+                { name: 'location', type: 'string' },
+                { name: 'subject', type: 'string' },
+                { name: 'calendar', type: 'string' },
+                { name: 'start', type: 'date' },
+                { name: 'end', type: 'date' }
+            ],
+            id: 'id',
+            localData: appointments
+        };
+        var adapter = new $.jqx.dataAdapter(source);
+        $("#scheduler").jqxScheduler({
+            date: new $.jqx.date(2015, 11, 23),
+            width: 850,
+            height: 600,
+            source: adapter,
+            view: 1,
+            theme: "arctic",
+            showLegend: true,
+            ready: function () {
+                $("#scheduler").jqxScheduler('ensureAppointmentVisible', 'id1');
+            },
+            resources:
+            {
+                colorScheme: "scheme05",
+                dataField: "calendar",
+                source: new $.jqx.dataAdapter(source)
+            },
+            appointmentDataFields:
+            {
+                from: "start",
+                to: "end",
+                id: "id",
+                description: "description",
+                location: "place",
+                subject: "subject",
+                resourceId: "calendar"
+            },
+            views:
+            [
+                'dayView',
+                'weekView',
+                'monthView'
+            ]
+        });
+    });
+</script>
+</html>
