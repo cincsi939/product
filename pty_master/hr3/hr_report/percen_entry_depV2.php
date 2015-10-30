@@ -183,10 +183,10 @@ $allcal_nm += $cal_nm ;
 	<td class="boder_rb" height="18"><?=$i?></td>
 	<td align="left" class="boder_rb"> 
 <? if ($debug == "on" ) { echo  $depid ;    ?> 
-<a href="http://<?=$arr_ip[$depid]?>/edubkk_master/application/hr3/hr_report/percen_entry_depV2excel.php?xsiteid=<?=$depid?>"  target="_blank" ><img src="../../../images_sys/xls_logo.gif" width="16" height="16" border="0" /></a>
+<a href="http://<?=$arr_ip[$depid]?>/pty_master/application/hr3/hr_report/percen_entry_depV2excel.php?xsiteid=<?=$depid?>"  target="_blank" ><img src="../../../images_sys/xls_logo.gif" width="16" height="16" border="0" /></a>
 <? } #  if ($debug == "on" ) { echo  $depid ;    ?> 
 &nbsp; 
-<a href="http://<?=$arr_ip[$depid]?>/edubkk_master/application/hr3/hr_report/list_person_summary.php?loginid=<?=$depid?>" target="_top"  >
+<a href="http://<?=$arr_ip[$depid]?>/pty_master/application/hr3/hr_report/list_person_summary.php?loginid=<?=$depid?>" target="_top"  >
 <u><?=$depname?></u><a> </td>
 	<td align="right" class="boder_rb"><?=number_format($arr_arearef[$depid])?></td>
 	<td align="right" class="boder_rb"><?	

@@ -24,7 +24,7 @@ require_once('lib/Form.php');
 
 $obj = new Form();
 
-//$obj->init('localhost','root','root','edubkk_master');
+//$obj->init('localhost','root','root','pty_master');
 $obj->init(HOST,USERNAME_HOST,PASSWORD_HOST,DB_MASTER);
 
 $method = $obj->valPostGet('mod',false);

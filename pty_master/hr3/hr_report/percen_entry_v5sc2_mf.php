@@ -255,7 +255,7 @@ $where_str   ="";
 //echo "xsiteid :: $xsiteid<br>";
 $areadb = STR_PREFIX_DB. $xsiteid ; 
 $view_general  = STR_PREFIX_DB. $xsiteid .  ".view_general";
-$edubkk_master = "edubkk_master";
+$edubkk_master = DB_MASTER;
 
 $img_asc  = "<img src='../images_sys/s_asc.png'  width='11' height='9' border='0'>  ";
 $img_desc  = "<img src='../images_sys/s_desc.png'  width='11' height='9' border='0'>  ";
@@ -284,12 +284,12 @@ if ($xorder == 2 ){
 }else if ($xorder == 3 ){ 
 	if($or_by3 == "asc"){
 	$orderby = " vitaya asc  ";
-	//$orderby = " $edubkk_master.vitaya.orderby asc  ";
+	//$orderby = " ".DB_MASTER.".vitaya.orderby asc  ";
 	$xorder3 = " $img_asc";
 	$or_by3 = "desc";
 	}else{
 	$orderby = " vitaya desc  ";
-	//$orderby = " $edubkk_master.vitaya.orderby desc  ";
+	//$orderby = " ".DB_MASTER.".vitaya.orderby desc  ";
 	$xorder3 = " $img_desc";
 	$or_by3 = "asc";
 	}
@@ -363,8 +363,8 @@ if ($xorder == 2 ){
 		}
 
 }else{
-	$orderby = "  $edubkk_master.hr_addposition.orderby desc,$view_general.begindate asc,$view_general.vitaya desc "; 	
-	//$orderby = "  $edubkk_master.hr_addposition.orderby desc,$view_general.vitaya desc "; 	
+	$orderby = "  ".DB_MASTER.".hr_addposition.orderby desc,$view_general.begindate asc,$view_general.vitaya desc "; 	
+	//$orderby = "  ".DB_MASTER.".hr_addposition.orderby desc,$view_general.vitaya desc "; 	
 	//$view_general.salary DESC 
 } ##### END else if ($xorder == 1 ){ 
 
@@ -372,7 +372,7 @@ if ($xorder == 2 ){
 //SELECT  CZ_ID, siteid,prename_th,name_th,surname_th,position_now, orderby , approve_status ,salary  
 //    , vitaya_stat.name  AS vitaya , birthday,begindate
 //FROM  $view_general 
-//Left Join $edubkk_master.hr_addposition ON $view_general.position_now = $edubkk_master.hr_addposition.`position`
+//Left Join ".DB_MASTER.".hr_addposition ON $view_general.position_now = ".DB_MASTER.".hr_addposition.`position`
 //Left  Join  $areadb.vitaya_stat ON $view_general.id =   $areadb.vitaya_stat.id 
 //
 //WHERE  $view_general.schoolid =  '$scid' 
@@ -384,13 +384,13 @@ $sql = "
 SELECT CZ_ID, siteid,prename_th,name_th,surname_th,position_now, orderby , approve_status ,salary, vitaya  , birthday,begindate,
   TIMESTAMPDIFF(MONTH,begindate,'$c_year-09-30')/12 AS age_gov   
 FROM  $view_general 
-Left Join $edubkk_master.hr_addposition ON $view_general.position_now = $edubkk_master.hr_addposition.`position`
+Left Join ".DB_MASTER.".hr_addposition ON $view_general.position_now = ".DB_MASTER.".hr_addposition.`position`
 
 WHERE  ($view_general.sex =  ''  OR $view_general.sex IS NULL)
 $where_str  $where_area  
 order by  $orderby
 " ; 
-//Left Join $edubkk_master.vitaya ON   $view_general.vitaya = $edubkk_master.vitaya.vitayaname
+//Left Join ".DB_MASTER.".vitaya ON   $view_general.vitaya = ".DB_MASTER.".vitaya.vitayaname
 //echo $sql;
 $db_site = STR_PREFIX_DB."$xsiteid";
 $result = mysql_db_query($db_site,$sql) ; 

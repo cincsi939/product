@@ -17,7 +17,7 @@ if($_GET['id'] != ""){
 }
 
 
-if($dbname != "edubkk_master"){
+if($dbname != "pty_master"){
 		$xsiteid = substr($dbname,-4);
 }
 #########==========================> 16/08/2008   
@@ -3650,11 +3650,11 @@ if($_SESSION[tmpuser] != "" and (!($xpost === false))){
 
 
 if(substr($_SERVER["REMOTE_ADDR"],0,8) != "192.168." AND  substr($_SERVER["REMOTE_ADDR"],0,8) != "127.0.0." ){
-	if($_SESSION[secid] != "edubkk_master"){ // กรณี login เป็นระดับผู้บริหารไม่ต้องติด password
+	if($_SESSION[secid] != "pty_master"){ // กรณี login เป็นระดับผู้บริหารไม่ต้องติด password
 		if($nonpass != 1){
 			$pdf->SetProtection(array('print'),'competency',"$setpass");
 		}// end 	if($nonpass != 1){
-	}// end if($_SESSION[secid] != "edubkk_master"){ 
+	}// end if($_SESSION[secid] != "pty_master"){ 
 }// end if(substr($_SERVER["REMOTE_ADDR"],0,8) != "192.168." AND  substr($_SERVER["REMOTE_ADDR"],0,8) != "127.0.0." ){
 
 $pdf->SetFillColor(0,0,0);

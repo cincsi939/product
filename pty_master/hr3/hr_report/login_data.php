@@ -11,7 +11,7 @@ $BypassAPP 			= true;
 #Developer 	:: Rungsit
 #DateCreate	::13/01/2008
 #LastUpdate	::13/01/2008
-#DatabaseTabel:: edubkk_master.view_general
+#DatabaseTabel:: pty_master.view_general
 #END
 #########################################################
 # ob_start();

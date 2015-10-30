@@ -47,7 +47,7 @@ if($_SESSION['secid'] != "" and $_SESSION['secid'] != DB_MASTER){
 							top.location.href=\"$mainwebsite\";
 					</script>";
 			exit;
-}//end if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+}//end if($_SESSION['secid'] != "" and $_SESSION['secid'] != "pty_master"){
 	
 	
 	

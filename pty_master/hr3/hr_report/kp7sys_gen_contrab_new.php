@@ -21,7 +21,7 @@ include("../hr_report/gif.php");
 include("../hr_report/barcode/core.php");
 include("../../../common/class-date-format.php");
 
-$dbnamemaster = "edubkk_master";
+$dbnamemaster = "pty_master";
 $db_temp = DB_CHECKLIST;
 			
 #### ตรวจสอบข้อมูลการทำการ gen pdf
@@ -342,9 +342,9 @@ $intB = 0;
 $sqlm = "SELECT general.id,general.siteid,general.idcard,general.approve_status 
 FROM
 general
-Left Join edubkk_master.kp7sys_log_gen ON general.id = edubkk_master.kp7sys_log_gen.idcard
+Left Join pty_master.kp7sys_log_gen ON general.id = pty_master.kp7sys_log_gen.idcard
 WHERE
-edubkk_master.kp7sys_log_gen.idcard IS NULL  $xlimit";
+pty_master.kp7sys_log_gen.idcard IS NULL  $xlimit";
 //echo "$dbsite :: ".$sqlm;die;
 $resultm = mysql_db_query($dbsite,$sqlm);
 #############  ล้างค่าตัวแปร

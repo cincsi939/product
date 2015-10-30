@@ -530,13 +530,13 @@ if($_GET['action']=="edit1"||$_GET['action']=="edit2"){
 $sql="SELECT
 cmss_$secid.general.schoolid,
 cmss_$secid.general.idcard,
-edubkk_master.allschool.office,
-edubkk_master.eduarea.secid,
-edubkk_master.eduarea.secname
+pty_master.allschool.office,
+pty_master.eduarea.secid,
+pty_master.eduarea.secname
 FROM
-edubkk_master.allschool
-Inner Join cmss_$secid.general ON edubkk_master.allschool.id = cmss_$secid.general.schoolid
-Inner Join edubkk_master.eduarea ON cmss_$secid.general.siteid = edubkk_master.eduarea.secid 
+pty_master.allschool
+Inner Join cmss_$secid.general ON pty_master.allschool.id = cmss_$secid.general.schoolid
+Inner Join pty_master.eduarea ON cmss_$secid.general.siteid = pty_master.eduarea.secid 
 where cmss_$secid.general.idcard='$xid'";
 $result= mysql_query($sql);
 $row=mysql_fetch_array($result);
@@ -2135,7 +2135,7 @@ $xschool=$r_gen[schoolid];
                   <option value="" class="warn">ไม่ระบุ</option>
                   <?
 				  $sql="SELECT hr_positiongroup.positiongroupid as id , hr_positiongroup.positiongroup as value FROM hr_positiongroup  where  status_active='1' and  hr_positiongroup.positiongroupid =(SELECT left(hr_addposition_now.pid ,1)  FROM hr_addposition_now where hr_addposition_now.`position`='$rs[position]' limit 1)";				  
-				  $re_postgroup=mysql_db_query("edubkk_master",$sql);
+				  $re_postgroup=mysql_db_query("pty_master",$sql);
 				  $row_postgroup=mysql_fetch_array($re_postgroup);
 				  $id_postgroup=$row_postgroup[id];
                   $sql="SELECT  positiongroupid as id ,positiongroup as value FROM hr_positiongroup  where  status_active='1' order by  positiongroupid";
@@ -2254,7 +2254,7 @@ where hr_addposition_now.`position`= '$rs[position]' order by vitaya.orderby";
 
 	
 	//$xsql_v=mysql_query("SELECT * FROM $dbnamemaster.vitaya");
-	$xsql_v=mysql_db_query('edubkk_master',$sql);
+	$xsql_v=mysql_db_query('pty_master',$sql);
 				
 	  ?>
                       <select name="vitaya" id="vitaya"  onchange="onobjChange();">
@@ -2443,7 +2443,7 @@ $arr_level[]="2";
               <option value="" class="warn">ไม่ระบุ</option>
                 <?
 				  $sql="SELECT hr_positiongroup.positiongroupid as id , hr_positiongroup.positiongroup as value FROM hr_positiongroup  where  status_active='1' and  hr_positiongroup.positiongroupid =(SELECT left(hr_addposition_now.pid ,1)  FROM hr_addposition_now where hr_addposition_now.`pid`='$rs[pos_onduty]' limit 1)";				 // echo $sql;
-				  $re_postgroup=mysql_db_query("edubkk_master",$sql);
+				  $re_postgroup=mysql_db_query("pty_master",$sql);
 				  $row_postgroup=mysql_fetch_array($re_postgroup);
 				  $id_postgroup=$row_postgroup[id];
                   $sql="SELECT  positiongroupid as id ,positiongroup as value FROM hr_positiongroup  where  status_active='1' order by  positiongroupid";

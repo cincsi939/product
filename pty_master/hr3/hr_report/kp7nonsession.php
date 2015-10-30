@@ -1,7 +1,7 @@
 <?
 
 ### ค่าตัวแปรที่ส่งเป็นเกสมา
-## http://202.129.35.103/edubkk_master/application/hr3/hr_report/kp7103.php?xidcard=3501800010958&xsiteid=5001&tmpuser=16092494&tmppass=3501800010958
+## http://202.129.35.103/pty_master/application/hr3/hr_report/kp7103.php?xidcard=3501800010958&xsiteid=5001&tmpuser=16092494&tmppass=3501800010958
 
 ob_start();
 session_start();

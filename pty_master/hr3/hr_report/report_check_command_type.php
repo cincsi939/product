@@ -21,7 +21,7 @@ font-size: 12px;}
 <body>
 <?php
 $sql_name = "SELECT * FROM eduarea WHERE secid = '$site' ";
-$query_name = mysql_db_query('edubkk_master',$sql_name);
+$query_name = mysql_db_query('pty_master',$sql_name);
 $rows_name = mysql_fetch_array($query_name);
 echo $rows_name['secname'];
 ?>

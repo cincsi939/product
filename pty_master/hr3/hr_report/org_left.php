@@ -22,7 +22,7 @@ include ("../../common/common_competency.inc.php") ;
 include ("../../inc/authority.inc.php") ;
 $time_start = getmicrotime();
 // include_once  "../../config/config_epm.inc.php";
-			if($_SESSION[secid] == "edubkk_master"){
+			if($_SESSION[secid] == "pty_master"){
 				$name_main = "ระบบสนับสนุนการจัดการกลุ่มงาน"; 
 			}else{
 				$name_main = "ระบบสนับสนุนการจัดการกลุ่มงาน"; 

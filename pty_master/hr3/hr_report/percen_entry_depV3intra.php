@@ -205,10 +205,10 @@ $allcal_nm += $cal_nm ;
 <? if ($debug == "on" ) {    ?> 
 <? } #  if ($debug == "on" ) { echo  $depid ;    ?> 
 
-<a href="http://<?=$arr_ip[$depid]?>/edubkk_master/application/hr3/hr_report/percen_entry_depV2excel.php?xsiteid=<?=$depid?>"  target="_blank" ><img src="../../../images_sys/xls_logo.gif" width="16" height="16" border="0" /></a>
+<a href="http://<?=$arr_ip[$depid]?>/pty_master/application/hr3/hr_report/percen_entry_depV2excel.php?xsiteid=<?=$depid?>"  target="_blank" ><img src="../../../images_sys/xls_logo.gif" width="16" height="16" border="0" /></a>
 
 &nbsp; 
-<a href="http://<?=$arr_ip[$depid]?>/edubkk_master/application/hr3/hr_report/list_person_summaryV3.php?xsiteid=<?=$depid?>" target="_top"  >
+<a href="http://<?=$arr_ip[$depid]?>/pty_master/application/hr3/hr_report/list_person_summaryV3.php?xsiteid=<?=$depid?>" target="_top"  >
 <u><?=$depname?></u><a>
 <?
 

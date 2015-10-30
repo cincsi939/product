@@ -211,7 +211,7 @@ if($rs_general[contact_tel] != ""){ // เบอร์โทรที่สามารถติดต่อได้
 
 #******************************************************** การเป็นสมาชิก กบข. *****************************************************************#
 
-$sql_member=" SELECT edubkk_master.tbl_status_gpf.gpf_detail AS detail FROM edubkk_master.tbl_status_gpf,general WHERE general.status_gpf=edubkk_master.tbl_status_gpf.runid AND  id='$idcard'  ";
+$sql_member=" SELECT pty_master.tbl_status_gpf.gpf_detail AS detail FROM pty_master.tbl_status_gpf,general WHERE general.status_gpf=pty_master.tbl_status_gpf.runid AND  id='$idcard'  ";
 
 $result_member=mysql_db_query($db_site,$sql_member);
 			

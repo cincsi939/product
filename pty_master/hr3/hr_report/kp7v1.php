@@ -16,7 +16,7 @@ if($_GET['id'] != ""){
 }
 
 
-if($dbname != "edubkk_master"){
+if($dbname != "pty_master"){
 		$xsiteid = substr($dbname,-4);
 }
 #########==========================> 16/08/2008   
@@ -3563,11 +3563,11 @@ if($_SESSION[tmpuser] != "" and (!($xpost === false))){
 //	$pdf->Cell(0,5,"$setpass == $tmpuser",1,0,'C');
 
 
-	if($_SESSION[secid] != "edubkk_master"){ // กรณี login เป็นระดับผู้บริหารไม่ต้องติด password
+	if($_SESSION[secid] != "pty_master"){ // กรณี login เป็นระดับผู้บริหารไม่ต้องติด password
 		if($nonpass != 1){
 			$pdf->SetProtection(array('print'),'competency',"$setpass");
 		}// end 	if($nonpass != 1){
-	}// end if($_SESSION[secid] != "edubkk_master"){ 
+	}// end if($_SESSION[secid] != "pty_master"){ 
 
 
 $pdf->cfooter();

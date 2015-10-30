@@ -186,7 +186,7 @@ $allcal_nm += $cal_nm ;
 <? if ($debug == "on" ) { echo  $depid ;  $loginid= "xsiteid"; }else{ $loginid= "loginid";  }     ?> 
 
 &nbsp; 
-<a href="http://<?=$arr_ip[$depid]?>/edubkk_master/application/hr3/hr_report/list_person_summary.php?<?=$loginid?>=<?=$depid?>" target="_top"  >
+<a href="http://<?=$arr_ip[$depid]?>/pty_master/application/hr3/hr_report/list_person_summary.php?<?=$loginid?>=<?=$depid?>" target="_top"  >
 <u><?=$depname?></u><a> </td>
 	<td align="right" class="boder_rb"><?=number_format($arr_arearef[$depid])?></td>
 	<td align="right" class="boder_rb"><?	

@@ -249,7 +249,7 @@ $last_id = SaveLogGenPdfMain($siteid_sent,"system",$profile_id); // id ล่าสุดใน 
 $sql_del = "DELETE FROM log_gen_filepdf WHERE siteid='$siteid_sent' AND type_file='system' AND profile_id='$profile_id'";
 mysql_db_query($db_temp,$sql_del);
 
-//$sqlm = " SELECT DISTINCT edubkk_master.allschool.id AS id1,edubkk_master.allschool.office,$dbsite.general.idcard,$dbsite.general.name_th,$dbsite.general.surname_th,$dbsite.general.approve_status FROM edubkk_master.allschool INNER JOIN $dbsite.general  ON $dbsite.general.schoolid = edubkk_master.allschool.id ORDER BY $dbsite.general.schoolid ASC  $xlimit "  ;
+//$sqlm = " SELECT DISTINCT pty_master.allschool.id AS id1,pty_master.allschool.office,$dbsite.general.idcard,$dbsite.general.name_th,$dbsite.general.surname_th,$dbsite.general.approve_status FROM pty_master.allschool INNER JOIN $dbsite.general  ON $dbsite.general.schoolid = pty_master.allschool.id ORDER BY $dbsite.general.schoolid ASC  $xlimit "  ;
 
 ##  
 
@@ -260,7 +260,7 @@ $his_name1 = "";
 $xhis_name1 = "";
 
 /*$sqlm = "SELECT DISTINCT t1.id AS id1,t1.office,t2.idcard,t2.name_th,t2.surname_th,t2.approve_status 
-FROM edubkk_master.allschool as t1 INNER JOIN $dbsite.general as t2  ON t2.schoolid = t1.id
+FROM pty_master.allschool as t1 INNER JOIN $dbsite.general as t2  ON t2.schoolid = t1.id
 INNER JOIN  edubkk_checklist.tbl_checklist_kp7 as t3 ON t2.idcard=t3.idcard  
 INNER JOIN edubkk_userentry.tbl_assign_key as t4 ON t3.idcard=t4.idcard
 AND t3.siteid=t4.siteid
@@ -278,9 +278,9 @@ t1.name_th,
 t1.surname_th,
 t1.approve_status
 FROM
-edubkk_master.view_general AS t1
+pty_master.view_general AS t1
 Inner Join edubkk_checklist.tbl_checklist_kp7 AS t2 ON t1.CZ_ID = t2.idcard AND t1.siteid = t2.siteid and t2.profile_id='$profile_id'
-inner join edubkk_master.allschool as t3 on t1.schoolid=t3.id  and t3.siteid='$siteid_sent'
+inner join pty_master.allschool as t3 on t1.schoolid=t3.id  and t3.siteid='$siteid_sent'
 where t1.siteid='$siteid_sent'  and  t1.user_approve <> '0'
 order by t1.schoolid ASC $xlimit";*/
 

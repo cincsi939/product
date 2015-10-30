@@ -36,7 +36,7 @@ if($sentsecid==DB_MASTER){
 	$siteid = 0;
 }else if($sentsecid==""){
 	echo " <script language=\"JavaScript\">  alert(\" กรุณา loginเข้าสู่ระบบอีกครั้ง \") ; </script>  " ;   
-	echo " <script language=\"JavaScript\"> top.location.replace('".APPURL."/edubkk_master/application/hr3/login.php') </script>  " ;  
+	echo " <script language=\"JavaScript\"> top.location.replace('".APPURL."/pty_master/application/hr3/login.php') </script>  " ;  
 	die;
 }else{
 	$dbname = STR_PREFIX_DB.$sentsecid;

@@ -656,7 +656,7 @@ function cfooter($Gety1=-1)
 
 			$x = $this->lMargin;
 			$xid = trim($xid);
-$dbnamemaster="edubkk_master";
+$dbnamemaster="pty_master";
 /*$sql = "select t1.*,t2.religion as religionname,t3.blood as bloodgroup from  (general t1 left join $dbnamemaster.hr_religion t2 on t1.region=t2.id) left join $dbnamemaster.hr_blood t3 on t1.blood=t3.id where t1.id='$xid'  ;";*/
 $sql = "select t1.*,t2.religion as religionname,t3.blood as bloodgroup from (general t1 left join $dbnamemaster.hr_religion t2 on t1.region=t2.id) left join $dbnamemaster.hr_blood t3 on t1.blood=t3.id where t1.id='$xid';";
 		$result = mysql_query($sql);

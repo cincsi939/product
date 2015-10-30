@@ -641,7 +641,7 @@ class Form extends Sap {
     }
 
     public function setStatus($idcard=false) {
-        $this->changeDB('edubkk_master');
+        $this->changeDB('pty_master');
         $sql = "update view_general_report_lastdata set status_key='1' where CZ_ID='{$idcard}' limit 1";
 
         return $this->setResult($sql);

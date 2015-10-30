@@ -26,7 +26,7 @@ include("../../../common/class-date-format.php");
 			$host = "202.129.35.104";
 			$username = "sapphire";
 			$password = "sprd!@#$%";
-			$dbnamemaster = "edubkk_master";
+			$dbnamemaster = "pty_master";
 			$db_temp = DB_CHECKLIST;
 
 function conn(){
@@ -314,9 +314,9 @@ $intB = 0;
 $sqlm = "SELECT general.id,general.siteid,general.idcard,general.approve_status 
 FROM
 general
-Left Join edubkk_master.kp7sys_log_gen ON general.id = edubkk_master.kp7sys_log_gen.idcard
+Left Join pty_master.kp7sys_log_gen ON general.id = pty_master.kp7sys_log_gen.idcard
 WHERE
-edubkk_master.kp7sys_log_gen.idcard IS NULL  $xlimit";
+pty_master.kp7sys_log_gen.idcard IS NULL  $xlimit";
 $sqlm = "SELECT * FROM general  where idcard='3320700544706'"  ;
 //echo "$dbsite :: ".$sqlm;die;
 $resultm = mysql_db_query($dbsite,$sqlm);

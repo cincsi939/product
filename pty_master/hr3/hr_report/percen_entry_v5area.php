@@ -40,7 +40,7 @@ print_r($_SESSION);
 */
 if($xsiteid != ""){ $xsiteid = $xsiteid;}else{ $xsiteid = "5006";}; // กรณีทดสอบในเครื่อง
 
-$edubkk_master = "edubkk_master" ; 
+$edubkk_master = DB_MASTER ; 
 $lead_general = "general";
 $view_general = "view_general";
 $now_dbname = STR_PREFIX_DB. $xxsiteid ; 
@@ -310,7 +310,7 @@ window.frames['iframe1'].print();
 //	SELECT IP, intra_ip FROM  eduarea  
 //	Inner Join area_info ON eduarea.area_id = area_info.area_id
 //	WHERE `secid` LIKE '$loginid'  "; 
-//	$result = mysql_db_query($edubkk_master , $sql) ;  
+//	$result = mysql_db_query(DB_MASTER , $sql) ;  
 //	$rs = mysql_fetch_assoc($result) ; 
 //	$rshost = $rs[intra_ip] ; 
 //
@@ -331,7 +331,7 @@ window.frames['iframe1'].print();
 //} ############ if ( $submit != ""){  
 
 $sql = " SELECT secname  FROM `eduarea` WHERE `secid` LIKE '$loginid'  "; 
-$result = mysql_db_query($edubkk_master , $sql) ;  
+$result = mysql_db_query(DB_MASTER , $sql) ;  
 $rs = mysql_fetch_assoc($result) ; 
 $rssecname  = $rs[secname] ; 
 
@@ -365,7 +365,7 @@ $areaname = $rs[secname] ;
 //}else{  #### if ($arr_select[$xsiteid] != ""){ 
 //	$sql_tech = find_groupstaff(6)  ;  
 //	$str_whereposition = "  NOT  $sql_tech  " ;
-//	$act_dbname  = "edubkk_master";	
+//	$act_dbname  = "pty_master";	
 //	$act_table  = "view_general"  ; 	
 //}		########## END   สำหรับ เขตนำร่อง เกณฑ์ sum จาก general ที่ site เลย 
 //	#------------------------------------------------------------------------------------------------------------
@@ -428,7 +428,7 @@ $areaname = $rs[secname] ;
 //# echo " session secid ::::::::: ". $_SESSION[secid] ." ||||||===|       _SESSION reportsecid  " . $_SESSION[reportsecid] ; 
 //?><?	 
 //$sql = " SELECT secname  FROM `eduarea` WHERE `secid` LIKE '$xsiteid'  "; 
-//$result1= mysql_db_query( $edubkk_master ,  $sql1);  
+//$result1= mysql_db_query( DB_MASTER ,  $sql1);  
 //$rs = mysql_fetch_assoc($result) ; 
 //$rssecname  = $rs[secname] ; 
 //

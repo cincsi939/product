@@ -17,7 +17,7 @@ include("../../../common/class-date-format.php");
 			$host = "192.168.2.12";
 			$username = "sapphire";
 			$password = "sprd!@#$%";
-			$dbnamemaster = "edubkk_master";
+			$dbnamemaster = "pty_master";
 			$db_temp = "temp_check_data";
 
 function conn(){

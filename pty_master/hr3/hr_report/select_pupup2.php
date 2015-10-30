@@ -67,7 +67,7 @@ a:active {
             </tr>
 			<?
 
-			 if($dbname == "edubkk_master"){
+			 if($dbname == "pty_master"){
 			 		$dis_select = "";	
 			}else{
 				

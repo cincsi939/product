@@ -17,7 +17,7 @@ $kp7_active="1";
 $activity_id = "A0001"; // รหัส log พิมพ์ PDF
 $server_id = "S0001"; // รหัส server
 
-if($dbname != "edubkk_master"){
+if($dbname != "pty_master"){
 		$xsiteid = substr($dbname,-4);
 }
 

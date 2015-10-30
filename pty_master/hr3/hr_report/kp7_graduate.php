@@ -13,7 +13,7 @@ $preview_status=1;
 $kp7_active=1;
 $iresult = mysql_query("SET character_set_results=tis-620");
 $iresult = mysql_query("SET NAMES TIS620");
-if($dbname != "edubkk_master"){
+if($dbname != "pty_master"){
 		$xsiteid = substr($dbname,-4);
 }
 

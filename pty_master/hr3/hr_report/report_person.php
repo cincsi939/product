@@ -35,11 +35,11 @@ $shortmonth = array( "","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.", "ก.ค.","ส.
 
 #$_GET['official_history']=on คือการต้องการแสดงเฉพาะประวัติข้าราชการ	
 	
-if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+if($_SESSION['secid'] != "" and $_SESSION['secid'] != "pty_master"){
 	$db_name = STR_PREFIX_DB.$_SESSION['secid'];	
 }else if($_SESSION['temp_dbsite'] != ""){
 	$db_name = $_SESSION['temp_dbsite'];
-}else if($xsiteid != "" and $xsiteid != "edubkk_master"){
+}else if($xsiteid != "" and $xsiteid != "pty_master"){
 	$_SESSION['id'] = $_GET['id'];
 	$db_name = STR_PREFIX_DB.$xsiteid;
 }else{
@@ -49,7 +49,7 @@ if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
 							top.location.href=\"$mainwebsite\";
 					</script>";
 			exit;
-}//end if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+}//end if($_SESSION['secid'] != "" and $_SESSION['secid'] != "pty_master"){
 	
 	
 	

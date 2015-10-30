@@ -19,7 +19,7 @@ $activity_id = "A0001"; // รหัส log พิมพ์ PDF
 $server_id = "S0001"; // รหัส server
 $kp7="1"; // รหัส เปิดการแสดงผลข้อมูล กพ 7
 
-if($dbname != "edubkk_master"){
+if($dbname != "pty_master"){
 		$xsiteid = substr($dbname,-4);
 }
 

@@ -33,7 +33,7 @@ include("../../../common/std_function.inc.php");
 include("../hr_report/gif.php");
 include("../hr_report/barcode/core.php");
 include("../../../common/class-date-format.php");
-			$dbnamemaster = "edubkk_master";
+			$dbnamemaster = "pty_master";
 			$db_temp = DB_CHECKLIST;
 
 			
@@ -379,10 +379,10 @@ $intB = 0;
 $sqlm = "SELECT general.id,general.siteid,general.idcard
 FROM
 $dbsite.general
-left Join edubkk_master.tbl_checkdata_update ON $dbsite.general.idcard = edubkk_master.tbl_checkdata_update.idcard
+left Join pty_master.tbl_checkdata_update ON $dbsite.general.idcard = pty_master.tbl_checkdata_update.idcard
 WHERE
-edubkk_master.tbl_checkdata_update.idcard IS NULL  OR
-edubkk_master.tbl_checkdata_update.flag_process = '0' $xlimit";
+pty_master.tbl_checkdata_update.idcard IS NULL  OR
+pty_master.tbl_checkdata_update.flag_process = '0' $xlimit";
 //echo $sqlm;die;
 $resultm = mysql_db_query($dbsite,$sqlm);
 #############  ล้างค่าตัวแปร

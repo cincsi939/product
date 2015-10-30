@@ -52,7 +52,7 @@ echo "<name>$ar[prename_th] $ar[name_th] $ar[surname_th]</name>";
 echo "<position>$ar[position_now]</position>";
 echo "<vitaya>$ar[vitaya]</vitaya>";
 echo "<pic>http://$ar[ip]/image_file/$ar[siteid]/$ar2[imgname]</pic>";
-//echo "<pic>http://$ar[ip]/edubkk_master/application/hr3/hr_report/images/personal/$ar2[imgname]</pic>";
+//echo "<pic>http://$ar[ip]/pty_master/application/hr3/hr_report/images/personal/$ar2[imgname]</pic>";
 echo "<siteid>$ar[siteid]</siteid>";
 echo "<czid>$ar[cz_id]</czid>";
 echo "<school>$scname</school>";

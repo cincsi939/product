@@ -31,7 +31,7 @@ mysql_select_db($dbname);
 if($_GET['SKIP'] == "ON"){
 	$sentsecid = $_SESSION[secid];
 	//print"<meta http-equiv=\"refresh\" content=\"0;URL=http://61.19.255.75/competency_master/application/hr3/hr_report/kp7_s.php?id=".$_GET[id]."&sentsecid=$sentsecid\">\n";	
-	print"<meta http-equiv=\"refresh\" content=\"0;URL=".APPURL."/edubkk_master/application/hr3/hr_report/kp7_s.php?id=".$_GET[id]."&sentsecid=$sentsecid\">\n";	
+	print"<meta http-equiv=\"refresh\" content=\"0;URL=".APPURL."/pty_master/application/hr3/hr_report/kp7_s.php?id=".$_GET[id]."&sentsecid=$sentsecid\">\n";	
 	exit();		
 }
 //  กรณีส่ง link มาจากหน้า search 

@@ -29,7 +29,7 @@ if($_GET['id'] != ""){
 }
 
 if(!empty($_GET['xsiteid'])){
-	if($_GET['xsiteid'] != "edubkk_master"){
+	if($_GET['xsiteid'] != "pty_master"){
 		$db_name = STR_PREFIX_DB.$_GET['xsiteid'];	
 	}
 }

@@ -273,7 +273,7 @@ $last_id = GetGenLastLog($siteid_sent,"system",$profile_id);
 
 
 
-//$sqlm = " SELECT DISTINCT edubkk_master.allschool.id AS id1,edubkk_master.allschool.office,$dbsite.general.idcard,$dbsite.general.name_th,$dbsite.general.surname_th,$dbsite.general.approve_status FROM edubkk_master.allschool INNER JOIN $dbsite.general  ON $dbsite.general.schoolid = edubkk_master.allschool.id ORDER BY $dbsite.general.schoolid ASC  $xlimit "  ;
+//$sqlm = " SELECT DISTINCT pty_master.allschool.id AS id1,pty_master.allschool.office,$dbsite.general.idcard,$dbsite.general.name_th,$dbsite.general.surname_th,$dbsite.general.approve_status FROM pty_master.allschool INNER JOIN $dbsite.general  ON $dbsite.general.schoolid = pty_master.allschool.id ORDER BY $dbsite.general.schoolid ASC  $xlimit "  ;
 
 ##  
 
@@ -332,7 +332,7 @@ while($rsm1 = mysql_fetch_assoc($resultm)){
 				$result_update = mysql_db_query($db_temp,$strSQL_update);
 			}else{
 				$strSQL_update = "REPLACE INTO log_gen_filepdf SET idcard='$temp_id', siteid='$siteid_sent', type_file='system',schoolid='$rsm[id1]',status_file='0',runid='$last_id' ,profile_id='$profile_id'";
-				$result_update = mysql_db_query("edubkk_master",$strSQL_update);
+				$result_update = mysql_db_query("pty_master",$strSQL_update);
 			}
 */	
 

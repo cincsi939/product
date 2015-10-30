@@ -40,7 +40,7 @@ print_r($_SESSION);
 */
 $link_file = "percen_entry_v5sc_appv_detail.php";
 $link_file1 = "percen_entry_v5sc_appv.php";
-$edubkk_master = "edubkk_master" ; 
+$edubkk_master = DB_MASTER ; 
 $lead_general = "general";
 $view_general = "view_general";
 $now_dbname = STR_PREFIX_DB. $xxsiteid ; 
@@ -248,7 +248,7 @@ while($rss = mysql_fetch_assoc($result1)){
 				$pdf = "";	
 			}
 	}
-	$pdf_sys= "<a href=\"$prefix_url/edubkk_master/application/hr3/hr_report/kp7_search.php?id=".$rss[idcard]."&sentsecid=".$rss[siteid]."&tmpuser=$tmpuser&tmppass=$tmppass\" target=\"_blank\"><img src=\"../application/hr3/hr_report/bimg/pdf.gif\" width=\"16\" height=\"16\" border=\"0\" alt='ก.พ.7 สร้างโดยระบบ' ></a>";
+	$pdf_sys= "<a href=\"$prefix_url/pty_master/application/hr3/hr_report/kp7_search.php?id=".$rss[idcard]."&sentsecid=".$rss[siteid]."&tmpuser=$tmpuser&tmppass=$tmppass\" target=\"_blank\"><img src=\"../application/hr3/hr_report/bimg/pdf.gif\" width=\"16\" height=\"16\" border=\"0\" alt='ก.พ.7 สร้างโดยระบบ' ></a>";
 
 	  ?>
       <tr bgcolor="<?=$bg?>">
