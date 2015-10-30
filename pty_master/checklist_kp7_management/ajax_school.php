@@ -1,0 +1,21 @@
+<?php
+    header("Content-Type: text/plain; charset=windows-874");
+
+    //ข้อมูลเกี่ยวกับฐานข้อมูลที่ใช้
+	include ("../../config/conndb_nonsession.inc.php")  ;
+
+    $sql_select=" select  *  from allschool where siteid = '$sent_siteid' order by office";
+    $result1= mysql_query( $sql_select );
+     //เริ่มวนรอบแสดงข้อมูล
+    while ($result = mysql_fetch_array($result1))
+	
+    //แสดงค่าในฐานข้อมูล
+    {
+#	$name = substr($result[secname], -1, 2);
+#	$name =  $result[secname]  ; 
+	$name = str_replace("สำนักงานเขตพื้นที่การศึกษา","สพท.",$result[office] ) ; 
+	echo"  $name::$result[id],";
+   }
+       // ปิดการเชื่อมต่อ
+ 	mysql_close();
+?>

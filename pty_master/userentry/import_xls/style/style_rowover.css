@@ -1,0 +1,39 @@
+/* CSS Document */  
+.datatable
+{
+    width : 100%;
+    border : 1px solid #d6dde6;
+    border-collapse : collapse;
+}
+.datatable caption
+{   
+    border : 1px solid #33517a;
+    border-collapse : collapse;    
+    Font :bold  Arial, Helvetica, Sans Serif;
+    padding:0.4em 0 0.8 px 0;
+}
+.datatable td
+{
+    Font :bold 12px Arial, Helvetica, Sans Serif;
+    border : 1px solid #d6dde6;
+    padding : 3 px;
+}
+.datatable th
+{
+    border : 1px solid #828282;
+    background-color : #bcbcbc;
+    Font: bold 16px Arial, Helvetica, Sans Serif;   
+    Text-align : left;
+    Padding-left : 0.3 px;
+}
+.datatable tr.altrow
+{
+	Padding-left : 3 px;	
+	background-color :#dfe7f2;
+	color:#000000;	
+}
+.datatable tr:hover
+{
+	background-color :#dfe7f2;
+	color:#000000;	
+}

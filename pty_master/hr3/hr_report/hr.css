@@ -1,0 +1,61 @@
+body {  margin: 0px  0px; padding: 0px  0px}
+
+body,table,td,form,select,input,textarea{
+	font-family: Tahoma, "MS Sans Serif";
+	font-size: 11px;
+}
+
+a {
+	color: #990000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #CC0000;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.menuitem {font-family: Tahoma, "MS Sans Serif"; font-size:14pt; font-weight: bold;}
+.xbutton {font-size: 8pt; font-weight: bold;}
+.caption {color: #442ACC;}
+.gcaption {font-weight: bold; color: #000000; font-size: 13;}
+.input_text{
+	border-color:#000000;
+	border-width: 1px;
+}
+.textp{
+	color:#716F6F;
+}
+.pheader{
+	font-size:16px;
+	font-weight:bold;
+	color:#FFFFFF;
+}
+.bgbutton {
+	color: #FFFFFF;
+	background-color: #CCCCCC;
+	border:thin;
+	border-color:#000000;
+	font-size: 8pt; 
+	font-weight: bold;
+}
+.mainlink {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.plink {
+	COLOR: #ffffff
+}
+.plink :link {
+	COLOR: #ffffff
+}
+.plink:hover {
+	COLOR: #ffffff;
+}
+.plink :visited {
+	COLOR: #ffffff
+}
+.ptextmain {
+	COLOR: #ffffff
+}

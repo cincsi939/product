@@ -1,0 +1,62 @@
+@charset "windows-874";
+/* CSS Document */
+
+table.formdata{
+		border:1px solid #5F6F7E;
+		border-collapse:collapse;
+		margin: 1em 0 2em 0;
+		background-color: #FFF;
+	}
+	table.formdata th{
+		border: 1px solid #5f6f7e;
+		font-weight: bold;
+		color: #000000;
+		background-color: #e2e2e2;
+		text-align: center;
+		margin: 0;
+		padding: 0.0em 0.0em 0.0em 0.0em;
+		font-size: 12px;
+	}
+	table.formdata td{
+		border: 1px solid #e2e2e2;
+		margin: 0;
+		padding: 0;
+	}
+	table.formdata input{
+		width:auto;
+		height:20px;
+		padding: 0.0em 0.0em 0.0em 0.0em;		
+		margin: 0;
+	    border: none;
+
+	}
+
+
+	  .formdata input.disible{		
+
+		background-color: #F3F3F3;
+		color: #333;
+		
+	}
+	table.formdata select{
+		width:auto;
+		height:25px;
+		padding: 0.0em 0.1em 0.0em 0.1em;		
+		margin: 0;
+	    border: none;
+
+	}		
+
+	
+	  .formdata select.disible{		
+		background-color: #F3F3F3;
+		color: #333;
+		
+	}
+		  .disible{		
+
+		background-color: #F3F3F3;
+		color: #333;
+		
+	}
+	

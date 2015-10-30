@@ -1,0 +1,118 @@
+UL#navmenu-v {
+	MARGIN: 0px; WIDTH: 162px; LIST-STYLE-TYPE: none; padding:0px;
+}
+UL#navmenu-v LI {
+	MARGIN: 0px; WIDTH: 280px; LIST-STYLE-TYPE: none; padding:0px;
+}
+UL#navmenu-v UL {
+	MARGIN: 0px; WIDTH: 280px; LIST-STYLE-TYPE: none; padding:0px;
+}
+UL#navmenu-v LI {
+	FLOAT: left; WIDTH: 100%; POSITION: relative; padding:0px;
+}
+UL#navmenu-v LI.iehover {
+	Z-INDEX: 1000
+}
+UL#navmenu-v UL {
+	DISPLAY: none; Z-INDEX: 9999; LEFT: 100%; POSITION: absolute; TOP: 0px
+}
+UL#navmenu-v A {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 6px; BACKGROUND: #3F5980; PADDING-BOTTOM: 6px; FONT: bold 12px Arial, sans-serif; COLOR: #fff; PADDING-TOP: 6px; HEIGHT: 1%; TEXT-DECORATION: none
+}
+UL#navmenu-v A:hover {
+	BACKGROUND: #ff9933; COLOR: #fff
+}
+UL#navmenu-v LI:hover A {
+	BACKGROUND: #ff9933; COLOR: #fff
+}
+UL#navmenu-v LI.iehover A {
+	BACKGROUND: #bbb; COLOR: #fff
+}
+UL#navmenu-v LI:hover LI A {
+	BACKGROUND: #3F5980; FLOAT: none ;
+	background-color: #3F5980;
+	FONT: bold 12px Arial, sans-serif; COLOR: #fff; 
+	filter:alpha(opacity=60);
+	opacity: 0.85;
+	-moz-opacity: 0.9;
+}
+UL#navmenu-v LI.iehover LI A {
+	BACKGROUND: #3F5980; FLOAT: none ;
+	background-color: #3F5980;
+	FONT: bold 12px Arial, sans-serif; COLOR: #fff; 
+	filter:alpha(opacity=82);
+	opacity: 0.9;
+	-moz-opacity: 0.9;
+}
+UL#navmenu-v LI:hover LI A:hover {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI:hover LI:hover A {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI.iehover LI A:hover {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI.iehover LI.iehover A {
+	BACKGROUND: #3F5980
+}
+UL#navmenu-v LI:hover LI:hover LI A {
+	BACKGROUND: #3F5980
+}
+UL#navmenu-v LI.iehover LI.iehover LI A {
+	BACKGROUND: #3F5980
+}
+UL#navmenu-v LI:hover LI:hover LI A:hover {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI:hover LI:hover LI:hover A {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI.iehover LI.iehover LI A:hover {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI.iehover LI.iehover LI.iehover A {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI:hover LI:hover LI:hover LI A {
+	BACKGROUND: #3F5980
+}
+UL#navmenu-v LI.iehover LI.iehover LI.iehover LI A {
+	BACKGROUND: #3F5980
+}
+UL#navmenu-v LI:hover LI:hover LI:hover LI A:hover {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI.iehover LI.iehover LI.iehover LI A:hover {
+	BACKGROUND: #ff9933
+}
+UL#navmenu-v LI:hover UL UL {
+	DISPLAY: none
+}
+UL#navmenu-v LI:hover UL UL UL {
+	DISPLAY: none
+}
+UL#navmenu-v LI.iehover UL UL {
+	DISPLAY: none
+}
+UL#navmenu-v LI.iehover UL UL UL {
+	DISPLAY: none
+}
+UL#navmenu-v LI:hover UL {
+	DISPLAY: block
+}
+UL#navmenu-v UL LI:hover UL {
+	DISPLAY: block
+}
+UL#navmenu-v UL UL LI:hover UL {
+	DISPLAY: block
+}
+UL#navmenu-v LI.iehover UL {
+	DISPLAY: block
+}
+UL#navmenu-v UL LI.iehover UL {
+	DISPLAY: block
+}
+UL#navmenu-v UL UL LI.iehover UL {
+	DISPLAY: block
+}

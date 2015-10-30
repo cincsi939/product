@@ -1,0 +1,98 @@
+﻿
+
+body
+{
+margin: 0 auto;
+padding: 0 20px 20px 20px;
+FONT-FAMILY: Tahoma,  "Microsoft Sans Serif";
+background: #444;
+}
+
+fieldset
+{
+border: none;
+padding: 20px;
+}
+
+table
+{
+font-size: 0.9em;
+width: 100%;
+background-color: #ffffff;
+padding: 1em;
+}
+
+tr.odd
+{
+background-color: #eaeaea;
+}
+
+table th.title
+{
+text-align: center;
+}
+
+
+th,td
+{
+text-align: left;
+}
+
+td
+{
+height: 1.6em;
+padding: 0 0.5em;
+}
+
+td.editable
+{
+width: 200px;
+height: 20px;
+}
+
+th.sortable
+{
+cursor: pointer;
+}
+
+tr.loading {
+  color: #dddddd;
+  background-color: #f6f6f6;
+}
+
+td.loading
+{
+  background: url('../images/loading.gif') no-repeat 4px center;
+  padding-left: 24px;
+  color: #aaaaaa;
+}
+
+label.delete {
+  cursor: pointer;
+}
+
+.pagination {
+	margin: 1em 0;
+	color: #888888;
+	width: 350px;
+	margin: 0 auto;
+}
+
+.pagination a {
+	color: #6666ff;	
+}
+
+.pagination .prev 
+{
+	float: left;
+}
+
+.pagination .next
+{
+	float: right;
+}
+
+.pagination .pages
+{
+	text-align: center;
+}
