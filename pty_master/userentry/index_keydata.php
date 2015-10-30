@@ -62,7 +62,7 @@ if($action == "login"){
 	$redirec_ip = APPHOST_TEST;
 	## ตรวจสอบสิทธิการเข้าถึงข้อมูลป้องกัน sub คีย์ข้อมูลข้างในบริษัท
 
-		echo "<script>top.location.href='http://$redirec_ip/edubkk_master/application/hr3/hr_frame/frame.php';</script>";
+		echo "<script>top.location.href='http://$redirec_ip".APPNAME."application/hr3/hr_frame/frame.php';</script>";
 		exit;
 
 
@@ -177,7 +177,7 @@ function con_accp() {
         <tr>
           <td width="12%" align="right"><strong>เลือกโฟรไฟล์ :</strong></td>
           <td width="55%">
-          <select name="xsiteid" id="xsiteid" onchange="gotourl(this)">
+          <select name="xsiteid" id="xsiteid" onChange="gotourl(this)">
           <option value="">เลือกโฟล์ไฟล์</option>
       	<?
 		$sql_profile  = "SELECT * FROM eduarea WHERE secid NOT LIKE '99%' ";

@@ -3,14 +3,14 @@ header("Content-Type: text/html; charset=windows-874");
 session_start();
 //print_r($_SESSION);
 //exit;
-include("../../config/conndb_nonsession.inc.php");
+require_once("../../config/conndb_nonsession.inc.php");
 include ("../../common/common_competency.inc.php");
 include("function.php");
 include("../../common/function.check.success.php");
 include("function_assign_edit.php");
 //include("epm.inc.php");
 
-$db_master = "edubkk_master";
+$db_master = DB_MASTER;
 if($page==""){$page="1";}
 $monthname = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
 $xstaff_id=$_SESSION[session_staffid];
@@ -419,7 +419,7 @@ view_general
 Inner Join allschool ON view_general.schoolid = allschool.id
 Inner Join eduarea ON view_general.siteid = eduarea.secid
 where view_general.CZ_ID ='$xidcard'";
-  $result_person=mysql_db_query('edubkk_master',$sql);   
+  $result_person=mysql_db_query(DB_MASTER,$sql);   
   $row_person=mysql_fetch_array($result_person);
 $xsite_now=  $row_person[siteid];
   		$sql_salary = "SELECT * FROM salary WHERE id='$xidcard' order by date DESC,salary DESC,dateorder DESC LIMIT 1";
@@ -460,7 +460,7 @@ echo"<br> <b>หน่วยงาน : </b>";
 				left Join req_problem_type ON req_problem_type.runno = req_problem.problem_type
 				where  req_problem_person.req_person_id='$id_req' ";
  
-  $result=mysql_db_query('edubkk_master',$sql);   
+  $result=mysql_db_query(DB_MASTER,$sql);   
   $row=mysql_fetch_array($result);  
  if($row[req_triget]!=""){$idtriiet=$row[req_triget];}
 	?>
@@ -716,7 +716,7 @@ echo"<br> <b>หน่วยงาน : </b>";
                 <select name="select_group" id="select_group" style="width:400px" disabled="disabled" onchange="getKp7LoadId('<?=$xidcard?>',this.value,'<?=$row[kp7_loadid]?>');">
                   <?
                 $sql_group="SELECT runno,problem_name,popup_url,status,order_by,number_text FROM `req_problem_group`  where status='1'  order by  order_by";		
-		$result_group=mysql_db_query("edubkk_master",$sql_group);
+		$result_group=mysql_db_query(DB_MASTER,$sql_group);
 		while($row_group=mysql_fetch_array($result_group)){
 			$sel=($row[problem_group]==$row_group[runno])?"selected":"";
 		?>
@@ -737,7 +737,7 @@ echo"<br> <b>หน่วยงาน : </b>";
                 $sql_load="SELECT req_problem_groupno.* FROM `req_problem_groupno`  INNER JOIN req_kp7_load ON   req_problem_groupno.kp7_loadid = req_kp7_load.kp7_loadid 
 				Where req_kp7_load.idcard = '$xidcard'  AND req_kp7_load.kp7_loadid = '$row[kp7_loadid]' AND req_problem_groupno.problem_groupid='$row[problem_group]' ";	
 				//echo $sql_load;		
-		$result_load=mysql_db_query("edubkk_master",$sql_load);
+		$result_load=mysql_db_query(DB_MASTER,$sql_load);
 		while($row_load=mysql_fetch_array($result_load)){
 			$sel=($row[problem_groupno]==$row_load[runid])?"selected":"";
 		?>

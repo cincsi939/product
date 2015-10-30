@@ -3,7 +3,7 @@ ob_start();
 session_start();
 if($_GET['SKIP'] == "ON"){
 	$sentsecid = $_SESSION[secid];
-	print"<meta http-equiv=\"refresh\" content=\"0;URL=http://202.129.35.120/edubkk_master/application/hr3/hr_report/kp7_s.php?id=".$_GET[id]."&sentsecid=$sentsecid\">\n";	
+	print"<meta http-equiv=\"refresh\" content=\"0;URL=http://202.129.35.120".APPNAME."application/hr3/hr_report/kp7_s.php?id=".$_GET[id]."&sentsecid=$sentsecid\">\n";	
 	exit();		
 }
 
@@ -23,7 +23,7 @@ if($_GET['id'] != ""){
 }
 
 
-if($dbname != "edubkk_master"){
+if($dbname != DB_MASTER){
 		$xsiteid = substr($dbname,-4);
 }
 #########==========================> 16/08/2008   
@@ -3662,7 +3662,7 @@ if($_SESSION[tmpuser] != "" and (!($xpost === false))){
 //	$pdf->Cell(0,5,"$setpass == $tmpuser",1,0,'C');
 
 if(substr($_SERVER["REMOTE_ADDR"],0,8) != "192.168." AND  substr($_SERVER["REMOTE_ADDR"],0,8) != "127.0.0." ){
-	if($_SESSION[secid] != "edubkk_master"){ // กรณี login เป็นระดับผู้บริหารไม่ต้องติด password
+	if($_SESSION[secid] != DB_MASTER){ // กรณี login เป็นระดับผู้บริหารไม่ต้องติด password
 		if($nonpass != 1){
 			$pdf->SetProtection(array('print'),'competency',"$setpass");
 		}// end 	if($nonpass != 1){

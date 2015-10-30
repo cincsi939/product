@@ -194,7 +194,7 @@ function find_vitaya_from_level($level_id){
  $arr_vitaya_l[4] = array('เชี่ยวชาญพิเศษ','เชียวชาญพิเศษ','เขี่ยวชาญพิเศษ','เชี่ยวชาณพิเศษ','เชียวชาณพิเศษ','เชี่ยวชานพิเศษ');
 
  $sql = "SELECT * FROM radub_math_vitaya WHERE level_id = '$level_id'";
- $query = mysql_db_query('edubkk_master',$sql)or die(mysql_error());
+ $query = mysql_db_query(DB_MASTER,$sql)or die(mysql_error());
  $rows = mysql_fetch_array($query);
  $pls_re = str_replace($arr_vitaya_l[$rows['vitaya_id']],"x",$pls);
  if(eregi("x",$pls_re)){

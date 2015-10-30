@@ -13,6 +13,6 @@ require_once("../../config/conndb_nonsession.inc.php");
 //check_redirec();
 //echo GET_IPADDRESS();
 
-$url = APPURL."/edubkk_master/application/userentry/login.php";
+$url = APPURL.APPNAME."application/userentry/login.php";
 header("Location: $url");
 ?>

@@ -1,4 +1,5 @@
 <?php
+	require_once("../../config/conndb_nonsession.inc.php");
 	######  check วันและเวลาในการ login  by kamonchai ######
 	
 	function getCheckDay($profileid,$groupid,$dayid_login,$staffid,$time_login){
@@ -24,7 +25,7 @@
 							INNER JOIN authority_day ON authority_login.day_id = authority_day.day_id
 							WHERE profile_id = '".$profileid."' AND group_id = '".$groupid."' 
 							ORDER BY authority_login.day_id ASC";
-			$queryDay = mysql_db_query("edubkk_userentry",$sqlDay) or die(mysql_error().' sqlDay : '.$sqlDay);
+			$queryDay = mysql_db_query(DB_USERENTRY,$sqlDay) or die(mysql_error().' sqlDay : '.$sqlDay);
 			$day = array();
 			$i = 0;
 			while($dataDay = mysql_fetch_assoc($queryDay)){
@@ -79,7 +80,7 @@
 							ORDER BY authority_login.time_id ASC";
 		//echo  $sqlTime;
 		//exit;
-		$queryTime2 = mysql_db_query("edubkk_userentry",$sqlTime2) or die(mysql_error().' sqlTime2 : '.$sqlTime2);
+		$queryTime2 = mysql_db_query(DB_USERENTRY,$sqlTime2) or die(mysql_error().' sqlTime2 : '.$sqlTime2);
 		$rows2 = mysql_num_rows($queryTime2);
 		$i_time = 0;
 		$time1 = array();
@@ -146,7 +147,7 @@
 								INNER JOIN authority_holiday ON authority_math_group_holiday.holiday_id = authority_holiday.holiday_id 
 								WHERE authority_group_holiday.group_id = '".$groupid."' 
 								ORDER BY authority_math_group_holiday.holiday_id ASC";
-		$queryHoliday = mysql_db_query("edubkk_userentry",$sqlHoliday) or die(mysql_error().' sqlHoliday : '.$sqlHoliday);
+		$queryHoliday = mysql_db_query(DB_USERENTRY,$sqlHoliday) or die(mysql_error().' sqlHoliday : '.$sqlHoliday);
 		while($dataHoliday = mysql_fetch_assoc($queryHoliday)){
 			if($date_login==$dataHoliday['date_holiday']){
 				/*echo "<script>alert('ไม่สามารถเข้าสู่ระบบได้ เนื่องจากวันนี้เป็นวันหยุดพิเศษ (".$dataHoliday['label_holiday'].")'); location.href='login.php';</script>";
@@ -182,7 +183,7 @@ function getCheckLogin($username,$password,$dayid_login,$time_login,$date_login)
 				authority_day
 				WHERE keystaff.username = '".$username."' AND keystaff.password = '".$password."'
 				GROUP BY keystaff.staffid";
-	$query = mysql_db_query("edubkk_userentry",$sql) or die(mysql_error().' sql : '.$sql);
+	$query = mysql_db_query(DB_USERENTRY,$sql) or die(mysql_error().' sql : '.$sql);
 	$rows = mysql_num_rows($query);
 	$msg_error = "";
 	if($rows == 1){

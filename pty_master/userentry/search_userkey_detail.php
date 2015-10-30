@@ -22,7 +22,7 @@ function search_school($siteid,$idcard){
 	$result1 = mysql_db_query($db_site,$sql1);
 	$rs1 = mysql_fetch_assoc($result1);
 	$sql2 = "SELECT secname FROM eduarea WHERE secid='$siteid'";
-	$result2 = mysql_db_query("edubkk_master",$sql2);
+	$result2 = mysql_db_query(DB_MASTER,$sql2);
 	$rs2 = mysql_fetch_assoc($result2);
 	$org = str_replace("สำนักงานเขตพื้นที่การศึกษา","สพท.",$rs2[secname]);
 	return $org."/".$rs1[office];
@@ -30,7 +30,7 @@ function search_school($siteid,$idcard){
 ##  function นับจำนวนบุค
 function count_num_key($staffid){
 	$sql_key = "SELECT COUNT(idcard) AS num1 FROM monitor_keyin WHERE staffid='$staffid' GROUP BY idcard";
-	$result_key = mysql_db_query("edubkk_userentry",$sql_key);
+	$result_key = mysql_db_query(DB_USERENTRY,$sql_key);
 	$numr = @mysql_num_rows($result_key);
 	return $numr;
 	//$rs_key = mysql_fetch_assoc($result_key);
@@ -71,7 +71,7 @@ function checkFields() {
         </tr>
 	  <?
 	 $sql = "SELECT *  FROM monitor_keyin  WHERE staffid='$staffid'";
-	 $result = mysql_db_query("edubkk_userentry",$sql);
+	 $result = mysql_db_query(DB_USERENTRY,$sql);
 	while($rs = mysql_fetch_assoc($result)){
 	 if ($k++ %  2){ $bg = "#F0F0F0";}else{$bg = "#FFFFFF";}
 	 $show_num_key = count_num_key($rs[staffid]);

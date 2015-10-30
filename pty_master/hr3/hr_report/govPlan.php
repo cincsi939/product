@@ -32,11 +32,11 @@ include ("timefunc.inc.php");
 $monthname = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
 $shortmonth = array( "","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.", "ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
 	
-if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+if($_SESSION['secid'] != "" and $_SESSION['secid'] != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$_SESSION['secid'];	
 }else if($_SESSION['temp_dbsite'] != ""){
 	$db_name = $_SESSION['temp_dbsite'];
-}else if($xsiteid != "" and $xsiteid != "edubkk_master"){
+}else if($xsiteid != "" and $xsiteid != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$xsiteid;
 }else{
 				echo "
@@ -45,7 +45,7 @@ if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
 							top.location.href=\"$mainwebsite\";
 					</script>";
 			exit;
-}//end if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+}//end if($_SESSION['secid'] != "" and $_SESSION['secid'] != DB_MASTER){
 	
 if($_GET['debug'] == "on"){
 	echo "<pre>";

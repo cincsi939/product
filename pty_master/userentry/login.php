@@ -26,7 +26,7 @@ $nochecklogin= true;
 include "epm.inc.php";
 
 include ("../../common/common_competency.inc.php")  ;
-
+require_once("../../config/conndb_nonsession.inc.php");
 include ("function_face2cmss.php");
 
 include ("function_login_authority_new.php");
@@ -54,7 +54,7 @@ if(APPHOST=="202.29.35.104" || APPHOST_INTRA=="192.168.1.12"){
 		if($str_userip==$str_APPHOST || $str_userip==$str_INTRA){
 		     //   header("Location: login.php");
 		}else{
-		        header("Location: ".APPURL."/edubkk_master/application/userentry/login.php");
+		        header("Location: ".APPURL.APPNAME."application/userentry/login.php");
 				// die();
 		}
 	}
@@ -80,7 +80,7 @@ if(substr($ipn,0,8) == "192.168."){
 $time_curent = date("H:i:s");
 function CheckLogin($get_staffid){
 	$sql_login = "SELECT COUNT(staffid) AS numL FROM keystaff WHERE staffid='$get_staffid' AND status_extra='NOR' GROUP BY staffid";
-	$result_login = mysql_db_query("edubkk_userentry",$sql_login);
+	$result_login = mysql_db_query(DB_USERENTRY,$sql_login);
 	$rs_login = mysql_fetch_assoc($result_login);
 	return $rs_login[numL];
 }//end function CheckLogin(){

@@ -24,7 +24,7 @@ $mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.
 #End Set var
 
 if($_SESSION[session_staffid] != "" and $_SESSION[session_site] == ""){
-	$user_site = "edubkk_master";	
+	$user_site = DB_MASTER;	
 }else if($_SESSION[session_site] != ""){
 	$user_site = $_SESSION[session_site];	
 }else{
@@ -87,7 +87,7 @@ FROM  ".DB_MASTER.".eduarea ";
 		$sql .= " WHERE 
 						 ".DB_MASTER.".eduarea.secid IS NOT NULL AND  ".DB_MASTER.".eduarea.secname IS NOT NULL AND  ".DB_MASTER.".eduarea.secid NOT LIKE('99%') 
 					".$where_area_keyin_status;
-					$sql .= ($siteid!="" and $user_site != "edubkk_master")?" AND  ".DB_MASTER.".eduarea.secid ='".$siteid."' ":"";
+					$sql .= ($siteid!="" and $user_site != DB_MASTER)?" AND  ".DB_MASTER.".eduarea.secid ='".$siteid."' ":"";
 					$sql .= " ORDER BY   ".DB_MASTER.".eduarea.secname_short,  ".DB_MASTER.".eduarea.secid ASC";
 			}else if($area_keyin_status=="new"){
 				$sql="SELECT  ".DB_MASTER.".eduarea.secid AS siteid, ".DB_MASTER.".eduarea.secname AS sitename,  ".DB_MASTER.".eduarea.secname_short  AS caption 
@@ -132,9 +132,9 @@ function math_position_date($get_view="edu",$siteid="",$schoolid=""){
 		if($get_view=="edu"){
 			$arr_p = explode("-",$date_profile);
 			$profile_eng = ($arr_p[0]-543)."-".$arr_p[1]."-".$arr_p[2];
-			$sql_rcdp = "SELECT * FROM `edubkk_master`.`report_check_data_profile` 
-						WHERE `edubkk_master`.`report_check_data_profile`.siteid ='".$siteid."'
-						AND `edubkk_master`.`report_check_data_profile`.profile_date ='".$profile_eng."'
+			$sql_rcdp = "SELECT * FROM `".DB_MASTER."`.`report_check_data_profile` 
+						WHERE `".DB_MASTER."`.`report_check_data_profile`.siteid ='".$siteid."'
+						AND `".DB_MASTER."`.`report_check_data_profile`.profile_date ='".$profile_eng."'
 						";
 			$query_rcdp = mysql_db_query($dbsite, $sql_rcdp);
 			$row_rcdp = mysql_fetch_assoc($query_rcdp);
@@ -309,7 +309,7 @@ function percen_event($num_all=0, $num_event=0){
 		$sum_no_c += $data_count['count_no_math'];
 		
 		$sql_start_date = "	SELECT ".DB_USERENTRY.".keystaff.site_area, 
-												MIN(edubkk_userentry.keystaff.date_area) AS start_date_area
+												MIN(".DB_USERENTRY.".keystaff.date_area) AS start_date_area
 											FROM ".DB_USERENTRY.".keystaff
 											WHERE ".DB_USERENTRY.".keystaff.site_area='".$row['siteid']."'; "; 
 		$query_start_date  = mysql_query($sql_start_date);

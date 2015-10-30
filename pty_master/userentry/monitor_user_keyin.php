@@ -19,7 +19,7 @@ $BypassAPP= true;
 			include ("../../common/common_competency.inc.php")  ;
 			include("../../config/conndb_nonsession.inc.php");
 			include ("../../common/std_function.inc.php")  ;
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			
 			$mname	= array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
 
@@ -216,11 +216,11 @@ WHERE   (  keystaff.sapphireoffice = 0 )  AND   keystaff.staffid =  '$rsx[staffi
 $result = mysql_db_query($dbnameuse,$sql);
 while($rs = mysql_fetch_assoc($result)){
 
-$result3 = mysql_db_query("edubkk_master"," SELECT  siteid, prename_th,name_th,surname_th   FROM  view_general  WHERE  CZ_ID = '$rs[idcard]' ");
+$result3 = mysql_db_query(DB_MASTER," SELECT  siteid, prename_th,name_th,surname_th   FROM  view_general  WHERE  CZ_ID = '$rs[idcard]' ");
 $rs3 = mysql_fetch_assoc($result3);
 $dbsite = STR_PREFIX_DB.$rs3[siteid] ;
 
-$result4 = mysql_db_query("edubkk_master"," SELECT  secname   FROM  eduarea  WHERE  secid = '$rs3[siteid]' ");
+$result4 = mysql_db_query(DB_MASTER," SELECT  secname   FROM  eduarea  WHERE  secid = '$rs3[siteid]' ");
 $rs4 = mysql_fetch_assoc($result4);
 $secname = str_replace('สำนักงานเขตพื้นที่การศึกษา','สพท.',$rs4[secname]);
 

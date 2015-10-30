@@ -4,7 +4,7 @@ $host_face = "202.129.35.101";
 $user_face = "sapphire";
 $pass_face = "sprd!@#$%";
 $dbface = "faceaccess";
-$dbnameuse = "edubkk_userentry";
+$dbnameuse = DB_USERENTRY;
 
 $host = HOST;
 $user = "cmss";

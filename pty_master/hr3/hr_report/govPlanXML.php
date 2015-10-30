@@ -51,11 +51,11 @@ $arrdate['09'] =  "กันยายน";
 $arrdate['10'] =  "ตุลาคม";
 $arrdate['11'] =  "พฤศจิกายน";
 $arrdate['12'] =  "ธันวาคม";
-if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+if($_SESSION['secid'] != "" and $_SESSION['secid'] != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$_SESSION['secid'];	
 }else if($_SESSION['temp_dbsite'] != ""){
 	$db_name = $_SESSION['temp_dbsite'];
-}else if($_GET['xsiteid'] != "" and $xsiteid != "edubkk_master"){
+}else if($_GET['xsiteid'] != "" and $xsiteid != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$xsiteid;
 }else{
 				echo "

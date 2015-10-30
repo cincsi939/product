@@ -26,7 +26,7 @@
 	include("../../config/conndb_nonsession.inc.php");
 	include ("../../common/std_function.inc.php")  ;
 	
-	$dbnameuse = "edubkk_userentry";
+	$dbnameuse = DB_USERENTRY;
 	
 	$sql =  " SELECT  numkpoint  FROM  stat_user_keyin WHERE  staffid = '$xstaff_id' AND datekeyin='".date("Y-m-d")."'" ;
 	$result = mysql_db_query($dbnameuse,$sql) ;

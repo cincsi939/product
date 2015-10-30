@@ -26,7 +26,7 @@ $BypassAPP= true;
 			
 			
 			
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			
 			$mname	= array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
 
@@ -151,7 +151,7 @@ while($rs = mysql_fetch_assoc($result)){
 $TNUM = 0 ;
 $TPOINT = 0 ;
 
-$result3 = mysql_db_query("edubkk_master"," SELECT  siteid, prename_th,name_th,surname_th   FROM  view_general  WHERE  CZ_ID = '$rs[idcard]' ");
+$result3 = mysql_db_query(DB_MASTER," SELECT  siteid, prename_th,name_th,surname_th   FROM  view_general  WHERE  CZ_ID = '$rs[idcard]' ");
 $rs3 = mysql_fetch_assoc($result3);
 $dbsite = STR_PREFIX_DB.$rs3[siteid] ;
 

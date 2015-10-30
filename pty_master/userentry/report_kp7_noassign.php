@@ -15,7 +15,7 @@
 	## Modified By :		MR.SUWAT KHAMTUM
 include "epm.inc.php";
 include("function_assign.php");
-
+include("../config/conndb_nonsession.inc.php");
 
 ?>
 
@@ -70,7 +70,7 @@ Left Join ".DB_USERENTRY.".tbl_assign_key ON  ".DB_CHECKLIST.".tbl_check_data.id
 WHERE
  ".DB_CHECKLIST.".tbl_check_data.secid =  '$rs[secid]'
 ORDER BY ".DB_USERENTRY.".tbl_assign_key.idcard ASC";
-$result1 = mysql_db_query("edubkk_checklist",$sql1);
+$result1 = mysql_db_query(DB_CHECKLIST,$sql1);
 $j=0;
 while($rs1 = mysql_fetch_assoc($result1)){
 	if($rs1[idcard] == ""){

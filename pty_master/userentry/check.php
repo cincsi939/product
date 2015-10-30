@@ -186,7 +186,7 @@ foreach($arr_have_vitaya as $runid=>$vitaya_id){
  $rows_s = mysql_fetch_array($query_s);
    
  $sql_v = "SELECT * FROM vitaya WHERE runid = '$vitaya_id' ";
- $query_v = mysql_db_query('edubkk_master',$sql_v)or die(mysql_error());
+ $query_v = mysql_db_query(DB_MASTER,$sql_v)or die(mysql_error());
  $rows_v = mysql_fetch_array($query_v);
  if($rows_v['vitayaname'] != ""){
    if($debug == "1"){  
@@ -253,7 +253,7 @@ $rows = mysql_fetch_array($query);
 <?php
  }
 $sql = "SELECT * FROM vitaya WHERE runid = '".$rows_vitaya['vitaya_id']."' ";
-$query = mysql_db_query('edubkk_master',$sql)or die(mysql_error());
+$query = mysql_db_query(DB_MASTER,$sql)or die(mysql_error());
 $rows = mysql_fetch_array($query);
  if($debug == "1"){
   echo $rows['vitayaname'];

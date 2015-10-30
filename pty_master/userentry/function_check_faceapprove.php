@@ -1,9 +1,10 @@
 <?
+require_once("../../config/conndb_nonsession.inc.php");
 $host_face = "202.129.35.101";
 $user_face = "sapphire";
 $pass_face = "sprd!@#$%";
 $dbface = "faceaccess";
-$dbnameuse = "edubkk_userentry";
+$dbnameuse = DB_USERENTRY;
 define("HOST", HOST);
 define("USERNAME_HOST","cmss");
 define("PASSWORD_HOST","2010cmss");

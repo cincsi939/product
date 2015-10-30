@@ -7,7 +7,7 @@ if($_SESSION[session_staffid] == ""){
 }
 
 set_time_limit(0);
-include ("../../../../config/conndb_nonsession.inc.php")  ;
+
 include("../../../../common/common_competency.inc.php");
 include('function_checkdata.inc.php') ;
 include("../../../userentry/function_save_log_edit_key.php");
@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and $_POST['action_approve'] == '1'){
    
     ##log check vitaya
 	 $sql = "REPLACE INTO log_check_vitaya(idcard,time_update) VALUES('$idcard',NOW())";
-	 mysql_db_query('edubkk_master',$sql)or die(mysql_error());
+	 mysql_db_query(DB_MASTER,$sql)or die(mysql_error());
 	 
 	
 	
@@ -331,7 +331,7 @@ include "edit_vitaya.php";
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
         <?
         	$sql_edit = "SELECT * FROM tbl_assign_edit_key WHERE idcard='$idcard' AND  nonactive='0' AND siteid='$xsiteid' ";
-			$result_edit = mysql_db_query("edubkk_userentry",$sql_edit);
+			$result_edit = mysql_db_query(DB_USERENTRY,$sql_edit);
 			$rs_edit = mysql_fetch_assoc($result_edit);
 		?>
           <tr>

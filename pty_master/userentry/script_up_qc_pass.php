@@ -6,7 +6,7 @@ Last Modified	: 22/05/2552
 Changes		:
 *****************************************************************************/
 include "epm.inc.php";
-include("../../config/conndb_nonsession.inc.php");
+
 
 
 ?>
@@ -88,10 +88,10 @@ function checkAll(field,x) {
 <? } //end  if($action == ""){
 	if($action == "run"){
 		$sql_sel = "SELECT   idcard FROM monitor_keyin WHERE siteid='$secid' GROUP BY idcard";
-		$result = mysql_db_query("edubkk_userentry",$sql_sel);
+		$result = mysql_db_query(DB_USERENTRY,$sql_sel);
 		while($rs = mysql_fetch_assoc($result)){
 			$sql1 = "SELECT ticketid, idcard FROM tbl_assign_key WHERE idcard='$rs[idcard]'";
-			$result1 = @mysql_db_query("edubkk_userentry",$sql1);
+			$result1 = @mysql_db_query(DB_USERENTRY,$sql1);
 			$rs1 = @mysql_fetch_assoc($result1);
 				if($rs1[idcard] != ""){
 					$sql_up = "UPDATE tbl_assign_key SET approve='2' WHERE idcard='$rs1[idcard]'";

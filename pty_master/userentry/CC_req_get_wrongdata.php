@@ -6,8 +6,8 @@ include("../../common/common_competency.inc.php");
 
 
 global $temp_id;
-$dbmaster = "edubkk_master";
-$dbcallcenter = "edubkk_userentry";
+$dbmaster = DB_MASTER;
+$dbcallcenter = DB_USERENTRY;
 ### begin get data ###
 ### step 1
 
@@ -46,7 +46,7 @@ $sql_get = "	SELECT
 //echo "<pre>";
 //echo $sql_get;
 //exit;
-$res_get = mysql_db_query("edubkk_master",$sql_get);
+$res_get = mysql_db_query(DB_MASTER,$sql_get);
 $new_data_no=0;
 $old_data_no=0;
 while($row_get = mysql_fetch_assoc($res_get)){
@@ -86,7 +86,7 @@ function insert_log($no,$old){
 				req_person_amt = $no,
 				req_person_old = $old
 			";
-	mysql_db_query("edubkk_master",$sql);
+	mysql_db_query(DB_MASTER,$sql);
 }
 
 function have_data($id){
@@ -100,7 +100,7 @@ function have_data($id){
 	";
 	//echo $sql;
 	//exit;
-	$res = mysql_db_query("edubkk_master",$sql);
+	$res = mysql_db_query(DB_MASTER,$sql);
 	$row = mysql_fetch_assoc($res);
 	
 	$cnt = $row[cn];
@@ -127,7 +127,7 @@ function insert_data($id,$status_permit){
 			";
 //	echo $sql;
 //	exit;
-	$res = mysql_db_query("edubkk_master",$sql);
+	$res = mysql_db_query(DB_MASTER,$sql);
 	if($res){
 		if(mysql_affected_rows() > 0){
 			return true;
@@ -153,7 +153,7 @@ function getStatusPermit($idcard){
 				
 				";
 				//AND keystaff.status_permit = 'YES'
-	$res = mysql_db_query("edubkk_userentry",$sql);
+	$res = mysql_db_query(DB_USERENTRY,$sql);
 	$row = mysql_fetch_assoc($res);
 	//return trim($row[staffid]) != "" ? "YES" : "NO";
 	return $row[status_permit]=="YES" && $row[status_extra] == "NOR" ? "YES" : "NO";

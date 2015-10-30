@@ -96,7 +96,7 @@ function check_input(){
 	  
 ############# ========================================================> Start кр Server 
 $sqll = " 
-SELECT  $edubkk_master.area_info.area_id,  $edubkk_master.area_info.area_name, $edubkk_master.area_info.IP, $edubkk_master.area_info.intra_ip   FROM   $edubkk_master.area_info 
+SELECT  ".DB_MASTER.".area_info.area_id,  ".DB_MASTER.".area_info.area_name, ".DB_MASTER.".area_info.IP, ".DB_MASTER.".area_info.intra_ip   FROM   ".DB_MASTER.".area_info 
 " ;
 $resultl = mysql_query( $sqll); 
 if (mysql_errno() != 0){ echo "<br>LINE ".__LINE__. " <br> $sqll <br> ".mysql_error() ."<br>"  ;   } 

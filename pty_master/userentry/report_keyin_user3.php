@@ -17,10 +17,11 @@ $BypassAPP= true;
 //session_start();
 			set_time_limit(8000);
 			include ("../../common/common_competency.inc.php")  ;
+
 			include ("../../common/std_function.inc.php")  ;
 			include ("epm.inc.php")  ;
 			
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			
 			$mname	= array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
 
@@ -164,11 +165,11 @@ while($rs = mysql_fetch_assoc($result)){
 $TNUM = 0 ;
 $TPOINT = 0 ;
 
-$result3 = mysql_db_query("edubkk_master"," SELECT  siteid, prename_th,name_th,surname_th   FROM  view_general  WHERE  CZ_ID = '$rs[idcard]' ");
+$result3 = mysql_db_query(DB_MASTER," SELECT  siteid, prename_th,name_th,surname_th   FROM  view_general  WHERE  CZ_ID = '$rs[idcard]' ");
 $rs3 = mysql_fetch_assoc($result3);
 $dbsite = STR_PREFIX_DB.$rs3[siteid] ;
 
-$result4 = mysql_db_query("edubkk_master"," SELECT  secname   FROM  eduarea  WHERE  secid = '$rs3[siteid]' ");
+$result4 = mysql_db_query(DB_MASTER," SELECT  secname   FROM  eduarea  WHERE  secid = '$rs3[siteid]' ");
 $rs4 = mysql_fetch_assoc($result4);
 $secname = str_replace('สำนักงานเขตพื้นที่การศึกษา','สพท.',$rs4[secname]);
 

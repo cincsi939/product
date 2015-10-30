@@ -17,6 +17,7 @@ $BypassAPP= true;
 //session_start();
 			set_time_limit(0);
 			include ("../../common/common_competency.inc.php")  ;
+	
 			include ("../../common/std_function.inc.php")  ;
 			include ("epm.inc.php")  ;
 		
@@ -52,7 +53,7 @@ $BypassAPP= true;
 			$date_config = "2010-10-01";
 			
 			$curent_date = date("Y-m-d");
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			$time_start = getmicrotime();
 			$mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
 			$monthFull = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");

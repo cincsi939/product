@@ -9,7 +9,7 @@ if($idcard != "" && $group_id != "" && $kp7loadid != ""){
 	$sql = "SELECT req_problem_groupno.*, req_kp7_load.* , req_problem_groupno.runid AS runid2 FROM req_problem_groupno INNER JOIN req_kp7_load 
 	ON req_problem_groupno.kp7_loadid = req_kp7_load.kp7_loadid
 	WHERE req_kp7_load.idcard = '$idcard' AND problem_groupid = '$group_id' AND req_problem_groupno.kp7_loadid='$kp7loadid'";
-	$res = mysql_db_query("edubkk_master",$sql);
+	$res = mysql_db_query(DB_MASTER,$sql);
 	$int=0;
 	echo "<select name='sel_load' id='sel_load' style='width:400px'> ";
 	while($row = mysql_fetch_assoc($res)){

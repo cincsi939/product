@@ -732,7 +732,7 @@ if ($hr_db){
             <option value="">เลือกเขตพื้นที่การศึกษา</option>
             <?
             $sql_area = "SELECT secid,secname FROM eduarea WHERE secid NOT LIKE '%99%' ORDER BY secname ASC";
-			$result_area = mysql_db_query("edubkk_master",$sql_area);
+			$result_area = mysql_db_query(DB_MASTER,$sql_area);
 			while($rsa = mysql_fetch_assoc($result_area)){
 				if($rsa[secid] == $rs[site_area]){$sel = " selected='selected'"; }else{ $sel = "";}
 					echo "<option value='$rsa[secid]' $sel>$rsa[secname]</option>";
@@ -1078,7 +1078,7 @@ while ($rs=mysql_fetch_assoc($result)){
 <td align="center" ><? if($rs[status_extra] == "QC"){ echo "ตรวจสอบข้อมูล (QC)";}else if($rs[status_extra] == "AC"){ echo "ผ่ายบัญชี";}else if($rs[status_extra] == "CALLCENTER"){ echo "พนักงาน callcenter";}else if($rs[status_extra] == "GRAPHIC"){ echo "พนักงานตัดรูป";}else if($rs[status_extra] == "QC_WORD"){ echo "พนักงานตรวจสอบคำผิด";}?></td>
 <td align="left" ><?
 	$sql_a1 = "SELECT secname,secname_short FROM eduarea WHERE secid='$rs[site_area]'";
-	$result_a1 = mysql_db_query("edubkk_master",$sql_a1);
+	$result_a1 = mysql_db_query(DB_MASTER,$sql_a1);
 	$rsa1 = mysql_fetch_assoc($result_a1);
 	if($rsa1[secname] != ""){
 		$date_area = 	thai_date($rs[date_area]);

@@ -77,7 +77,7 @@
 	#Function บันทึกข้อมูล Temp การตรวจสอบรูป
 	function update_temp_check_image($siteid="", $general="", $no_image="", $no_color_image="", $color_image=""){
 		global $dbname,$user_site;
-		if($user_site != "edubkk_master"){
+		if($user_site != DB_MASTER){
 			$sql = "REPLACE INTO temp_check_image 
 						SET siteid='".$siteid."', general='".$general."', no_image='".$no_image."', no_color_image='".$no_color_image."', 
 						color_image='".$color_image."', update_date=NOW() ";

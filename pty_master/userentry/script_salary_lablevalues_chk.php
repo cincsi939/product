@@ -27,7 +27,7 @@ function salary_checkvalue_label($siteid=""){
 	$status_check = 2;//ไม่มี label 
 	$status_check = 3;//ไม่มี value
 	*/
-	$dbedubkk_userentry = "edubkk_userentry";
+	$dbedubkk_userentry = DB_USERENTRY;
 	$dbaddlog = "edubkk_system";
 	$dbsite = STR_PREFIX_DB.$siteid;
 	$status_check = 0;
@@ -147,7 +147,7 @@ function salary_checkvalue_label($siteid=""){
 
 $dateTime = intval(date("H"));
 $dbsystem = "edubkk_system";
-$dbnamemaster = "edubkk_master";
+$dbnamemaster = DB_MASTER;
 
 $time_start = microtime(true);
 if( $_GET['run_time']=='on'  || $dateTime >= 0 ){//(($dateTime >= 0 && $dateTime < 8) || ($dateTime >= 20 && $dateTime <=24 )) || $_GET['run_time']=='on'

@@ -2,8 +2,8 @@
 include ("../../../../config/conndb_nonsession.inc.php")  ;
 include ("../../../../common/Script_CheckIdCard.php")  ;
 include('function_check_data.inc.php') ;
-$db_call= "edubkk_userentry";
-$db_temp = "edubkk_checklist";
+$db_call= DB_USERENTRY;
+$db_temp = DB_CHECKLIST;
 $mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
 $monthFull = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
 	#####  แสดงชื่อเขตพืีนที่การศึกษา

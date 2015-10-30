@@ -161,10 +161,10 @@ while($rsm = mysql_fetch_assoc($resultm)){
 				$temp_id = $rsm[idcard];
 			if($rsm[approve_status] == "approve"){
 				$strSQL_update = "UPDATE report_import_count_pdf SET status_gen='1' WHERE idcard='$temp_id'";
-				$result_update = mysql_db_query("edubkk_master",$strSQL_update);
+				$result_update = mysql_db_query(DB_MASTER,$strSQL_update);
 			}else{
 				$strSQL_update = "UPDATE report_import_count_pdf SET status_gen='0' WHERE idcard='$temp_id'";
-				$result_update = mysql_db_query("edubkk_master",$strSQL_update);
+				$result_update = mysql_db_query(DB_MASTER,$strSQL_update);
 			}
 	$x_name = "$rsm[name_th] $rsm[surname_th]";
 	$x_path = $_SERVER['DOCUMENT_ROOT']."/temp_pdf/$siteid_sent/$rsm[office]/$x_name";

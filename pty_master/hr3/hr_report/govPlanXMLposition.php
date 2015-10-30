@@ -48,11 +48,11 @@ $arrdate['10'] =  "ตุลาคม";
 $arrdate['11'] =  "พฤศจิกายน";
 $arrdate['12'] =  "ธันวาคม";
 	
-if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+if($_SESSION['secid'] != "" and $_SESSION['secid'] != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$_SESSION['secid'];	
 }else if($_SESSION['temp_dbsite'] != ""){
 	$db_name = $_SESSION['temp_dbsite'];
-}else if($xsiteid != "" and $xsiteid != "edubkk_master"){
+}else if($xsiteid != "" and $xsiteid != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$xsiteid;
 }else{
 				echo "
@@ -104,11 +104,11 @@ function utf($str){
 echo "<dataset>";
 $sql = "SELECT  salary.*  FROM
 ".$db_name.".salary as  salary
-Inner Join edubkk_master.hr_addposition_now  as  hr_addposition_now ON salary.position_id = hr_addposition_now.pid
+Inner Join ".DB_MASTER.".hr_addposition_now  as  hr_addposition_now ON salary.position_id = hr_addposition_now.pid
 WHERE
 salary.id =  '$id'
 ORDER BY
-edubkk_master.hr_addposition_now.orderby ASC,
+".DB_MASTER.".hr_addposition_now.orderby ASC,
  salary.date DESC
 ";
 

@@ -18,7 +18,7 @@ $url_and_para = "?xsiteid=$xsiteid&xsiteid2=&openfrom=&problem_group=$problem_gr
 include("../../config/conndb_nonsession.inc.php");
 include ("../../common/common_competency.inc.php");
 include("function.php");
-$db_master="edubkk_master";
+$db_master=DB_MASTER;
 
 
 

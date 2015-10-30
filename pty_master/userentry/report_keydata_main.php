@@ -42,7 +42,7 @@ $link_file = "percen_entry_v5sc_appv_detail.php";
 $link_file1 = "percen_entry_v5sc_appv.php";
 if($xsiteid != ""){ $xsiteid = $xsiteid;}else{ $xsiteid = "5006";}; // กรณีทดสอบในเครื่อง
 
-$edubkk_master = "edubkk_master" ; 
+$edubkk_master = DB_MASTER; 
 $lead_general = "general";
 $view_general = "view_general";
 $now_dbname = STR_PREFIX_DB. $xxsiteid ; 
@@ -152,7 +152,7 @@ WHERE
 date(monitor_keyin.timeupdate) >=  '$date_conf' AND siteid='$xsiteid'
 group by monitor_keyin.idcard";
 //echo $sql."<br>";
-	$result = mysql_db_query("edubkk_userentry",$sql);
+	$result = mysql_db_query(DB_USERENTRY,$sql);
 	while($rs = mysql_fetch_assoc($result)){
 		$arr[$rs[siteid]] = $arr[$rs[siteid]]+1;
 	}//end while($rs = mysql_fetch_assoc($result)){
@@ -172,7 +172,7 @@ Inner Join ".DB_USERENTRY.".tbl_assign_key ON  ".DB_CHECKLIST.".tbl_checklist_kp
 WHERE ".DB_USERENTRY.".tbl_assign_key.nonactive =  '0' AND
  ".DB_CHECKLIST.".tbl_checklist_kp7.profile_id =  '$profile_id'
 group by  ".DB_CHECKLIST.".tbl_checklist_kp7.idcard";
-	$result = mysql_db_query("edubkk_userentry",$sql);
+	$result = mysql_db_query(DB_USERENTRY,$sql);
 	while($rs = mysql_fetch_assoc($result)){
 //		$sqlcheck = "SELECT count(idcard) as num1 FROM `monitor_keyin` WHERE date(monitor_keyin.timeupdate) >=  '$date_conf' and idcard='$rs[idcard]'";
 //		$resultcheck = mysql_db_query("edubkk_userentry",$sqlcheck);
@@ -250,7 +250,7 @@ global $xsiteid;
 #############  นับจำนวนข้อมูลใน checklist
 function CountCheckList(){
 	global $profile_id;
-		$dbname_temp = "edubkk_checklist";
+		$dbname_temp = DB_CHECKLIST;
 		
 		$sql = "SELECT
  ".DB_CHECKLIST.".tbl_checklist_kp7.siteid,
@@ -274,7 +274,7 @@ group by  ".DB_CHECKLIST.".tbl_checklist_kp7.siteid";
 }//end  function CountCheckList(){
 	
 function CountPersonPdf(){
-		$dbname_temp = "edubkk_checklist";	
+		$dbname_temp = DB_CHECKLIST;	
 		$sql = "SELECT
 Count(idcard) AS NumPerson,
 Sum(if(page_upload > 0,1,0)) AS NumPdf,
@@ -296,7 +296,7 @@ group by  ".DB_CHECKLIST.".tbl_checklist_kp7.siteid";
 	}
 
 function CountNumChecklist($get_site){
-	$dbname_temp = "edubkk_checklist";
+	$dbname_temp = DB_CHECKLIST;
 	$sql = "SELECT
 count(tbl_check_data.idcard) as NUM,
 secid
@@ -314,7 +314,7 @@ group by secid";
 #####  function นับจำนวนข้อมูลที่ผ่านการคีย์ข้อมูลแล้ว
 function NumPersonKey(){
 	global $profile_id;
-		$dbname_temp = "edubkk_checklist";
+		$dbname_temp = DB_CHECKLIST;
 	$sql = "SELECT
  ".DB_CHECKLIST.".tbl_checklist_kp7.siteid,
 count( ".DB_CHECKLIST.".tbl_checklist_kp7.idcard) as numkey

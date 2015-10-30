@@ -57,7 +57,7 @@ GROUP BY  t2.staffid";
 
 $sql_staff = "SELECT * FROM keystaff  WHERE staffid='$session_staffid'";
 //echo "$db_name";
-$result_staff = mysql_db_query("edubkk_userentry",$sql_staff);
+$result_staff = mysql_db_query(DB_USERENTRY,$sql_staff);
 $rs_staff = mysql_fetch_assoc($result_staff);
 
 
@@ -151,7 +151,7 @@ function devidepage($total, $kwd , $sqlencode ){
 
 #### function ตรวจสอบการ upload รูป
 function CheckUploadPic($get_staffid){
-	$db_name = "edubkk_userentry";	
+	$db_name = DB_USERENTRY;	
 	$path_img = "images/personnel/";
 	$sql_pic = "SELECT image FROM keystaff WHERE staffid='$get_staffid'";
 	$result_pic = mysql_db_query($db_name,$sql_pic);
@@ -173,7 +173,7 @@ function CheckUploadPic($get_staffid){
 
 function check_status_job($idcard){
 	$sql = "SELECT * FROM tbl_assign_key WHERE  idcard='$idcard' AND nonactive='0'";
-	$result = mysql_db_query("edubkk_userentry",$sql);
+	$result = mysql_db_query(DB_USERENTRY,$sql);
 	$rs = mysql_fetch_assoc($result);
 	return $rs[approve];
 }
@@ -228,7 +228,7 @@ Inner Join tbl_assign_sub ON tbl_assign_key.ticketid = tbl_assign_sub.ticketid
 Inner Join monitor_keyin ON tbl_assign_sub.staffid = monitor_keyin.staffid
 WHERE
 tbl_assign_key.idcard =  '$idcard' AND tbl_assign_key.nonactive='0'";
-		$result_assign_key = @mysql_db_query("edubkk_userentry",$sql_assign_key);
+		$result_assign_key = @mysql_db_query(DB_USERENTRY,$sql_assign_key);
 		$rs_k = @mysql_fetch_assoc($result_assign_key);
 			if($rs_k[staffid] != ""){
 					if($rs_k[staffid] != $staffid){ // แสดงว่าเป็นคนละคน
@@ -247,7 +247,7 @@ tbl_assign_key.idcard =  '$idcard' AND tbl_assign_key.nonactive='0'";
 	function CheckAssign($get_staffid,$get_idcard){
 		$sql_checkAssign = "SELECT  count(tbl_assign_key.idcard) as num_assign  FROM tbl_assign_sub Inner Join tbl_assign_key ON tbl_assign_sub.ticketid = tbl_assign_key.ticketid WHERE tbl_assign_sub.nonactive =  '0' AND tbl_assign_key.idcard =  '$get_idcard' AND
 tbl_assign_sub.staffid =  '$get_staffid' GROUP BY tbl_assign_sub.staffid ";
-		$result_checkAssign = mysql_db_query("edubkk_userentry",$sql_checkAssign);
+		$result_checkAssign = mysql_db_query(DB_USERENTRY,$sql_checkAssign);
 		$rs_chA = mysql_fetch_assoc($result_checkAssign);
 		return $rs_chA[num_assign];
 		
@@ -362,7 +362,7 @@ function con_accp() {
 <H1 align=center>ตรวจสอบข้อมูล Competency จากทุก Server  </H1>
 <?
 
-$dbcall = "edubkk_userentry";
+$dbcall = DB_USERENTRY;
 
 		$dd = date("d");
 		$mm = date("m");
@@ -452,11 +452,11 @@ tbl_assign_key.idcard =  '$_SESSION[id]' GROUP BY monitor_keyin.staffid";
 		if($sub_ipaddress == "192.168." and $session_sapphire == "2"){
 		$sql_log = "INSERT INTO log_check_staffkey SET staffid='$_SESSION[session_staffid]',idcard='$_SESSION[id]',siteid='$_SESSION[secid]'";
 		mysql_db_query($dbcall,$sql_log);
-		echo "<script> alert('ท่านไม่มีสิทธิบันทึกข้อมูลเนื่องจากท่านได้ถูกกำหนดช่วงเวลาการบันทึกข้อมูลไว้แล้ว');top.location.href='http://$redirec_ip/edubkk_master/application/userentry/login_main.php';</script>";
+		echo "<script> alert('ท่านไม่มีสิทธิบันทึกข้อมูลเนื่องจากท่านได้ถูกกำหนดช่วงเวลาการบันทึกข้อมูลไว้แล้ว');top.location.href='http://$redirec_ip".APPNAME."application/userentry/login_main.php';</script>";
 		exit;
 		}else{
 		add_log("เข้าสู่ระบบ","$log_ip_login","login");
-		echo "<script>top.location.href='http://$redirec_ip/edubkk_master/application/hr3/hr_frame/frame.php';</script>";
+		echo "<script>top.location.href='http://$redirec_ip".APPNAME."application/hr3/hr_frame/frame.php';</script>";
 		exit;
 		}//end 	if($sub_ipaddress == "192.168." and $session_sapphire == "2"){
 
@@ -504,10 +504,10 @@ if($_SESSION['session_sapphire'] == "1"){ // กรณีเป็นเจ้าหน้าที่ sapphire ไม่ต้อ
 	if($sub_ipaddress == "192.168." and $rsa[sapphireoffice] == "2"){
 		$sql_log = "INSERT INTO log_check_staffkey SET staffid='$_SESSION[session_staffid]',idcard='$_SESSION[id]',siteid='$_SESSION[secid]'";
 		mysql_db_query($dbcall,$sql_log);
-		echo "<script> alert('ท่านไม่มีสิทธิบันทึกข้อมูลเนื่องจากท่านได้ถูกกำหนดช่วงเวลาการบันทึกข้อมูลไว้แล้ว');top.location.href='http://$redirec_ip/edubkk_master/application/userentry/login_main.php';</script>";
+		echo "<script> alert('ท่านไม่มีสิทธิบันทึกข้อมูลเนื่องจากท่านได้ถูกกำหนดช่วงเวลาการบันทึกข้อมูลไว้แล้ว');top.location.href='http://$redirec_ip".APPNAME."application/userentry/login_main.php';</script>";
 		exit;
 	}else{
-		echo "<script>top.location.href='http://$redirec_ip/edubkk_master/application/hr3/hr_frame/frame.php';</script>";
+		echo "<script>top.location.href='http://$redirec_ip".APPNAME."application/hr3/hr_frame/frame.php';</script>";
 		exit;
 	}//end if($sub_ipaddress == "192.168." and $session_sapphire == "2"){
 
@@ -620,7 +620,7 @@ $check_conf ++;
 <? exit; } ?>
 <?			
 connserver(HOST) ;  
-# $dbnamemaster="edubkk_master"; 
+# $dbnamemaster=DB_MASTER; 
 
 $sname = trim($sname); 
 $slastname = trim($slastname) ; 
@@ -1126,7 +1126,7 @@ echo $stroffice ;
 	
     $sql_key = "SELECT COUNT(idcard) AS num_key  FROM tbl_assign_key WHERE idcard='$rs[CZ_ID]' AND nonactive='0' AND userkey_wait_approve='1' GROUP BY idcard";
 	$arr_sql[] = $sql_key;
-	$result_key = mysql_db_query("edubkk_userentry",$sql_key);
+	$result_key = mysql_db_query(DB_USERENTRY,$sql_key);
 	$rs_key = mysql_fetch_assoc($result_key);
 	if($rs_key[num_key] > 0){ echo "<font color='#FF0000'>*</font>";}else{ echo "";}
 	

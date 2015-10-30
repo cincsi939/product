@@ -6,9 +6,6 @@ Last Modified	: 22/05/2552
 Changes		:
 *****************************************************************************/
 include "epm.inc.php";
-include("../../config/conndb_nonsession.inc.php");
-
-
 ?>
 
 <html>
@@ -89,7 +86,7 @@ function checkAll(field,x) {
 	if($action == "run"){
 	$db_site = STR_PREFIX_DB.$secid;
 		$sql = "SELECT * FROM log_delete_assign_key WHERE siteid='$secid'";
-		$result = mysql_db_query("edubkk_userentry",$sql);
+		$result = mysql_db_query(DB_USERENTRY,$sql);
 		while($rs = mysql_fetch_assoc($result)){
 
 				$arr1 = explode(" ",$rs[fullname]);
@@ -109,7 +106,7 @@ function checkAll(field,x) {
 				$rs1 = mysql_fetch_assoc($result1);
 					if($rs1[id] != ""){
 						$sql_assign = "SELECT COUNT(idcard) as n1 FROM tbl_assign_key WHERE idcard = '$rs1[id]' GROUP BY idcard";
-						$result_assgin = mysql_db_query("edubkk_userentry",$sql_assign);
+						$result_assgin = mysql_db_query(DB_USERENTRY,$sql_assign);
 						$rs_a = mysql_fetch_assoc($result_assgin);
 						//echo "$rs_a[n1]<br>";
 							if($rs_a[n1] < 1){ // แสดงว่ายังไม่มีการ assgin งานให้เอา log_delete up ขึ้นมา

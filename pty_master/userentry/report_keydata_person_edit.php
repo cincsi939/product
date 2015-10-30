@@ -42,13 +42,13 @@ $tblgeneral = "general"; // ตารางหลักในการค้นหาบุคลากร
 $link_file = "percen_entry_v5sc_appv_detail.php";
 $link_file1 = "percen_entry_v5sc_appv.php";
 
-$edubkk_master = "edubkk_master" ; 
+$edubkk_master = DB_MASTER ; 
 $lead_general = "general";
 $view_general = "view_general";
 $now_dbname = STR_PREFIX_DB. $xxsiteid ; 
 $db_site = STR_PREFIX_DB.$xsiteid;
 //$profile_id = 1;
-$dbname_temp = "edubkk_checklist";
+$dbname_temp = DB_CHECKLIST;
 
 
 
@@ -195,7 +195,7 @@ global $dbnamemaster;
 
 function CountCheckList($xsiteid,$schoolid){
 	global $profile_id,$type,$schoolid;
-		$dbname_temp = "edubkk_checklist";
+		$dbname_temp = DB_CHECKLIST;
 //		if($type == ""  or $type == "all"){
 //				$conv = " AND schoolid='$schoolid'";
 //		}else{
@@ -250,7 +250,7 @@ WHERE  profile_id='$profile_id' AND  ".DB_CHECKLIST.".tbl_checklist_kp7.siteid='
 
 function NumPersonKey($xsiteid,$schoolid){
 	global $profile_id,$type,$schoolid;
-		$dbname_temp = "edubkk_checklist";
+		$dbname_temp = DB_CHECKLIST;
 //		if($type == ""  or $type == "all"){
 //				$conv = " AND schoolid='$schoolid'";
 //		}else{
@@ -290,7 +290,7 @@ WHERE
 
 function NumIDFalse($xsiteid,$schoolid){
 	global $profile_id,$type,$schoolid;
-		$dbname_temp = "edubkk_checklist";
+		$dbname_temp = DB_CHECKLIST;
 		if($type == ""  or $type == "all"){
 				$conv = " AND schoolid='$schoolid'";
 		}else{

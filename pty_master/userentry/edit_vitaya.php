@@ -1,5 +1,6 @@
 <?php
 ##include("../../../../config/conndb_nonsession.inc.php");
+include("../../config/conndb_nonsession.inc.php")
 include "function_vitaya.php";
 $siteid = $_GET['xsiteid'];
 $site = $_GET['xsiteid'];
@@ -17,7 +18,7 @@ if($_GET['first_time'] == "1"){
 if($_POST['bt_save'] != ""){
   $dbname = STR_PREFIX_DB.$_POST['siteid'];
   $sql_vitaya_name = "SELECT * FROM vitaya WHERE runid = '".$_POST['select_vitaya']."' ";
-  $query_vitaya_name = mysql_db_query('edubkk_master',$sql_vitaya_name)or die(mysql_error());
+  $query_vitaya_name = mysql_db_query(DB_MASTER,$sql_vitaya_name)or die(mysql_error());
   $rows_vitaya_name = mysql_fetch_array($query_vitaya_name);
   $sql_update = "UPDATE vitaya_stat SET salary_id = '".$_POST['salary_id']."' , vitaya_id = '".$_POST['select_vitaya']."' , 
                                         name = '".$rows_vitaya_name['vitayaname']."' , remark = '".$_POST['remark']."' ,
@@ -29,7 +30,7 @@ if($_POST['bt_save'] != ""){
 if($_POST['bt_add'] != ""){
    $dbname = STR_PREFIX_DB.$_POST['siteid'];
    $sql_vitaya_name = "SELECT * FROM vitaya WHERE runid = '".$_POST['select_vitaya_add']."' ";
-   $query_vitaya_name = mysql_db_query('edubkk_master',$sql_vitaya_name)or die(mysql_error());
+   $query_vitaya_name = mysql_db_query(DB_MASTER,$sql_vitaya_name)or die(mysql_error());
    $rows_vitaya_name = mysql_fetch_array($query_vitaya_name);
    
    #check duplicate
@@ -42,7 +43,7 @@ if($_POST['bt_add'] != ""){
    $sql_log = "INSERT INTO log_update_vitaya(runid,idcard,siteid,salary_id,vitaya_id,vitaya_name,staff_id,update_time)
                 VALUES(NULL,'".$_POST['idcard']."','".$_POST['siteid']."','".$_POST['salary_id_add']."','".$_POST['select_vitaya_add']."',
 				      '".$rows_vitaya_name['vitayaname']."','".$_SESSION['session_staffid']."',NOW())";
-   mysql_db_query('edubkk_master',$sql_log)or die(mysql_error());
+   mysql_db_query(DB_MASTER,$sql_log)or die(mysql_error());
    
    #add vitaya
    $sql_vitaya = "INSERT INTO vitaya_stat(id,salary_id,vitaya_id,name,date_command,date_start,remark,updatetime)
@@ -150,7 +151,7 @@ if($_GET['module'] == 'add'){
 	   <option value="">เลือกวิทยะฐานะ</option>
 	  <?php
 	  $sql_vitaya = "SELECT * FROM vitaya";
-	  $query_vitaya = mysql_db_query('edubkk_master',$sql_vitaya)or die(mysql_error());
+	  $query_vitaya = mysql_db_query(DB_MASTER,$sql_vitaya)or die(mysql_error());
 	  while($rows_vitaya = mysql_fetch_array($query_vitaya)){
 	  ?>
 	  <option value="<?=$rows_vitaya['runid']?>" <?php if($rows_vitaya['runid'] == $rows['vitaya_id']){echo "selected";} ?>><?=$rows_vitaya['vitayaname']?></option>
@@ -212,7 +213,7 @@ while($rows = mysql_fetch_array($query)){
 	<select name="select_vitaya">
 	  <?php
 	  $sql_vitaya = "SELECT * FROM vitaya";
-	  $query_vitaya = mysql_db_query('edubkk_master',$sql_vitaya)or die(mysql_error());
+	  $query_vitaya = mysql_db_query(DB_MASTER,$sql_vitaya)or die(mysql_error());
 	  while($rows_vitaya = mysql_fetch_array($query_vitaya)){
 	  ?>
 	  <option value="<?=$rows_vitaya['runid']?>" <?php if($rows_vitaya['runid'] == $rows['vitaya_id']){echo "selected";} ?>><?=$rows_vitaya['vitayaname']?></option>

@@ -1,9 +1,10 @@
 <?
+require_once("../../config/conndb_nonsession.inc.php");
 $yy = "2547";
-$db_name = "edubkk_userentry";
+$db_name = DB_USERENTRY;
 $dbnameuse = $db_name;
 $db_system = "edubkk_system";
-$dbtemp = "edubkk_checklist";
+$dbtemp = DB_CHECKLIST;
 ##  config  การตรวจสอบการบันทึกเงินเดือนถึงปีสุดท้าย
 //$salary_date = (date("Y")+543);
 $salary_date = "2552";
@@ -330,7 +331,7 @@ function CheckSalaryRadub($get_siteid,$get_idcard){
 ###  ฟังก์ชั่นตรวจสอบการบันทึกเงินเดือนในตรงตามแท่งเงินเดือน
 function CheckKeySalary($get_siteid,$get_idcard){
 		global $yy;
-		$dbnamemaster = "edubkk_master";
+		$dbnamemaster = DB_MASTER;
 		$dbsite = STR_PREFIX_DB.$get_siteid;
 		
 		$sql_salary = "SELECT * FROM salary WHERE id='$get_idcard' AND year(date) > $yy ORDER BY date ASC";

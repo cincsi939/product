@@ -18,9 +18,10 @@ $BypassAPP= true;
 			set_time_limit(8000);
 			include("epm.inc.php");
 			include ("../../common/common_competency.inc.php")  ;
+
 			include ("../../common/std_function.inc.php")  ;
 			
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			
 			$mname	= array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
 

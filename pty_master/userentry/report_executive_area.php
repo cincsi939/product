@@ -17,7 +17,7 @@ $BypassAPP= true;
 session_start();
 			set_time_limit(8000);
 			include ("../../common/common_competency.inc.php")  ;
-
+include("../../config/conndb_nonsession.inc.php");
 			include ("../../common/std_function.inc.php")  ;
 			include ("epm.inc.php")  ;
 			
@@ -29,7 +29,7 @@ session_start();
 			}
 			
 			$curent_date = date("Y-m-d");
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			$time_start = getmicrotime();
 			$mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
 			$monthFull = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
@@ -316,7 +316,7 @@ function ShowExsumEx(){
 					$conw1 = " AND ".DB_USERENTRY.".temp_report_executive.staff_qc <> '' AND ".DB_USERENTRY.".temp_report_executive.staff_qc IS NOT NULL";  	
 
 					}else if($xtype == "NQC"){
-					$conw1 = "AND (edubkk_userentry.temp_report_executive.staff_qc = '' or ".DB_USERENTRY.".temp_report_executive.staff_qc IS NULL)";
+					$conw1 = "AND (".DB_USERENTRY.".temp_report_executive.staff_qc = '' or ".DB_USERENTRY.".temp_report_executive.staff_qc IS NULL)";
 				
 				}
 			   else{
@@ -460,7 +460,7 @@ $arr_data = ShowExsumEx();
 					$conw1 = " AND ".DB_USERENTRY.".temp_report_executive.staff_qc <> '' AND ".DB_USERENTRY.".temp_report_executive.staff_qc IS NOT NULL";  	
 					$xtitle = "รายงานข้อมูลผู้บริหารที่QC แล้ว";
 					}else if($xtype == "NQC"){
-					$conw1 = "AND (edubkk_userentry.temp_report_executive.staff_qc = '' or ".DB_USERENTRY.".temp_report_executive.staff_qc IS NULL)";
+					$conw1 = "AND (".DB_USERENTRY.".temp_report_executive.staff_qc = '' or ".DB_USERENTRY.".temp_report_executive.staff_qc IS NULL)";
 					$xtitle = "รายงานข้อมูลผู้บริหารที่ยังไม่ได้QC ";
 				}
 			   else{
@@ -494,7 +494,7 @@ $arr_data = ShowExsumEx();
 FROM ".DB_USERENTRY.".temp_report_executive
 Inner Join  ".DB_MASTER.".eduarea ON ".DB_USERENTRY.".temp_report_executive.siteid =  ".DB_MASTER.".eduarea.secid
 WHERE ".DB_USERENTRY.".temp_report_executive.idcard <> '' $conw1
-ORDER BY ".DB_USERENTRY.".temp_report_executive.siteid ASC,edubkk_userentry.temp_report_executive.position_now ASC";
+ORDER BY ".DB_USERENTRY.".temp_report_executive.siteid ASC,".DB_USERENTRY.".temp_report_executive.position_now ASC";
 				$result = mysql_db_query($dbnameuse,$sql);
 				$i=0;
 				$k=0;

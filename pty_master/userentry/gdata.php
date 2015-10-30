@@ -35,7 +35,7 @@ allschool.id
 FROM
 allschool
 Inner Join eduarea ON allschool.siteid = eduarea.secid where   allschool.office like '%$q%' order by allschool.office limit 100"  ;
- $select1  = mysql_db_query('edubkk_master',$sql)or die(mysql_error()); 
+ $select1  = mysql_db_query(DB_MASTER,$sql)or die(mysql_error()); 
  $name = str_replace("'", "", $sql);   
 
  while ($row=mysql_fetch_array($select1,MYSQL_ASSOC)){ 

@@ -19,8 +19,8 @@ $BypassAPP= true;
 	include ("../../common/common_competency.inc.php")  ;
 	include ("../../common/std_function.inc.php")  ;
 	include "epm.inc.php";
-	$dbnameuse = "edubkk_userentry";
-	$dbcall = "edubkk_userentry";
+	$dbnameuse = DB_USERENTRY;
+	$dbcall = DB_USERENTRY;
 	
 	$_GET['Graph'] = "Show";
 	
@@ -212,7 +212,7 @@ if($_GET[xstaff_id]==""){
                         <span class="style6"><strong>»ÃÐÁÇÅ¤Ðá¹¹ ³</strong> : </span>
                         <span class="ptext_w">
                         <?
-	$dbnameuse = "edubkk_userentry";
+	$dbnameuse =DB_USERENTRY;
 	$sql1 =  " SELECT  *  FROM  ranking   " ;
 	$result1 = mysql_db_query($dbnameuse,$sql1) ;
 	$rs1 = mysql_fetch_assoc($result1) ;

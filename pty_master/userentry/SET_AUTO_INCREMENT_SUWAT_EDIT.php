@@ -22,7 +22,7 @@ $xx="0";
 $sql="SELECT secid  FROM eduarea  WHERE secid NOT LIKE '99%' $conv1";
 //echo $sql;die;
 //$sql="SELECT secid  FROM eduarea where secid='5001' order by secid limit 1";  
- $result_temp = mysql_db_query("edubkk_master",$sql); 
+ $result_temp = mysql_db_query(DB_MASTER,$sql); 
  
 $arr[]="salary_log_";
 $arr[]="general_log_";

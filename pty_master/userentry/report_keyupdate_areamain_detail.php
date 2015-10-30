@@ -52,9 +52,9 @@ if($action == "login"){
 				CreateTicket($_SESSION[session_staffid],$idcard,$xsiteid,"$name_th $surname_th",100);
 				
 				
-				#echo " url : ".APPURL."/edubkk_master/application/hr3/hr_frame/frame.php";die();
+				#echo " url : ".APPURL.APPNAME."application/hr3/hr_frame/frame.php";die();
 	
-				echo "<script>top.location.href='".APPURL."/edubkk_master/application/hr3/hr_frame/frame.php';</script>";
+				echo "<script>top.location.href='".APPURL.APPNAME."application/hr3/hr_frame/frame.php';</script>";
 				exit();
 }//end if($action == "login")
 

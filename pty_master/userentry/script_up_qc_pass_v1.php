@@ -6,7 +6,7 @@ Last Modified	: 22/05/2552
 Changes		:
 *****************************************************************************/
 include "epm.inc.php";
-include("../../config/conndb_nonsession.inc.php");
+
 
 
 ?>
@@ -100,10 +100,10 @@ WHERE
  or timestamp_key LIKE '2009-09-15%' or timestamp_key LIKE '2009-09-16%' or timeupdate LIKE '2009-09-14%' or timeupdate LIKE '2009-09-13%' or timeupdate LIKE '2009-09-12%'
  or timeupdate LIKE '2009-09-15%' or timeupdate LIKE '2009-09-16%' ) GROUP BY monitor_keyin.idcard ";
  
-		$result = mysql_db_query("edubkk_userentry",$sql_sel);
+		$result = mysql_db_query(DB_USERENTRY,$sql_sel);
 		while($rs = mysql_fetch_assoc($result)){
 			$sql1 = "SELECT ticketid, idcard FROM tbl_assign_key WHERE idcard='$rs[idcard]'";
-			$result1 = @mysql_db_query("edubkk_userentry",$sql1);
+			$result1 = @mysql_db_query(DB_USERENTRY,$sql1);
 			$rs1 = @mysql_fetch_assoc($result1);
 				if($rs1[idcard] != ""){
 					$sql_up = "UPDATE tbl_assign_key SET approve='0' WHERE idcard='$rs1[idcard]'";

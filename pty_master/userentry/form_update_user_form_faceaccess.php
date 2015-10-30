@@ -4,7 +4,7 @@ $host_face = "202.129.35.101";
 $user_face = "sapphire";
 $pass_face = "sprd!@#$%";
 $dbface = "faceaccess";
-$dbnameuse = "edubkk_userentry";
+$dbnameuse = DB_USERENTRY;
 
 $host = HOST;
 $user = "cmss";
@@ -207,7 +207,7 @@ function CheckFromKey(){
 <?
 ConHost(HOST,USERNAME_HOST,PASSWORD_HOST); // connect cmss server
 ?><br />
-<form id="form1" name="form1" method="post" action="" onsubmit="return CheckFromKey();">
+<form id="form1" name="form1" method="post" action="" onSubmit="return CheckFromKey();">
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td align="left" bgcolor="#000000"><table width="100%" border="0" cellspacing="1" cellpadding="3">
@@ -217,7 +217,7 @@ ConHost(HOST,USERNAME_HOST,PASSWORD_HOST); // connect cmss server
         <tr>
           <td width="37%" align="right" bgcolor="#FFFFFF"><strong>เลขบัตรประชาชนพนักงาน <span class="redlink">*</span></strong></td>
           <td width="63%" align="left" bgcolor="#FFFFFF"><label for="pin"></label>
-            <input name="pin" type="text" id="pin" size="25" maxlength="13" onblur=" return CheckKeyIdcard(this.value);"></td>
+            <input name="pin" type="text" id="pin" size="25" maxlength="13" onBlur=" return CheckKeyIdcard(this.value);"></td>
           </tr>
         <tr>
           <td align="right" bgcolor="#FFFFFF"><strong>กลุ่มการทำงาน<span class="redlink">*</span></strong></td>
@@ -248,7 +248,7 @@ ConHost(HOST,USERNAME_HOST,PASSWORD_HOST); // connect cmss server
               <option value="">เลือกเขตพื้นที่การศึกษา</option>
               <?
             $sql_area = "SELECT secid,secname FROM eduarea WHERE secid NOT LIKE '%99%' ORDER BY secname ASC";
-			$result_area = mysql_db_query("edubkk_master",$sql_area);
+			$result_area = mysql_db_query(DB_MASTER,$sql_area);
 			while($rsa = mysql_fetch_assoc($result_area)){
 				if($rsa[secid] == $rs[site_area]){$sel = " selected='selected'"; }else{ $sel = "";}
 					echo "<option value='$rsa[secid]' $sel>$rsa[secname]</option>";
@@ -259,7 +259,7 @@ ConHost(HOST,USERNAME_HOST,PASSWORD_HOST); // connect cmss server
           </tr>
         <tr>
           <td align="right" bgcolor="#FFFFFF"><strong>วันทีเริ่มประจำเขต</strong></td>
-          <td align="left" bgcolor="#FFFFFF"><input name="date_area" id="date_area" onfocus="blur();" value="<? if($date_area != "//543" ){ echo $date_area;}?>" size="15" readonly="readOnly">
+          <td align="left" bgcolor="#FFFFFF"><input name="date_area" id="date_area" onFocus="blur();" value="<? if($date_area != "//543" ){ echo $date_area;}?>" size="15" readonly="readOnly">
             <input name="btnCalendar" id="button0" type="button"  onclick="popUpCalendar(this, form1.date_area, 'dd/mm/yyyy')"value="วันเดือนปี"></td>
         </tr>
         <tr>

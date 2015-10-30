@@ -1,4 +1,5 @@
 <?
+require_once("../../config/conndb_nonsession.inc.php");
 $count_yy = date("Y")+543;
 $mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
 $monthFull = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
@@ -58,7 +59,7 @@ group by t1.staffid, t1.idcard";
 	
 	#### fucntion แสดงชื่อพนักงานคนบันทึกข้อมูล
 function ShowStaffKey($get_staffid){
-	$db = "edubkk_userentry";
+	$db = DB_USERENTRY;
 	$sql = "SELECT staffid,prename,staffname,staffsurname FROM keystaff WHERE staffid='$get_staffid'";
 	$result = mysql_db_query($db,$sql);
 	$rs = mysql_fetch_assoc($result);

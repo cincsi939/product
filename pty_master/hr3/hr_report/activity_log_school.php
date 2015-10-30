@@ -131,7 +131,7 @@ a:hover { color: #0099FF; text-decoration: underline}
 		  	$xsecid = $_SESSION[secid] ; 
 		  	$where_area  = " AND secid = '$xsecid'   ";
 			$txt_siteid = $xsecid ; 
-		   }  ######  if ($_SESSION[secid] == "edubkk_master"){  
+		   }  ######  if ($_SESSION[secid] == DB_MASTER){  
 		   
 		  $sql1 = " SELECT  *  FROM  eduarea   WHERE 1 $where_area   ORDER BY  secname ";
 		  $result1 = mysql_db_query($edubkk_master_db,$sql1);

@@ -17,6 +17,7 @@ $BypassAPP= true;
 //session_start();
 			set_time_limit(0);
 			include ("../../common/common_competency.inc.php")  ;
+
 			include ("../../common/std_function.inc.php")  ;
 			include ("epm.inc.php")  ;
 			
@@ -55,7 +56,7 @@ global $monthname;
 			$date_config = "2010-10-01";
 			
 			$curent_date = date("Y-m-d");
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 
 
 function GetPointAvgMax($staffid){
@@ -508,7 +509,7 @@ while($rs = mysql_fetch_assoc($result)){
       
       <tr bgcolor="<?=$bg?>">
         <td align="center"><?=$i?></td>
-        <td align="center"><a href="http://202.129.35.120/edubkk_master/application/userentry/report_keyin_user3.php?staffid=<?=$staffid?>&datereq=<?=$datex1?>" target="_blank"><?=xMakeDate($rs[datekey])?></a></td>
+        <td align="center"><a href="http://202.129.35.120".APPNAME."application/userentry/report_keyin_user3.php?staffid=<?=$staffid?>&datereq=<?=$datex1?>" target="_blank"><?=xMakeDate($rs[datekey])?></a></td>
         <td align="center"><?=$timex?></td>
         <? if($ptime == "pm"){?>
         <td align="center"><? echo substr($rst[time1],0,-3);?></td>

@@ -61,7 +61,7 @@ general_check.update6y_status =  '100' AND
 	  while($rs=mysql_fetch_assoc($result)){
 	  if($i%2){$bg="#EFEFEF";}else{$bg="#FFFFFF";}
 	  
-		$result3 = mysql_db_query("edubkk_master"," SELECT  siteid,name_th,surname_th , year(startdate) as startdate   FROM  view_general  WHERE  CZ_ID = '$rs[idcard]' ");
+		$result3 = mysql_db_query(DB_MASTER," SELECT  siteid,name_th,surname_th , year(startdate) as startdate   FROM  view_general  WHERE  CZ_ID = '$rs[idcard]' ");
 		$rs3 = mysql_fetch_assoc($result3);
 		$dbsite = STR_PREFIX_DB.$rs3[siteid] ;
 		$name = "$rs3[name_th] $rs3[surname_th]";

@@ -18,7 +18,7 @@ $BypassAPP= true;
 			set_time_limit(8000);
 			include ("../../common/common_competency.inc.php")  ;
 			include("../../config/conndb_nonsession.inc.php");
-			$dbcall = "edubkk_userentry";
+			$dbcall = DB_USERENTRY;
 			$minute = 8*60;
 			
 			$arrdate = array("2010-07-05"=>"วันที่ 5 กรกฎาคม 2553","2010-07-06"=>"วันที่ 6 กรกฎาคม 2553","2010-07-07"=>"วันที่ 7 กรกฎาคม 2553","2010-07-08"=>"วันที่ 8 กรกฎาคม 2553"); // วันที่ 

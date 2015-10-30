@@ -42,7 +42,7 @@ $link_file = "percen_entry_v5sc_appv_detail.php";
 $link_file1 = "percen_entry_v5sc_appv.php";
 if($xsiteid != ""){ $xsiteid = $xsiteid;}else{ $xsiteid = "5006";}; // กรณีทดสอบในเครื่อง
 
-$edubkk_master = "edubkk_master" ; 
+$edubkk_master = DB_MASTER ; 
 $lead_general = "general";
 $view_general = "view_general";
 $now_dbname = STR_PREFIX_DB. $xxsiteid ; 
@@ -73,7 +73,7 @@ $getdepid = $depid ;
 ############ นับจำนวนการตรรวจสอบข้อมูลใน checklist 
 function CountCheckListKp7(){
 	global $profile_id;
-		$dbname_temp = "edubkk_checklist";
+		$dbname_temp = DB_CHECKLIST;
 		$sql = "SELECT
  ".DB_CHECKLIST.".tbl_checklist_kp7.siteid,
 Count(idcard) AS NumAll,

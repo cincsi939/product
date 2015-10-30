@@ -19,7 +19,7 @@ $arr_site_admin = array('7103'=>'7103','6502'=>'6502','8602'=>'8602','6301'=>'63
 
 function xshow_area($siteid){
 	$sql_area = "SELECT secname FROM eduarea WHERE secid='$siteid'";
-	$result_area = mysql_db_query("edubkk_master",$sql_area);
+	$result_area = mysql_db_query(DB_MASTER,$sql_area);
 	$rs_a = mysql_fetch_assoc($result_area);
 	$xshow_area = str_replace("สำนักงานเขตพื้นที่การศึกษา","สพท.",$rs_a[secname]);
 	return $xshow_area;
@@ -28,7 +28,7 @@ function xshow_area($siteid){
 
 function show_school($schoolid){
 		$sql_school = "SELECT office  FROM allschool WHERE id='$schoolid'";
-		$result_school = mysql_db_query("edubkk_master",$sql_school);
+		$result_school = mysql_db_query(DB_MASTER,$sql_school);
 		$rs_s = mysql_fetch_assoc($result_school);
 		return $rs_s[office];
 }

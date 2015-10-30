@@ -919,7 +919,7 @@ if($xsearch == "search" or $xsearch == "search2" or $show_by_school != "" or $sh
 			  $_POST['arr_idcard'][] = $idcard_show;
 			  $sql = "SELECT * , (TIMESTAMPDIFF(MONTH,begindate,'$year1')/12) as age_gov FROM view_general WHERE CZ_ID = '$idcard_show' ";
 			 } 
-			  $result = mysql_db_query('edubkk_master',$sql)or die(mysql_error());
+			  $result = mysql_db_query(DB_MASTER,$sql)or die(mysql_error());
 			  $ch_num = mysql_num_rows($result);
 			 
              #echo $sql;
@@ -1433,14 +1433,14 @@ $dbsite = STR_PREFIX_DB.$rs_d[siteid];
 
 function find_site_now($schoolid){
   $sql = "SELECT * FROM allschool WHERE id = '$schoolid' ";
-  $query = mysql_db_query('edubkk_master',$sql);
+  $query = mysql_db_query(DB_MASTER,$sql);
   $rows = mysql_fetch_array($query);
   
   return $rows['siteid'];
 }
 function find_old_site($schoolid){
   $sql = "SELECT * FROM allschool_math_sd WHERE schoolid = '$schoolid' ";
-  $query = mysql_db_query('edubkk_master',$sql);
+  $query = mysql_db_query(DB_MASTER,$sql);
   $rows = mysql_fetch_array($query);
   
   $num = mysql_num_rows($query);
@@ -1511,7 +1511,7 @@ if($xsearch == "search3" ){
   if($select_school_label != ""){
     $str_school = str_replace(" ","%",$select_school_label);
     $sql_school = " SELECT id,office,siteid FROM allschool WHERE office LIKE '%".$str_school."%' ";
-	$query_school = mysql_db_query('edubkk_master',$sql_school);
+	$query_school = mysql_db_query(DB_MASTER,$sql_school);
 	while($rows_school = mysql_fetch_array($query_school)){
 	  $arr_school[$rows_school['id']] = $rows_school['office'];
 	}
@@ -1690,7 +1690,7 @@ while($rows = mysql_fetch_array($query)){
   </tr>
 <?php
 $i = 1;
-$query = mysql_db_query('edubkk_master',$sql)or die(mysql_error());
+$query = mysql_db_query(DB_MASTER,$sql)or die(mysql_error());
 while($rows = mysql_fetch_array($query)){
  
 ?>  

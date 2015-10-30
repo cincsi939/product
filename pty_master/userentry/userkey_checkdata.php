@@ -7,7 +7,7 @@ if($_SESSION[session_staffid] == ""){
 }
 
 set_time_limit(0);
-include ("../../../../config/conndb_nonsession.inc.php")  ;
+
 include("../../../../common/common_competency.inc.php");
 include('function_checkdata.inc.php') ;
 include('function_insert_temp_key.inc.php') ;
@@ -16,15 +16,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and $_POST['action_approve'] == '1'){
    
     ##log check vitaya
 	 $sql = "REPLACE INTO log_check_vitaya(idcard,time_update) VALUES('$idcard',NOW())";
-	 mysql_db_query('edubkk_master',$sql)or die(mysql_error());
+	 mysql_db_query(DB_MASTER,$sql)or die(mysql_error());
 	 
 	
 	## บันทึกการตรวจสอบข้อมูลเบื้องต้นของคนคีย
 	$sql_update = "UPDATE tbl_assign_key SET userkey_wait_approve='$userkey_wait_approve',commet_key_data='$commet_key_data'  WHERE idcard = '$idcard'";
-	$result_update = mysql_db_query("edubkk_userentry",$sql_update);
+	$result_update = mysql_db_query(DB_USERENTRY,$sql_update);
 	
 	$sql_up1 = "UPDATE stat_user_keyperson SET status_approve='$userkey_wait_approve'  WHERE  staffid='$staffid' AND idcard='$idcard'";
-	mysql_db_query("edubkk_userentry",$sql_up1);
+	mysql_db_query(DB_USERENTRY,$sql_up1);
 	
 	if($xstatus_pass == "1"){
 			#### approve กรณีข้อมูลผ่านการตรวจสอบจากพนักงานคีย์ข้อมูล
@@ -280,7 +280,7 @@ include "edit_vitaya.php";
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
         <?
         	$sql_edit = "SELECT * FROM tbl_assign_key WHERE idcard='$idcard' AND  nonactive='0' AND siteid='$xsiteid' ";
-			$result_edit = mysql_db_query("edubkk_userentry",$sql_edit);
+			$result_edit = mysql_db_query(DB_USERENTRY,$sql_edit);
 			$rs_edit = mysql_fetch_assoc($result_edit);
 		?>
           <tr>

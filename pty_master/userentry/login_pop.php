@@ -1,5 +1,6 @@
 <?
 session_start();
+include("../../config/conndb_nonsession.inc.php");
 $nochecklogin= true;
 include "epm.inc.php";
 $time_am = "08:30:00";
@@ -11,7 +12,7 @@ $time_pm1 = "23:00:00";
 
 $ipn = getenv("SERVER_NAME"); 
 if(substr($ipn,0,8) == "192.168."){
-		header("Location: http://".APPHOST."/edubkk_master/application/userentry/login.php");
+		header("Location: http://".APPHOST.APPNAME."application/userentry/login.php");
 }
 
 
@@ -19,7 +20,7 @@ if(substr($ipn,0,8) == "192.168."){
 $time_curent = date("H:i:s");
 function CheckLogin($get_staffid){
 	$sql_login = "SELECT COUNT(staffid) AS numL FROM keystaff WHERE staffid='$get_staffid' AND status_extra='NOR' GROUP BY staffid";
-	$result_login = mysql_db_query("edubkk_userentry",$sql_login);
+	$result_login = mysql_db_query(DB_USERENTRY,$sql_login);
 	$rs_login = mysql_fetch_assoc($result_login);
 	return $rs_login[numL];
 }//end function CheckLogin(){

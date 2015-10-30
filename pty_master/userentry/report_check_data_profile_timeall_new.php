@@ -23,7 +23,7 @@ $mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.
 #End Set var
 
 if($_SESSION[session_staffid] != "" and $_SESSION[session_site] == ""){
-	$user_site = "edubkk_master";	
+	$user_site = DB_MASTER;	
 }else if($_SESSION[session_site] != ""){
 	$user_site = $_SESSION[session_site];	
 }else{
@@ -50,7 +50,7 @@ function gen_sql($get_view="edu",$siteid="",$id=""){
 	if($get_view=="edu" || $get_view==""){ 
 		$sql = "SELECT site AS siteid,sitename,siteshortname AS caption ,patameter FROM `eduarea_config`    ";
 		$sql .= "WHERE site IS NOT NULL AND sitename IS NOT NULL AND site NOT LIKE('99%') ";
-		$sql .= ($siteid!="" and $user_site != "edubkk_master")?" AND site ='".$siteid."' ":"";
+		$sql .= ($siteid!="" and $user_site != DB_MASTER)?" AND site ='".$siteid."' ":"";
 		$sql .= "ORDER BY orde_by ASC";
 	}else if($get_view=="school"){
 		$sql = "SELECT  id AS schoolid ,IF(id='".$siteid."',office, CONCAT('โรงเรียน',office)) AS caption, siteid ,(if(id='".$siteid."' ,null,office)) AS orderfilde FROM `allschool`  ";
@@ -270,7 +270,7 @@ function getProfile(){
 		Inner Join tbl_checklist_profile ON tbl_checklist_profile.profile_id = tbl_checklist_kp7_all_view.profile_id
 		group by  ".DB_CHECKLIST.".tbl_checklist_kp7_all_view.siteid
 		ORDER BY tbl_checklist_kp7_all_view.profile_id DESC";
-		$query = mysql_db_query("edubkk_checklist", $sql);
+		$query = mysql_db_query(DB_CHECKLIST, $sql);
 		while($row = mysql_fetch_assoc($query)){
 			$arr_profile[$row['siteid']]=$row['profilename_short'];
 		}
@@ -288,7 +288,7 @@ function gen_part($siteid=""){
 		#edu 
 		$sql_edu = "SELECT site AS siteid,sitename,siteshortname AS caption ,patameter FROM `eduarea_config`  ";
 		$sql_edu .= "WHERE site IS NOT NULL AND sitename IS NOT NULL ";
-		$sql_edu .= ($siteid!="" and $user_site != "edubkk_master")?" AND site ='".$siteid."' ":"";
+		$sql_edu .= ($siteid!="" and $user_site != DB_MASTER)?" AND site ='".$siteid."' ":"";
 		$query_edu = mysql_db_query($dbname, $sql_edu);
 		$row_edu = mysql_fetch_assoc($query_edu);
 		$str_link = '<a href="?get_view=edu">ภาพรวม</a>'; 

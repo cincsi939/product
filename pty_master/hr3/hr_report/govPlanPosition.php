@@ -34,11 +34,11 @@ $monthname = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนา
 $shortmonth = array( "","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.", "ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
 	
 	
-if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+if($_SESSION['secid'] != "" and $_SESSION['secid'] != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$_SESSION['secid'];	
 }else if($_SESSION['temp_dbsite'] != ""){
 	$db_name = $_SESSION['temp_dbsite'];
-}else if($xsiteid != "" and $xsiteid != "edubkk_master"){
+}else if($xsiteid != "" and $xsiteid != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$xsiteid;
 }else{
 				echo "

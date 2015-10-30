@@ -5,9 +5,10 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("cache-Control: no-store, no-cache, must-revalidate"); 
 header("cache-Control: post-check=0, pre-check=0", false); 
 header("Pragma: no-cache"); 
+require_once("../../config/conndb_nonsession.inc.php");
 
-$db_name ="edubkk_userentry"  ;
-$dbnamemaster="edubkk_master";
+$db_name = DB_USERENTRY;
+$dbnamemaster=DB_MASTER;
 $dbsystem = "edubkk_system";
 $dbnameuse = $db_name;
 $base_point = 240;
@@ -15,7 +16,7 @@ $point_w = 0.5;
 $numdoc = 3;// ค่าเฉลี่ยในการคูณจำนวณชุดที่ผิด
 $val5 = 5;// ค่าคะแนนคูณ 5 ในตำแหน่งสายบริหารการศึกษา
 $date_checkkey = "2552-10-01"; // ข้อมูล ณ วันที่ 
-$dbnameuse = "edubkk_userentry";
+$dbnameuse = DB_USERENTRY;
 $db_temp = "edubkk_checklist";
 $length_var = 7;
 $structure_key =10;
@@ -24,7 +25,7 @@ $pathkp7file = "../../../edubkk_kp7file/";
 
 //system data base
 $sysdbname =""  ;
-$aplicationpath="edubkk_master";
+$aplicationpath=DB_MASTER;
 //gov data
 $gov_name = ""    ;
 $ministry_name = "";

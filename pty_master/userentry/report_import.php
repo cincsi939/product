@@ -2,13 +2,14 @@
 set_time_limit(0);
 //include("../../../../config/conndb_nonsession.inc.php");
 //include ("../../../../common/common_competency.inc.php")  ;	
+include("../../config/conndb_nonsession.inc.php");
 include "epm.inc.php";
 $number_all = "25561";
 $mname	= array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
 
 function cal_num_key($date_c){
 global $dbnamemaster;
-	$sql_count = "SELECT COUNT(edubkk_userentry.tbl_assign_key.approve) AS numc FROM  ".DB_MASTER.".log_pdf  Inner Join ".DB_USERENTRY.".tbl_assign_key ON  ".DB_MASTER.".log_pdf.idcard = ".DB_USERENTRY.".tbl_assign_key.idcard WHERE  ".DB_MASTER.".log_pdf.date_c =  '$date_c' AND ".DB_USERENTRY.".tbl_assign_key.approve =  '2' group by  ".DB_MASTER.".log_pdf.date_c";
+	$sql_count = "SELECT COUNT(".DB_USERENTRY.".tbl_assign_key.approve) AS numc FROM  ".DB_MASTER.".log_pdf  Inner Join ".DB_USERENTRY.".tbl_assign_key ON  ".DB_MASTER.".log_pdf.idcard = ".DB_USERENTRY.".tbl_assign_key.idcard WHERE  ".DB_MASTER.".log_pdf.date_c =  '$date_c' AND ".DB_USERENTRY.".tbl_assign_key.approve =  '2' group by  ".DB_MASTER.".log_pdf.date_c";
 //echo 	$sql_count;
 	$result = mysql_db_query($dbnamemaster,$sql_count);
 	$rs = mysql_fetch_assoc($result);

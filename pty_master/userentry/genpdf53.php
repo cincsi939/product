@@ -17,7 +17,7 @@ $action="gen";
 $action="gen";
 $dbsite = STR_PREFIX_DB.$siteid_sent;
 $dbname = STR_PREFIX_DB.$siteid_sent;
-$db_temp = "edubkk_checklist";
+$db_temp = DB_CHECKLIST;
 
 //$xlimit = " LIMIT 0,20";
 $xlimit = "";
@@ -38,7 +38,7 @@ $barcode = $_GET[barcode];
 
 
 function SaveLogGenPdfMain($get_siteid,$get_type){
-		$db_temp = "edubkk_checklist";
+		$db_temp = DB_CHECKLIST;
 		$date_gen = date("Y-m-d");
 		$sql_insert = "INSERT INTO log_gen_filepdf_profile SET siteid='$get_siteid', date_gen='$date_gen',type_file='$get_type'";
 		mysql_db_query($db_temp,$sql_insert);

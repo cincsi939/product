@@ -66,7 +66,7 @@ include ("../../../config/config_hr.inc.php")  ;
  } else{
  $con='1=1'   ;
  }
-$dbnamemaster="edubkk_master";
+$dbnamemaster=DB_MASTER;
 $sql="SELECT      
 vitaya.vitayaname  as value ,
 vitaya.runid as id

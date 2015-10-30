@@ -56,7 +56,7 @@ WHERE ".DB_USERENTRY.".tbl_assign_key.approve <>  '2'";
 tbl_check_data.position_now, tbl_check_data.schoolname, tbl_check_data.secid, tbl_assign_key.idcard, tbl_assign_key.approve, (TIMESTAMPDIFF(MONTH,begindate,'$year1')/12) as age_gov FROM
 tbl_check_data Inner Join tbl_assign_key ON tbl_check_data.idcard = tbl_assign_key.idcard WHERE tbl_assign_key.approve <> '2'";
 */
-$result_main = mysql_db_query("edubkk_userentry",$sql_main);
+$result_main = mysql_db_query(DB_USERENTRY,$sql_main);
 while($rs_m = mysql_fetch_assoc($result_main)){
 	$fullname[$rs_m[idcard]] = "$rs_m[prename_th]$rs_m[name_th] $rs_m[surname_th]";
 	$schoolname[$rs_m[idcard]] = show_eduarea($rs_m[secid])."/".$rs_m[schoolname];
@@ -93,7 +93,7 @@ print_r($result_idcard);*/
 
 $sql_m1 = "SELECT  idcard FROM tbl_assign_key GROUP BY idcard";
 //echo $sql_m1;
-$result_m1 = mysql_db_query("edubkk_userentry",$sql_m1);
+$result_m1 = mysql_db_query(DB_USERENTRY,$sql_m1);
 while($rs_m1 = mysql_fetch_assoc($result_m1)){
 		if($in_id > "") $in_id .= ",";
 		$in_id .= "'$rs_m1[idcard]'";
@@ -127,7 +127,7 @@ WHERE  ".DB_CHECKLIST.".tbl_check_data.idcard NOT IN($in_id) AND  secid NOT LIKE
 //WHERE  ".DB_CHECKLIST.".tbl_check_data.idcard NOT IN($in_id)
 //";
 
-$result_m2 = mysql_db_query("edubkk_checklist",$sql_m2);
+$result_m2 = mysql_db_query(DB_CHECKLIST,$sql_m2);
 while($rs_m2 = mysql_fetch_assoc($result_m2)){
 	$fullname[$rs_m2[idcard]] = "$rs_m2[prename_th]$rs_m2[name_th] $rs_m2[surname_th]";
 	$schoolname[$rs_m2[idcard]] = show_eduarea($rs_m2[secid])."/".$rs_m2[schoolname];
@@ -138,7 +138,7 @@ while($rs_m2 = mysql_fetch_assoc($result_m2)){
 
 
 $sql_numall = "SELECT COUNT(secid) as num_all FROM tbl_check_data WHERE secid NOT LIKE '50%'";
-$result_numall = mysql_db_query("edubkk_checklist",$sql_numall);
+$result_numall = mysql_db_query(DB_CHECKLIST,$sql_numall);
 $rs_num = mysql_fetch_assoc($result_numall);
 
 $num_all = $rs_num[num_all];

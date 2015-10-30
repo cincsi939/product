@@ -875,7 +875,7 @@ function cfooter($Gety1=-1)
 
 			$x = $this->lMargin;
 			$id = trim($id);
-$dbnamemaster="edubkk_master";
+$dbnamemaster=DB_MASTER;
 /*$sql = "select t1.*,t2.religion as religionname,t3.blood as bloodgroup from  (general t1 left join $dbnamemaster.hr_religion t2 on t1.region=t2.id) left join $dbnamemaster.hr_blood t3 on t1.blood=t3.id where t1.id='$id'  ;";*/
 $sql = "select t1.*,t2.religion as religionname,t3.blood as bloodgroup from (general t1 left join $dbnamemaster.hr_religion t2 on t1.region=t2.id) left join $dbnamemaster.hr_blood t3 on t1.blood=t3.id where t1.id='$id';";
 //echo "dbname  == ".$dbname;

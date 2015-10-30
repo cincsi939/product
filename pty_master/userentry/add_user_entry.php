@@ -8,7 +8,8 @@ Changes		:
 
 *****************************************************************************/
 include "epm.inc.php";
-$dbcall = "edubkk_userentry";
+require_once("../../config/conndb_nonsession.inc.php");
+$dbcall = DB_USERENTRY;
 
 	if($action == "delete"){
 	$sql = " DELETE  FROM  monitor_keyin   WHERE  staffid = '$staffid'  AND  idcard = '$idcard'  " ;

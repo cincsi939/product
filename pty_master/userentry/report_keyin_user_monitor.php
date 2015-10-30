@@ -17,11 +17,12 @@ $BypassAPP= true;
 //session_start();
 			set_time_limit(8000);
 			include ("../../common/common_competency.inc.php")  ;
+
 			include ("../../common/std_function.inc.php")  ;
 			include ("epm.inc.php")  ;
 			
 			
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			
 			$time_start = getmicrotime();
 			$mname	= array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
@@ -400,7 +401,7 @@ while($rs1 = mysql_fetch_assoc($result1)){
 
 
 
-$result3 = mysql_db_query("edubkk_master"," SELECT  siteid   FROM  view_general  WHERE  CZ_ID = '$rs1[idcard]' ");
+$result3 = mysql_db_query(DB_MASTER," SELECT  siteid   FROM  view_general  WHERE  CZ_ID = '$rs1[idcard]' ");
 $rs3 = mysql_fetch_assoc($result3);
 $dbsite = STR_PREFIX_DB.$rs3[siteid] ;
 

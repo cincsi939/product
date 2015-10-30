@@ -22,7 +22,7 @@ $BypassAPP= true;
 			include ("epm.inc.php")  ;
 			
 			$curent_date = date("Y-m-d");
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			$time_start = getmicrotime();
 			$mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
 	function CheckQCWeek($get_staffid,$get_sdate,$get_edate){

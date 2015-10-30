@@ -23,11 +23,11 @@
 }		
 	include ("preloading.php")  ;
 	include ("../../common/common_competency.inc.php")  ;
-	include("../../config/conndb_nonsession.inc.php");
+
 	include ("../../common/std_function.inc.php")  ;
 	include("epm.inc.php");
 	
-	$dbnameuse = "edubkk_userentry";
+	$dbnameuse = DB_USERENTRY;
 	$datekeyin = date("Y-m-d");
 	### ratio ผลคูณของ qc แต่ละกลุ่ม
 	//$Ratio_val = ShowQvalue($xstaff_id);

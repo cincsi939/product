@@ -23,7 +23,7 @@ $mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.
 #End Set var
 
 if($_SESSION[session_staffid] != "" and $_SESSION[session_site] == ""){
-	$user_site = "edubkk_master";	
+	$user_site = DB_MASTER;	
 }else if($_SESSION[session_site] != ""){
 	$user_site = $_SESSION[session_site];	
 }else{
@@ -59,7 +59,7 @@ FROM  ".DB_MASTER.".eduarea ";
 		$sql .= " WHERE 
 						 ".DB_MASTER.".eduarea.secid IS NOT NULL AND  ".DB_MASTER.".eduarea.secname IS NOT NULL AND  ".DB_MASTER.".eduarea.secid NOT LIKE('99%') 
 					".$where_area_keyin_status;
-		$sql .= ($siteid!="" and $user_site != "edubkk_master")?" AND  ".DB_MASTER.".eduarea.secid ='".$siteid."' ":"";
+		$sql .= ($siteid!="" and $user_site != DB_MASTER)?" AND  ".DB_MASTER.".eduarea.secid ='".$siteid."' ":"";
 		$sql .= " ORDER BY   ".DB_MASTER.".eduarea.secname_short,  ".DB_MASTER.".eduarea.secid ASC";
 	}else if($get_view=="school"){
 		$sql = "SELECT  id AS schoolid ,IF(id='".$siteid."',office, CONCAT('โรงเรียน',office)) AS caption, siteid ,(if(id='".$siteid."' ,null,office)) AS orderfilde FROM `allschool`  ";

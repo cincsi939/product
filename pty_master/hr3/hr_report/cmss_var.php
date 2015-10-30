@@ -42,12 +42,12 @@
 	
 	$cms_db = "competency_cms";
 	$db_competency="competency_system";
-	$edubkk_master="edubkk_master";
+	$edubkk_master=DB_MASTER;
 	$hostgraph = "202.129.35.106";
 	$servergraph = "202.129.35.106";
 	$dbtemp_pobec = "temp_pobec_import";
-	$now_dbname = "edubkk_master";
-	$dbnamemaster = "edubkk_master"; 	
+	$now_dbname = DB_MASTER;
+	$dbnamemaster = DB_MASTER; 	
 	$dbname_sapp = "sapphire_app";
 	$dbname_center = "edubkk_0000"; // ฐานข้อมูลกลาง
 	

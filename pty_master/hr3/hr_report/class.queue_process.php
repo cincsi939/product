@@ -2,7 +2,7 @@
 ## class add queue การประมวลผล gen ก.พ. 7 อิเล็กทรอนิกส์
 
 class AddQueueGen{
-		var $db_master = "edubkk_master";
+		var $db_master = DB_MASTER;
 		var $tbl_q = "kp7gen_queue_process";
 		var $tbl_q_log = "kp7gen_quere_process_log";
 		var $tbl_file_ele = "kp7gen_electronic";

@@ -1,4 +1,4 @@
-<?php
+DB_CHECKLIST<?php
 	###################################################################
 	## REPORT: ASSIGN KEY
 	###################################################################
@@ -12,7 +12,7 @@
 session_start();
 include("../../config/conndb_nonsession.inc.php");
 include ("../../common/common_competency.inc.php");
-$dbname_edubkk_userentry = "edubkk_userentry";
+$dbname_edubkk_userentry = DB_USERENTRY;
 die;
 $arr_logExp = array();
 function assignKeyinExperience($ticketid=""){

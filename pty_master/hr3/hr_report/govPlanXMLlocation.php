@@ -48,11 +48,11 @@ $arrdate['10'] =  "ตุลาคม";
 $arrdate['11'] =  "พฤศจิกายน";
 $arrdate['12'] =  "ธันวาคม";
 	
-if($_SESSION['secid'] != "" and $_SESSION['secid'] != "edubkk_master"){
+if($_SESSION['secid'] != "" and $_SESSION['secid'] != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$_SESSION['secid'];	
 }else if($_SESSION['temp_dbsite'] != ""){
 	$db_name = $_SESSION['temp_dbsite'];
-}else if($xsiteid != "" and $xsiteid != "edubkk_master"){
+}else if($xsiteid != "" and $xsiteid != DB_MASTER){
 	$db_name = STR_PREFIX_DB.$xsiteid;
 }else{
 				echo "
@@ -158,7 +158,7 @@ $get_schoolname = trim($rs[school_label]);
 	
 }else{//
 
-$get =  mysql_fetch_assoc(mysql_db_query("edubkk_master","SELECT office FROM allschool WHERE id='$rs[schoolid]'"));
+$get =  mysql_fetch_assoc(mysql_db_query(DB_MASTER,"SELECT office FROM allschool WHERE id='$rs[schoolid]'"));
 $get_schoolname = trim($get['office']);
 }//end end if($rs[school_label] != "" and $rs[school_label] != NULL ){
 

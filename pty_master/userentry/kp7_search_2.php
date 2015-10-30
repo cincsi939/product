@@ -18,12 +18,12 @@ if($sentsecid != ""){
 	$siteid = $sentsecid;
 }
 
-if($sentsecid=="edubkk_master"){
-	$dbname = "edubkk_master";
+if($sentsecid==DB_MASTER){
+	$dbname = DB_MASTER;
 	$siteid = 0;
 }else if($sentsecid==""){
 	echo " <script language=\"JavaScript\">  alert(\" กรุณา loginเข้าสู่ระบบอีกครั้ง \") ; </script>  " ;   
-	echo " <script language=\"JavaScript\"> top.location.replace('http://localhost/edubkk_master/application/hr3/login.php') </script>  " ;  
+	echo " <script language=\"JavaScript\"> top.location.replace('http://localhost".APPNAME."application/hr3/login.php') </script>  " ;  
 	die;
 }else{
 	$dbname = STR_PREFIX_DB.$sentsecid;
@@ -60,7 +60,7 @@ if($_GET['id'] != ""){
 }
 
 
-if($dbname != "edubkk_master"){
+if($dbname != DB_MASTER){
 		$xsiteid = substr($dbname,-4);
 }
 #########==========================> 16/08/2008   
@@ -3723,7 +3723,7 @@ if($_SESSION[tmpuser] != "" and (!($xpost === false))){
 //	$pdf->Cell(0,5,"$setpass == $tmpuser",1,0,'C');
 
 if(substr($_SERVER["REMOTE_ADDR"],0,8) != "192.168." AND  substr($_SERVER["REMOTE_ADDR"],0,8) != "127.0.0." ){
-	if($_SESSION[secid] != "edubkk_master"){ // กรณี login เป็นระดับผู้บริหารไม่ต้องติด password
+	if($_SESSION[secid] != DB_MASTER){ // กรณี login เป็นระดับผู้บริหารไม่ต้องติด password
 		if($nonpass != 1){
 			$pdf->SetProtection(array('print'),'competency',"$setpass");
 		}// end 	if($nonpass != 1){

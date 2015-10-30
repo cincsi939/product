@@ -24,7 +24,7 @@ if($_SESSION['session_staffid']=="" && $_SESSION['session_site'] ==""){
 #End Set var
 
 if($_SESSION['session_staffid'] != "" and $_SESSION['session_site'] == ""){
-	$user_site = "edubkk_master";	
+	$user_site = DB_MASTER;	
 }else if($_SESSION['session_site'] != ""){
 	$user_site = $_SESSION['session_site'];	
 }else{
@@ -53,7 +53,7 @@ function gen_sql($get_view="edu",$siteid="",$id=""){
 		$sql = "SELECT site AS siteid,sitename,siteshortname AS caption ,patameter FROM  ".DB_MASTER.".`eduarea_config` AS `eduarea_config` 
 					Inner Join  sapphire_app.employee_work_site ON sapphire_app.employee_work_site.siteid =  ".DB_MASTER.".eduarea_config.site    ";
 		$sql .= "WHERE eduarea_config.site IS NOT NULL AND eduarea_config.sitename IS NOT NULL AND eduarea_config.site NOT LIKE('99%') ";
-		$sql .= ($siteid!="" and $user_site != "edubkk_master")?" AND eduarea_config.site ='".$siteid."' ":"";
+		$sql .= ($siteid!="" and $user_site != DB_MASTER)?" AND eduarea_config.site ='".$siteid."' ":"";
 		$sql .= "ORDER BY eduarea_config.orde_by ASC";
 	}else if($get_view=="school"){
 		$sql = "SELECT  id AS schoolid ,IF(id='".$siteid."',office, CONCAT('โรงเรียน',office)) AS caption, siteid ,(if(id='".$siteid."' ,null,office)) AS orderfilde FROM `allschool`  ";
@@ -74,7 +74,7 @@ function gen_part($siteid=""){
 		#edu 
 		$sql_edu = "SELECT site AS siteid,sitename,siteshortname AS caption ,patameter FROM `eduarea_config` Inner Join  sapphire_app.employee_work_site ON sapphire_app.employee_work_site.siteid =  ".DB_MASTER.".eduarea_config.site  ";
 		$sql_edu .= "WHERE site IS NOT NULL AND sitename IS NOT NULL ";
-		$sql_edu .= ($siteid!="" and $user_site != "edubkk_master")?" AND site ='".$siteid."' ":"";
+		$sql_edu .= ($siteid!="" and $user_site != DB_MASTER)?" AND site ='".$siteid."' ":"";
 		$query_edu = mysql_db_query($dbname, $sql_edu);
 		$row_edu = mysql_fetch_assoc($query_edu);
 		$str_link = '<a href="?get_view=edu&date_profile='.$_GET['date_profile'].'">ภาพรวม</a>'; 
@@ -140,7 +140,7 @@ function checkDataImage($siteid="", $schoolid=""){
 #Function บันทึกข้อมูล Temp การตรวจสอบรูป
 function update_temp_check_image($siteid="", $general="", $no_image="", $no_color_image="", $color_image=""){
 	global $dbname,$user_site;
-	if($user_site != "edubkk_master"){
+	if($user_site != DB_MASTER){
 		$sql = "REPLACE INTO temp_check_image 
 					SET siteid='".$siteid."', general='".$general."', no_image='".$no_image."', no_color_image='".$no_color_image."', 
 					color_image='".$color_image."', update_date=NOW() ";
@@ -179,7 +179,7 @@ function percen_event($num_all=0, $num_event=0){
 	  <tr>
 		<td>
 		<?php 
-		if($user_site == 'edubkk_master'){
+		if($user_site == DB_MASTER){
 			echo '<a href="report_check_data_image_allsite.php" target="_blank">แสดงทั้งหมด 255 เขต</a>';
 		}
 		?></td>
@@ -220,13 +220,13 @@ function percen_event($num_all=0, $num_event=0){
 	  while($row = mysql_fetch_assoc($query)){
 	  	$int_row++;
 		if($row['schoolid']!=""){
-			if($user_site == "edubkk_master" ){
+			if($user_site == DB_MASTER ){
 				if($row['siteid']!="" && $row['schoolid']!=""){
 					$data_image = checkDataImage($row['siteid'], $row['schoolid']);
 				}else if($row['siteid']!=""){
 					$data_image = get_temp_image_db($row['siteid']);
 				}
-			}else if($user_site != "edubkk_master"){
+			}else if($user_site != DB_MASTER){
 				if($row['siteid']!="" && $row['schoolid']!=""){
 					$data_image = checkDataImage($row['siteid'], $row['schoolid']);
 				}else if($row['siteid']!=""){

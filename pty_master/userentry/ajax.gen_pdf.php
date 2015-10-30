@@ -20,7 +20,7 @@ require_once('fpdf/kp7_class.php');
 require_once('../common/justify.inc.php');
 require_once('count.function.php');
 
-$dbnamemaster =  "edubkk_master" ; 
+$dbnamemaster =  DB_MASTER ; 
 
 set_time_limit(3000);
 
@@ -29,8 +29,8 @@ session_start();
 $timeA = microtime();
 
 $profile_id = $profile_id ? $profile_id : "4";
-$db_master = "edubkk_master";
-$db_temp = "edubkk_checklist";
+$db_master = DB_MASTER;
+$db_temp = DB_CHECKLIST;
 $last_page = intval($start_page) > 0  ? intval($start_page)-1 : 0 ;
 $date_export = $DateNData ? $DateNData : " 1 เมษายน 2553 ";		// วันที่ ส่งออกข้อมูล
 //$date_export = " 1 เมษายน 2553 ";		// วันที่ ส่งออกข้อมูล
@@ -71,7 +71,7 @@ UpdatePositionChecklist($siteid); // UPDATE ตำแหน่ง ใน checklist ให้ตรงกับ check
 
 function CountLinePositionModify($get_siteid){
 global $arrSkip,$profile_id;
-	$db_temp = "edubkk_checklist";
+	$db_temp = DB_CHECKLIST;
 	$g1 = find_groupstaff(1);
 	$g2 = find_groupstaff(2);
 	$g3 = find_groupstaff(3);
@@ -208,7 +208,7 @@ function NumIDFalse2($siteid,$profile_id){
 		$xconif = "";	
 	}
 		
-		$dbname_temp = "edubkk_checklist";
+		$dbname_temp = DB_CHECKLIST;
 		$sql = "SELECT
 		count(tbl_checklist_kp7_false.idcard) as num1,
 			if(schoolid='' or schoolid IS NULL or schoolid='0' $xconif,'',schoolid) as schid
@@ -242,7 +242,7 @@ while($rs = mysql_fetch_assoc($result)){
 #####  function แสดงจำนวนบุคลากรแยกตามตำแหน่ง
 function CountLinePosition($get_siteid,$schoolid=""){
 		global $arrSkip , $profile_id , $db_temp , $db_master ,$limit,$dbnamemaster;
-		$db_temp = "edubkk_checklist";
+		$db_temp = DB_CHECKLIST;
 
 		$arrsite = CountCheckList($get_siteid);
 			

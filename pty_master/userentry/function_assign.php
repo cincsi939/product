@@ -1,5 +1,6 @@
 <?
 include("function_assign_group.php");
+require_once("../../config/conndb_nonsession.inc.php");
 //require_once("../../config/conndb_nonsession.inc.php");
 ConHost(HOST,USERNAME_HOST,PASSWORD_HOST); 
 $s_db = STR_PREFIX_DB;
@@ -435,7 +436,7 @@ function cal_budget_all_true($ticketid,$get_idcard=""){
 global $db_name,$s_db;
 
 if($get_idcard != ""){ $conv = " AND idcard NOT IN ($get_idcard)";}else{ $conv = "";}
-	if($db_name != "") { $db_name = $db_name;}else{ $db_name = "edubkk_userentry";}
+	if($db_name != "") { $db_name = $db_name;}else{ $db_name = DB_USERENTRY;}
 	$sql = "SELECT * FROM tbl_assign_key WHERE ticketid='$ticketid' $conv";
 	$result = mysql_db_query($db_name,$sql);
 	while($rs = mysql_fetch_assoc($result)){

@@ -15,6 +15,7 @@
 	## Modified By :		MR.SUWAT KHAMTUM
 	
 set_time_limit(0);
+require_once("../../config/conndb_nonsession.inc.php");
 include "epm.inc.php";
 $report_title = "รายงานข้อมูลสถิติการคีย์ข้อมูล";
 $key_old = "2009-10-01";
@@ -41,7 +42,7 @@ function CountPerkey($staffid,$datekeyin,$numold=""){
 function UpdatePerCh($staffid,$idcard,$datekeyin,$xpoint=""){
 	global $dbnameuse,$point_avg_old,$date_config;
 	$sqlc1 = "SELECT FLOOR(TIMESTAMPDIFF(MONTH,begindate,'2553-09-30')/12) AS age_gov FROM tbl_checklist_kp7 WHERE idcard='$idcard'";
-				$resultc1 = mysql_db_query("edubkk_checklist",$sqlc1);
+				$resultc1 = mysql_db_query(DB_CHECKLIST,$sqlc1);
 				$rsc1 = mysql_fetch_assoc($resultc1);
 						$sqlc2 = "SELECT point_avg FROM pointkey_avg WHERE age='$rsc1[age_gov]'";
 						$resultc2 = mysql_db_query($dbnameuse,$sqlc2);
@@ -82,7 +83,7 @@ WHERE monitor_keyin.staffid =  '$staffid' AND(monitor_keyin.timeupdate  LIKE  '$
 				UpdatePerCh($staffid,$rs[idcard],$datekeyin);
 				$arr['new'] = $arr['new']+1;
 				$sqlc1 = "SELECT FLOOR(TIMESTAMPDIFF(MONTH,begindate,'2553-09-30')/12) AS age_gov FROM tbl_checklist_kp7 WHERE idcard='$rs[idcard]'";
-				$resultc1 = mysql_db_query("edubkk_checklist",$sqlc1);
+				$resultc1 = mysql_db_query(DB_CHECKLIST,$sqlc1);
 				$rsc1 = mysql_fetch_assoc($resultc1);
 				if($rsc1[age_gov] > 0){
 						$sqlc2 = "SELECT point_avg FROM pointkey_avg WHERE age='$rsc1[age_gov]'";

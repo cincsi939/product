@@ -80,7 +80,7 @@ function GetSecname(){
 
 $sql_staff = "SELECT * FROM keystaff  WHERE staffid='$session_staffid'";
 //echo "$db_name";
-$result_staff = mysql_db_query("edubkk_userentry",$sql_staff);
+$result_staff = mysql_db_query(DB_USERENTRY,$sql_staff);
 $rs_staff = mysql_fetch_assoc($result_staff);
 
 if($rs_staff[flag_change_password] == "1"){
@@ -149,7 +149,7 @@ function devidepage($total, $kwd , $sqlencode ){
 
 #### function ตรวจสอบการ upload รูป
 function CheckUploadPic($get_staffid){
-	$db_name = "edubkk_userentry";	
+	$db_name = DB_USERENTRY;	
 	$path_img = "images/personnel/";
 	$sql_pic = "SELECT image FROM keystaff WHERE staffid='$get_staffid'";
 	$result_pic = mysql_db_query($db_name,$sql_pic);
@@ -171,7 +171,7 @@ function CheckUploadPic($get_staffid){
 
 function check_status_job($idcard){
 	$sql = "SELECT * FROM tbl_assign_edit_key WHERE  idcard='$idcard' AND nonactive='0'";
-	$result = mysql_db_query("edubkk_userentry",$sql);
+	$result = mysql_db_query(DB_USERENTRY,$sql);
 	$rs = mysql_fetch_assoc($result);
 	return $rs[approve];
 }
@@ -226,7 +226,7 @@ Inner Join tbl_assign_edit_sub ON tbl_assign_edit_key.ticketid = tbl_assign_edit
 Inner Join monitor_keyin ON tbl_assign_edit_sub.staffid = monitor_keyin.staffid
 WHERE
 tbl_assign_edit_key.idcard =  '$idcard' AND tbl_assign_edit_key.nonactive='0'";
-		$result_assign_key = @mysql_db_query("edubkk_userentry",$sql_assign_key);
+		$result_assign_key = @mysql_db_query(DB_USERENTRY,$sql_assign_key);
 		$rs_k = @mysql_fetch_assoc($result_assign_key);
 			if($rs_k[staffid] != ""){
 					if($rs_k[staffid] != $staffid){ // แสดงว่าเป็นคนละคน
@@ -245,7 +245,7 @@ tbl_assign_edit_key.idcard =  '$idcard' AND tbl_assign_edit_key.nonactive='0'";
 	function CheckAssign($get_staffid,$get_idcard){
 		$sql_checkAssign = "SELECT  count(tbl_assign_edit_key.idcard) as num_assign  FROM tbl_assign_edit_sub Inner Join tbl_assign_edit_key ON tbl_assign_edit_sub.ticketid = tbl_assign_edit_key.ticketid WHERE tbl_assign_edit_sub.nonactive =  '0' AND tbl_assign_edit_key.idcard =  '$get_idcard' AND
 tbl_assign_edit_sub.staffid =  '$get_staffid' GROUP BY tbl_assign_edit_sub.staffid ";
-		$result_checkAssign = mysql_db_query("edubkk_userentry",$sql_checkAssign);
+		$result_checkAssign = mysql_db_query(DB_USERENTRY,$sql_checkAssign);
 		$rs_chA = mysql_fetch_assoc($result_checkAssign);
 		return $rs_chA[num_assign];
 		
@@ -417,11 +417,11 @@ tbl_assign_edit_key.idcard =  '$_SESSION[id]' GROUP BY monitor_keyin.staffid";
 		if($sub_ipaddress == "192.168." and $session_sapphire == "2"){
 		$sql_log = "INSERT INTO log_check_staffkey SET staffid='$_SESSION[session_staffid]',idcard='$_SESSION[id]',siteid='$_SESSION[secid]'";
 		mysql_db_query($dbnameuse,$sql_log);
-		echo "<script> alert('ท่านไม่มีสิทธิบันทึกข้อมูลเนื่องจากท่านได้ถูกกำหนดช่วงเวลาการบันทึกข้อมูลไว้แล้ว');top.location.href='".APPURL."/edubkk_master/application/userentry/login_main.php';</script>";
+		echo "<script> alert('ท่านไม่มีสิทธิบันทึกข้อมูลเนื่องจากท่านได้ถูกกำหนดช่วงเวลาการบันทึกข้อมูลไว้แล้ว');top.location.href='".APPURL.APPNAME."application/userentry/login_main.php';</script>";
 		exit;
 		}else{
 		add_log("เข้าสู่ระบบ","$log_ip_login","login");
-		echo "<script>top.location.href='".APPURL."/edubkk_master/application/hr3/hr_frame/frame.php';</script>";
+		echo "<script>top.location.href='".APPURL.APPNAME."application/hr3/hr_frame/frame.php';</script>";
 		exit;
 		}//end 	if($sub_ipaddress == "192.168." and $session_sapphire == "2"){
 
@@ -458,7 +458,7 @@ if($action == "login"){
 		$redirec_ip = APPHOST_TEST;
 	## ตรวจสอบสิทธิการเข้าถึงข้อมูลป้องกัน sub คีย์ข้อมูลข้างในบริษัท
 
-		echo "<script>top.location.href='".APPURL."/edubkk_master/application/hr3/hr_frame/frame.php';</script>";
+		echo "<script>top.location.href='".APPURL.APPNAME."application/hr3/hr_frame/frame.php';</script>";
 		exit;
 	
 
@@ -571,7 +571,7 @@ $check_conf ++;
 <? exit; } ?>
 <?			
 connserver(HOST) ;  
-# $dbnamemaster="edubkk_master"; 
+# $dbnamemaster=DB_MASTER; 
 
 $sname = trim($sname); 
 $slastname = trim($slastname) ; 
@@ -798,7 +798,7 @@ $arr_appk = GetkeyApproveType();
 			$img_pdf = "";
 		}
 		
-		$pdf_sys = "<a href=\"http://".APPHOST."/edubkk_master/application/hr3/hr_report/kp7.php?id=".$rs[CZ_ID]."&sentsecid=".$rs[siteid]."\" target=\"_blank\"><img src=\"../hr3/hr_report/bimg/pdf.gif\" width=\"16\" height=\"16\" border=\"0\" alt='ก.พ.7 สร้างโดยระบบ '  ></a>";
+		$pdf_sys = "<a href=\"http://".APPHOST.APPNAME."application/hr3/hr_report/kp7.php?id=".$rs[CZ_ID]."&sentsecid=".$rs[siteid]."\" target=\"_blank\"><img src=\"../hr3/hr_report/bimg/pdf.gif\" width=\"16\" height=\"16\" border=\"0\" alt='ก.พ.7 สร้างโดยระบบ '  ></a>";
 		
 		
 		
@@ -882,7 +882,7 @@ group by t3.req_person_id";
     <td align="center"  valign="top"><?
 	
 		$sql_check_vitaya = "SELECT * FROM log_check_vitaya WHERE idcard = '".$rs[CZ_ID]."' ";
-	$query_check_vitaya = mysql_db_query('edubkk_master',$sql_check_vitaya)or die(mysql_error());
+	$query_check_vitaya = mysql_db_query(DB_MASTER,$sql_check_vitaya)or die(mysql_error());
 	$num_check_vitaya = mysql_num_rows($query_check_vitaya);
 	if($num_check_vitaya == 0){
 	 $txt_link = "&first_time=1";
@@ -896,7 +896,7 @@ group by t3.req_person_id";
 	?><a href="../hr3/tool_competency/diagnosticv1/userkey_checkdata_edit.php?open_check_vitaya=1<?=$txt_link?>&idcard=<?=$rs[CZ_ID]?>&xsiteid=<?=$rs[siteid]?>&ticketid=<?=$rs[ticketid]?>&fullname=<?=$fullname?>' target='_blank'" target="_blank"><img src="images/package_utilities.png" alt="ตรวจสอบผลการคีย์ข้อมูลเบื้องต้นจากพนักงานคีย์ข้อมูล" width="20" height="20" border="0"></a>&nbsp;<?=$img_pdf?>&nbsp;<?=$pdf_sys?>&nbsp;
 	<?php
 	$sql_load = "SELECT MAX(kp7_loadid) AS mx FROM req_kp7_load WHERE idcard = '$rs[CZ_ID]'";
-				   $res_load=mysql_db_query('edubkk_master',$sql_load);   
+				   $res_load=mysql_db_query(DB_MASTER,$sql_load);   
 				  $row_load=mysql_fetch_assoc($res_load);
 
   	$hdkp7loadid = $row[kp7_loadid] != "" ? $row[kp7_loadid] : $row_load[mx];

@@ -12,7 +12,7 @@ view_general.surname_th,
 view_general.siteid
 FROM
 view_general where ( view_general.name_th LIKE '%$names%'  OR   view_general.surname_th LIKE '%$names%'  OR CZ_ID LIKE '%$names%' )  AND ( siteid LIKE '50%' )  ";
-    $result= mysql_db_query("edubkk_master", $sql_select );
+    $result= mysql_db_query(DB_MASTER, $sql_select );
 
    //เริ่มวนรอบแสดงข้อมูล
    while ($rs = mysql_fetch_array($result))

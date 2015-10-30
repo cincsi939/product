@@ -4,7 +4,7 @@
 	include("../../config/conndb_nonsession.inc.php");
 	include ("../../common/common_competency.inc.php") ;
 	include("function.php");
-	$db_master = "edubkk_master";
+	$db_master = DB_MASTER;
 	$openform="kj";	
 	$monthname = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
 

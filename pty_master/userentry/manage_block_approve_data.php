@@ -2,7 +2,7 @@
 include ("../../common/common_competency.inc.php");
 include ("../../common/std_function.inc.php");
 include ("epm.inc.php");
-$db = 'edubkk_userentry';
+$db = DB_USERENTRY;
 if($_POST['btn_save']!=''){
 	$i = $_POST['countId']-1;
 	for($ii=1;$ii<=$i;$ii++){

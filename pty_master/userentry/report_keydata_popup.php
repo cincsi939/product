@@ -42,7 +42,7 @@ $link_file = "percen_entry_v5sc_appv_detail.php";
 $link_file1 = "percen_entry_v5sc_appv.php";
 if($xsiteid != ""){ $xsiteid = $xsiteid;}else{ $xsiteid = "5006";}; // กรณีทดสอบในเครื่อง
 
-$edubkk_master = "edubkk_master" ; 
+$edubkk_master = DB_MASTER; 
 $lead_general = "general";
 $view_general = "view_general";
 $now_dbname = STR_PREFIX_DB. $xxsiteid ; 
@@ -54,7 +54,7 @@ include("positionsql.inc_v2.php");
 include("percen_entry_v4.inc.php");
 
 $date_conf = "2009-11-01";// fix ปี
-$dbname_temp = "edubkk_checklist";
+$dbname_temp = DB_CHECKLIST;
 
 function maxPorfile(){
 		global $dbname_temp;

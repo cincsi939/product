@@ -17,7 +17,7 @@ $iresult = mysql_query("SET NAMES TIS620");
 $activity_id = "A0001"; // รหัส log พิมพ์ PDF
 $server_id = "S0001"; // รหัส server
 
-if($dbname != "edubkk_master"){
+if($dbname != DB_MASTER){
 		$xsiteid = substr($dbname,-4);
 }
 

@@ -1,6 +1,6 @@
 <?
 include "epm.inc.php";
-$dbcall = "edubkk_userentry";
+$dbcall = DB_USERENTRY;
 if($action == "process"){
 	$sql = "SELECT * FROM temp_old_new_id ORDER BY new_id";
 	$result = mysql_db_query($dbcall,$sql);

@@ -15,7 +15,7 @@
 	## Modified By :		MR.SUWAT KHAMTUM
 include "epm.inc.php";
 include("function_assign.php");
-
+require_once("../../config/conndb_nonsession.inc.php");
 function Datediff($datefrom,$dateto){
          $startDate = strtotime($datefrom);
          $lastDate = strtotime($dateto);
@@ -46,7 +46,7 @@ function count_data_area($secid,$type=""){
 			$conv = "";
 	}
 		$sql = "SELECT COUNT(idcard) AS num1 FROM tbl_check_data  WHERE secid = '$secid'  $conv  GROUP BY secid";
-		$result = mysql_db_query("edubkk_checklist",$sql);
+		$result = mysql_db_query(DB_CHECKLIST,$sql);
 		$rs = mysql_fetch_assoc($result);
 		return $rs[num1];
 }

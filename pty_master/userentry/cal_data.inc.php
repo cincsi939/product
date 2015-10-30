@@ -1,6 +1,6 @@
 <?
 require_once("../../config/conndb_nonsession.inc.php");
-$dbcall = "edubkk_userentry";
+$dbcall = DB_USERENTRY;
 
 			// id
 			$arr_tbl1 = array("general"=>"ข้อมูลทั่วไป" ,"general_pic"=>"แก้ไขรูปภาพ","graduate"=>"ประวัติการศึกษา","salary"=>"ตำแหน่งและอัตราเงินเดือน","seminar"=>"ฝึกอบรมและดูงาน","sheet"=>"ผลงานทางวิชาการ","getroyal"=>"เครื่องราชอิสริยาภรณ์ ","special"=>"ความรู้ความสามารถพิเศษ","goodman"=>"รายการความดีความชอบ","hr_absent"=>"จำนวนวันลาหยุดราชการ ขาดราชการมาสาย","hr_nosalary"=>"วันที่ไม่ได้รับเงินเดือนหรือได้รับเงินเดือนไม่เต็มฯ","hr_prohibit"=>"การได้รับโทษทางวินัย","hr_specialduty"=>"การปฏิบัติราชการพิเศษ","hr_other"=>"รายการอื่น ๆ ที่จำเป็น","hr_teaching"=>"ประวัติการสอน","seminar_form"=>"การเข้าร่วมประชุมสัมนา / จัดกิจกรรม" );

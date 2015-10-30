@@ -15,7 +15,7 @@
 	## Modified By :		MR.SUWAT KHAMTUM
 include "epm.inc.php";
 include("function_assign.php");
-
+require_once("../../config/conndb_nonsession.inc.php");
 function Datediff($datefrom,$dateto){
          $startDate = strtotime($datefrom);
          $lastDate = strtotime($dateto);
@@ -113,7 +113,7 @@ return $rs[num1];
 function count_area_all($secid){
 global $db_name;
 		$sql = "SELECT COUNT(secid) AS num1 FROM tbl_check_data  WHERE secid = '$secid' ";
-		$result = mysql_db_query("edubkk_checklist",$sql);
+		$result = mysql_db_query(DB_CHECKLIST,$sql);
 		$rs = mysql_fetch_assoc($result);
 		return $rs[num1];
 }
@@ -122,7 +122,7 @@ global $db_name;
 function count_area_all_dis($secid){
 global $db_name;
 		$sql = "SELECT COUNT(secid) AS num1 FROM tbl_check_data  WHERE secid = '$secid' ";
-		$result = mysql_db_query("edubkk_checklist",$sql);
+		$result = mysql_db_query(DB_CHECKLIST,$sql);
 		$rs = mysql_fetch_assoc($result);
 		return $rs[num1];
 }
@@ -158,7 +158,7 @@ function count_null_pdf($secid){ // ฟังก์ชั่นนันจำนวนคนที่ไม่มีไฟล์ ก.พ.7 ต้นฉบั
 	$temp_id = id_in_kp7file($secid);
 	if($temp_id != ""){ $temp_id = $temp_id;}else{ $temp_id = "''";}
 	$sql_count = "SELECT COUNT(idcard) AS num1  FROM tbl_check_data  WHERE secid='$secid' AND idcard  NOT IN ($temp_id)  ";
-	$result_count = mysql_db_query("edubkk_checklist",$sql_count);
+	$result_count = mysql_db_query(DB_CHECKLIST,$sql_count);
 	$rs_c = mysql_fetch_assoc($result_count);
 		return  $rs_c[num1];
 }// end function count_null_pdf($secid){ // ฟังก์ชั่นนันจำนวนคนที่ไม่มีไฟล์ ก.พ.7 ต้นฉบับ
@@ -353,7 +353,7 @@ function confirmDelete(delUrl) {
 				  if ($j++ %  2){ $bg = "#F0F0F0";}else{$bg = "#FFFFFF";}
 				  	$sql_count = "SELECT COUNT(secid) AS  num1 FROM tbl_check_data WHERE secid='$rs_a[secid]'";
 					//echo $sql_count."<br>";
-					$result_count = mysql_db_query("edubkk_checklist",$sql_count);
+					$result_count = mysql_db_query(DB_CHECKLIST,$sql_count);
 					$rs_c =mysql_fetch_assoc($result_count);
 						$num_all = $rs_c[num1];
 						$temp_all = $rs_c[num1];
@@ -704,7 +704,7 @@ WHERE
 		while($rs = mysql_fetch_assoc($result)){
 		
 		$sql_check_approve = "SELECT approve FROM tbl_assign_key WHERE idcard='$rs[idcard]'";
-		$result_check_approve = mysql_db_query("edubkk_userentry",$sql_check_approve);
+		$result_check_approve = mysql_db_query(DB_USERENTRY,$sql_check_approve);
 		$rs_appv = mysql_fetch_assoc($result_check_approve);
 		
 			if($m% 2){$bg = "#F0F0F0";}else{$bg = "#FFFFFF";} $m++;

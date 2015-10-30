@@ -1,7 +1,7 @@
 <?
-include ("../../../../config/conndb_nonsession.inc.php")  ;
+require_once("../../../../config/conndb_nonsession.inc.php");
 include('function.inc_v1.php') ;
-$db_call= "edubkk_userentry";
+$db_call= DB_USERENTRY;
 $date_con = "2009-12-01";
 $mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
 $monthFull = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
@@ -35,7 +35,7 @@ function CountDiscountQC(){
 
 ###  funnction countall
 function CountPersonAll($get_profile=""){
-		$db_temp = "edubkk_checklist";
+		$db_temp = DB_CHECKLIST;
 		$sql = "SELECT COUNT(idcard) as num1 , siteid FROM tbl_checklist_kp7 GROUP BY siteid";
 		$result = mysql_db_query($db_temp,$sql);
 		while($rs = mysql_fetch_assoc($result)){

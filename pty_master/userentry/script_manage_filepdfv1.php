@@ -155,7 +155,7 @@ function read_file_folder($get_siteid){
   <?
 	$j = 1;
 	$sql = " SELECT  eduarea.secid, eduarea.area_id , secname  FROM  eduarea    WHERE  status_area53 = '1' ORDER BY secname ASC";
-	$result = mysql_db_query("edubkk_master",$sql) ;
+	$result = mysql_db_query(DB_MASTER,$sql) ;
 	while($rs = mysql_fetch_assoc($result)){	
 		if ($bgcolor1 == "DDDDDD"){  $bgcolor1 = "EFEFEF"  ; } else {$bgcolor1 = "DDDDDD" ;}
 		$arr1 = CountPersonPdf($rs[secid]);
@@ -453,7 +453,7 @@ WHERE
  ".DB_CHECKLIST.".tbl_checklist_log.type_action =  '1'
 and  ".DB_CHECKLIST.".tbl_checklist_log.idcard='$rs[idcard]'
 order by time_update DESC";
-	$result_a = mysql_db_query("edubkk_userentry",$sql_a);
+	$result_a = mysql_db_query(DB_USERENTRY,$sql_a);
 	$j=0;
 	while($rs_a = mysql_fetch_assoc($result_a)){
 		 if ($j++ %  2){ $bg = "#F0F0F0";}else{$bg = "#FFFFFF";}

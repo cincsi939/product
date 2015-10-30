@@ -17,6 +17,7 @@ $BypassAPP= true;
 session_start();
 			set_time_limit(8000);
 			include ("../../common/common_competency.inc.php")  ;
+			include("../../config/conndb_nonsession.inc.php");
 			include ("../../common/std_function.inc.php")  ;
 			include ("epm.inc.php");
 if(!isset($session_staffid)){
@@ -35,7 +36,7 @@ window.location=\"login.php\";
 				}
 			
 			$curent_date = date("Y-m-d");
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			$time_start = getmicrotime();
 			$mname	= array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
 			$monthFull = array( "","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");

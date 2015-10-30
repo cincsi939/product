@@ -221,7 +221,7 @@ return $convert;
 
 
 				$PTS = new policy_timeline_stat($rows['queue_profile_id'], $rows['queue_siteid']);
-				$dbname_cmss = "edubkk_master";
+				$dbname_cmss = DB_MASTER;
 				$setNameTable = "_".$PTS->profile_id."_".$rowsIndex['number_active']; //ชื่อต่อหลังตาราง ในการสำรองข้อมูล 
 				//echo "id :: ".$setNameTable;die;
 				#หาตารางฐานข้อมูลที่ชื่อ allschool_ และต่อด้วย profile_id ว่ามีจำนวนตารางกี่ตาราง
@@ -270,11 +270,11 @@ return $convert;
 				$PTS->CopyKp7FileOriginal($dbname_cmss,"view_general","pts_log_gen_kp7file".$setNameTable,$setNameTable);
 ###########################################################################   ส่วนของการ gen pdf จากระบบ
 ###########################################################################
-###########################################################################
+###########################################################################"
 				$his_name = "";
 				$his_name1 = "";
 				
-	$sqlm = " SELECT DISTINCT edubkk_master.allschool.id AS id1,edubkk_master.allschool.office,$dbsite.general.idcard,$dbsite.general.name_th,$dbsite.general.surname_th,$dbsite.general.approve_status FROM edubkk_master.allschool INNER JOIN $dbsite.general  ON $dbsite.general.schoolid = edubkk_master.allschool.id ORDER BY $dbsite.general.schoolid ASC "  ;
+	$sqlm = " SELECT DISTINCT ".DB_MASTER.".allschool.id AS id1,".DB_MASTER.".allschool.office,$dbsite.general.idcard,$dbsite.general.name_th,$dbsite.general.surname_th,$dbsite.general.approve_status FROM ".DB_MASTER.".allschool INNER JOIN $dbsite.general  ON $dbsite.general.schoolid = ".DB_MASTER.".allschool.id ORDER BY $dbsite.general.schoolid ASC "  ;
 //echo "$dbsite :: ".$sqlm;die;
 $resultm = mysql_db_query($dbsite,$sqlm);
 while($rsm = mysql_fetch_assoc($resultm)){

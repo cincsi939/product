@@ -1,6 +1,6 @@
 <?php
 function getNumkeyPoint($date="",$point_min=0,$point_max=0){
-	$dbedubkk_userentry = "edubkk_userentry";
+	$dbedubkk_userentry = DB_USERENTRY;
 	if($point_min>0 && $point_max==0){
 		$start_rate = ($point_min>0)?" CEILING(numkpoint)<= ".$point_min:"";
 		$end_rate = "";

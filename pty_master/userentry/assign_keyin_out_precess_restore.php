@@ -13,7 +13,7 @@ session_start();
 include("../../config/conndb_nonsession.inc.php");
 include ("../../common/common_competency.inc.php");
 die;
-$dbname_edubkk_userentry = "edubkk_userentry";
+$dbname_edubkk_userentry = DB_USERENTRY;
 $sql = "SELECT
 assign_keyin_out.ticketid,
 assign_keyin_out.idcard,
@@ -28,7 +28,7 @@ while($rs = mysql_fetch_assoc($result)){
 	$rs1 = mysql_fetch_assoc($result1);
 	
 	$sql_checklist = "SELECT * FROM tbl_checklist_kp7 WHERE idcard='$rs[idcard]' AND profile_id='$rs1[profile_id]'";
-	$resultc =mysql_db_query("edubkk_checklist",$sql_checklist);
+	$resultc =mysql_db_query(DB_CHECKLIST,$sql_checklist);
 	$rsc = mysql_fetch_assoc($resultc);
 	
 	$sql_insert = "INSERT INTO tbl_assign_key(ticketid,idcard,siteid,fullname,profile_id)VALUES('$rs[ticketid]','$rs[idcard]','$rsc[siteid]','$rsc[prename_th]$rsc[name_th] $rsc[surname_th]','$rsc[profile_id]')";

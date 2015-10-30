@@ -54,7 +54,7 @@ $lead_general = "general";
 $view_general = "view_general";
 
 if($_GET['xsiteid']==""){
-	$dbconnect = $edubkk_master;
+	$dbconnect = DB_MASTER;
 	$ccType = 'Changwat';
 }else{
 	$type_level = 3;
@@ -422,7 +422,7 @@ window.frames['iframe1'].print();
 		
 		}else if($type_level=="2"){
 		
-				$getlist = mysql_db_query($edubkk_master,"SELECT * FROM allschool WHERE siteid='".$Pcode."'") or die(mysql_error());
+				$getlist = mysql_db_query(".DB_MASTER.","SELECT * FROM allschool WHERE siteid='".$Pcode."'") or die(mysql_error());
 				
 		}
 		$list_schz = array();
@@ -599,7 +599,7 @@ window.frames['iframe1'].print();
 		
 		}else if($type_level=="2"){
 		
-				$getlist = mysql_db_query($edubkk_master,"SELECT * FROM allschool WHERE siteid='".$Pcode."'") or die(mysql_error());
+				$getlist = mysql_db_query(".DB_MASTER.","SELECT * FROM allschool WHERE siteid='".$Pcode."'") or die(mysql_error());
 				
 		}
 		

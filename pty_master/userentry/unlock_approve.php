@@ -102,7 +102,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 					foreach($chk as $k => $v){
 						
 							$sql_update = "UPDATE tbl_assign_key SET approve='0' WHERE idcard='$v' AND nonactive='0'";
-							$result_update = mysql_db_query("edubkk_userentry",$sql_update);
+							$result_update = mysql_db_query(DB_USERENTRY,$sql_update);
 							AddLogUnApprove($v,$arr_siteid[$k]);
 							
 					}
@@ -270,7 +270,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$sql_main .= " LIMIT $i, $e";
 	}
 
-		$result_main = mysql_db_query("edubkk_userentry",$sql_main);
+		$result_main = mysql_db_query(DB_USERENTRY,$sql_main);
 		$num_row = mysql_num_rows($result_main);
 		$search_sql = $sql_main ; 	
 		if($num_row > 0){

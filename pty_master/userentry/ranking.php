@@ -27,7 +27,7 @@ if($_GET[xstaff_id]==""){
 			include("../../config/conndb_nonsession.inc.php");
 			include ("../../common/std_function.inc.php")  ;
 			
-			$dbnameuse = "edubkk_userentry";
+			$dbnameuse = DB_USERENTRY;
 			
 			$sql =  " SELECT  *  FROM  ranking WHERE  staffid = '$xstaff_id'  " ;
 			$result = mysql_db_query($dbnameuse,$sql) ;

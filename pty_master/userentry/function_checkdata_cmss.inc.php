@@ -1,10 +1,11 @@
 <?
+require_once("../../config/conndb_nonsession.inc.php");
 include ("../../../../common/class.salarylevel.php")  ; 
 $yy = "2547";
-$db_name = "edubkk_userentry";
+$db_name = DB_USERENTRY;
 $dbnameuse = $db_name;
 $db_system = "edubkk_system";
-$dbname_temp = "edubkk_checklist";
+$dbname_temp = DB_CHECKLIST;
 $ratio_t1 = 5; // ค่าคะแนนหักโครงสร้าง
 $ratio_t2 = 5; // ค่าคะแนนหักพิมพ์ผิด
 ##  config  การตรวจสอบการบันทึกเงินเดือนถึงปีสุดท้าย
@@ -75,7 +76,7 @@ return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
 
 #### fucntion แสดงชื่อพนักงานคนบันทึกข้อมูล
 function ShowStaffKey($get_staffid){
-	$db = "edubkk_userentry";
+	$db = DB_USERENTRY;
 	$sql = "SELECT staffid,prename,staffname,staffsurname FROM keystaff WHERE staffid='$get_staffid'";
 	$result = mysql_db_query($db,$sql);
 	$rs = mysql_fetch_assoc($result);

@@ -161,7 +161,7 @@ while($rss  = mysql_fetch_assoc($results)){
 
 $j++;
 
-$results3 = mysql_db_query("edubkk_master"," SELECT  siteid  FROM  view_general  WHERE  CZ_ID = '$rss[idcard]' ");
+$results3 = mysql_db_query(DB_MASTER," SELECT  siteid  FROM  view_general  WHERE  CZ_ID = '$rss[idcard]' ");
 $rss3 = mysql_fetch_assoc($results3);
 
 $dbsite = STR_PREFIX_DB.$rss3[siteid] ;

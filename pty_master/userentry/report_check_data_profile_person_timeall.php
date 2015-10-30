@@ -184,7 +184,7 @@ $orgfile = "../../../edubkk_kp7file/".$_GET['siteid']."/" . $row['idcard'] . ".p
 		?>
 		<a href='<?=$orgfile?>' target='_blank'><img src="../../images_sys/gnome-mime-application-pdf.png" align="absmiddle" title="ก.พ.7 สำเนาจากต้นฉบับ" border="0" width="18" /></a>
 		<?php } ?>
-		<a href="http://202.129.35.120/edubkk_master/application/hr3/hr_report/kp7_search.php?id=<?php echo $row['idcard'] ?>&sentsecid=<?=$row['siteid']?>" target="_blank"><img src="../../application/hr3/hr_report/bimg/pdf.gif" width="16" height="16" border="0" alt='ก.พ.7 สร้างโดยระบบ ' align="absmiddle"  ></a>
+		<a href="http://202.129.35.120".APPNAME."application/hr3/hr_report/kp7_search.php?id=<?php echo $row['idcard'] ?>&sentsecid=<?=$row['siteid']?>" target="_blank"><img src="../../application/hr3/hr_report/bimg/pdf.gif" width="16" height="16" border="0" alt='ก.พ.7 สร้างโดยระบบ ' align="absmiddle"  ></a>
 		</td>
 	  </tr>
 <?php 

@@ -1,6 +1,7 @@
 <?
-	$db_name ="edubkk_userentry"  ;
-$dbnamemaster="edubkk_master";
+require_once("../../../config/conndb_nonsession.inc.php");
+$db_name = DB_USERENTRY  ;
+$dbnamemaster=DB_MASTER;
 $dbsystem = "edubkk_system";
 $dbnameuse = $db_name;
 $base_point = 240;
@@ -9,8 +10,8 @@ $point_w = 0.5; // ค่าคะแนนที่คิดเป็นเงิน
 $numdoc = 3;// ค่าเฉลี่ยในการคูณจำนวณชุดที่ผิด
 $val5 = 5;// ค่าคะแนนคูณ 5 ในตำแหน่งสายบริหารการศึกษา
 $date_checkkey = "2552-10-01"; // ข้อมูล ณ วันที่ 
-$dbnameuse = "edubkk_userentry";
-$db_temp = "edubkk_checklist";
+$dbnameuse = DB_USERENTRY;
+$db_temp = DB_CHECKLIST;
 $length_var = 7;
 $structure_key =10;
 $keydata_key = 20;

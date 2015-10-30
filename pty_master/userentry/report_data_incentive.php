@@ -13,6 +13,7 @@
 	## Modified Detail :		รายงานการบันทึกข้อมูล
 	## Modified Date :		2009-07-03 09:49
 	## Modified By :		MR.SUWAT KHAMTUM
+	include("../../config/conndb_nonsession.inc.php");
 include "epm.inc.php";
 $yymm = "2011-05";
 
@@ -20,7 +21,7 @@ $host_face = "202.129.35.101";
 $user_face = "sapphire";
 $pass_face = "sprd!@#$%";
 $dbface = "faceaccess";
-$dbnameuse = "edubkk_userentry";
+$dbnameuse = DB_USERENTRY;
 
 $host = HOST;
 $user = "cmss";

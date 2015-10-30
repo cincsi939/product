@@ -40,7 +40,7 @@ $date_total_c = Datediff($temp_dc,$temp_d);
 function search_ticket($get_siteid){
 	global $db_name,$profile_id;
 $sql = "SELECT keystaff.prename, keystaff.staffname, keystaff.staffsurname, tbl_assign_sub.ticketid,
-tbl_assign_sub.recive_date,edubkk_userentry.tbl_assign_key.idcard
+tbl_assign_sub.recive_date,".DB_USERENTRY.".tbl_assign_key.idcard
 FROM ".DB_USERENTRY.".keystaff
 Inner Join ".DB_USERENTRY.".tbl_assign_sub ON ".DB_USERENTRY.".keystaff.staffid = ".DB_USERENTRY.".tbl_assign_sub.staffid
 Inner Join ".DB_USERENTRY.".tbl_assign_key ON ".DB_USERENTRY.".tbl_assign_sub.ticketid = ".DB_USERENTRY.".tbl_assign_key.ticketid
@@ -118,7 +118,7 @@ return $rs[num1];
 function count_area_all($xsecid){
 global $db_name,$profile_id;
 		$sql = "SELECT COUNT(secid) AS num1 FROM tbl_check_data  WHERE secid = '$xsecid' AND profile_id='$profile_id'  group by secid";
-		$result = mysql_db_query("edubkk_checklist",$sql);
+		$result = mysql_db_query(DB_CHECKLIST,$sql);
 		$rs = mysql_fetch_assoc($result);
 		return $rs[num1];
 }
@@ -127,7 +127,7 @@ global $db_name,$profile_id;
 function count_area_all_dis($xsecid){
 global $db_name,$profile_id;
 		$sql = "SELECT COUNT(secid) AS num1 FROM tbl_check_data  WHERE secid = '$xsecid' AND profile_id='$profile_id' group by secid";
-		$result = mysql_db_query("edubkk_checklist",$sql);
+		$result = mysql_db_query(DB_CHECKLIST,$sql);
 		$rs = mysql_fetch_assoc($result);
 		return $rs[num1];
 }
@@ -166,7 +166,7 @@ global $profile_id;
 	$temp_id = id_in_kp7file($xsecid);
 	if($temp_id != ""){ $temp_id = $temp_id;}else{ $temp_id = "''";}
 	$sql_count = "SELECT COUNT(idcard) AS num1  FROM tbl_check_data  WHERE secid='$xsecid' AND idcard  NOT IN ($temp_id) and profile_id='$profile_id'  group by secid";
-	$result_count = mysql_db_query("edubkk_checklist",$sql_count);
+	$result_count = mysql_db_query(DB_CHECKLIST,$sql_count);
 	$rs_c = mysql_fetch_assoc($result_count);
 		return  $rs_c[num1];
 }// end function count_null_pdf($xsecid){ // ฟังก์ชั่นนันจำนวนคนที่ไม่มีไฟล์ ก.พ.7 ต้นฉบับ
@@ -266,7 +266,7 @@ GROUP BY  t1.siteid
 ## function นับจำนวนบุคลากรทั้งหมดในเขตและจำนวนแผ่นเอกสาร
 function CountPersonAndFile(){
 	global $profile_id;
-	$db = "edubkk_checklist";	
+	$db = DB_CHECKLIST;	
 	$sql_count1 = "SELECT COUNT(tbl_checklist_kp7.idcard) AS NumAll, SUM(tbl_checklist_kp7.page_num) AS NumPage,
 SUM(if(tbl_checklist_kp7.page_upload > 0 and tbl_checklist_kp7.page_upload  IS NOT NULL,1,0)) AS NumFileUpload,
 SUM(if(tbl_checklist_kp7.page_upload < 1 OR tbl_checklist_kp7.page_upload  IS NULL,1,0)) AS NumNotFile,
@@ -289,7 +289,7 @@ GROUP BY tbl_checklist_kp7.siteid
 ## ฟังก์ชั่นตรวจสอบสถานะการรับรองข้อมูลโดยระบบ
 function CheckApproveKey($get_site){
 	global $profile_id;
-	$db = "edubkk_userentry";
+	$db = DB_USERENTRY;
 	$sql_ap = "SELECT idcard,approve FROM tbl_assign_key WHERE siteid='$get_site' AND nonactive='0' AND profile_id='$profile_id'";
 	//echo $sql_ap." ::  $db <br>";
 	$result_ap = mysql_db_query($db,$sql_ap);

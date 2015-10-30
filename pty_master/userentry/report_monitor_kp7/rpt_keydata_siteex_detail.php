@@ -80,7 +80,7 @@ WHERE view_general.siteid='$siteid' AND ".DB_USERENTRY.".view_kp7approve.profile
 view_general.prename_th,
 view_general.name_th,
 view_general.surname_th,view_general.position_now,view_general.schoolname, ".DB_USERENTRY.".view_kp7approve.idcard,
-SUM(IF(edubkk_userentry.view_kp7approve.profile_id='99' ,1 ,0)) AS chkf 
+SUM(IF(".DB_USERENTRY.".view_kp7approve.profile_id='99' ,1 ,0)) AS chkf 
 FROM view_general LEFT OUTER JOIN ".DB_USERENTRY.".view_kp7approve ON view_general.CZ_ID = ".DB_USERENTRY.".view_kp7approve.idcard AND ".DB_USERENTRY.".view_kp7approve.siteid='$siteid'
 WHERE view_general.siteid='$siteid' AND view_general.user_approve<>'0' GROUP BY view_general.CZ_ID";
 			}		

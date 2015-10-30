@@ -7,8 +7,9 @@ Last Modified	: 16/8/2548
 Changes		:
 
 *****************************************************************************/
+include("../../config/conndb_nonsession.inc.php");
 include "epm.inc.php";
-$dbcall = "edubkk_userentry";
+$dbcall = DB_USERENTRY;
 
 			$mname	= array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
 
